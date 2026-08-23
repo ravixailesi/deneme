@@ -13,12 +13,31 @@
 
     <style>
         :root {
-            --gold: #f5b016;
-            --gold-glow: rgba(245, 176, 22, 0.4);
-            --bg-dark: #0b0c10;
+            --theme-color: #f5b016;
+            --theme-glow: rgba(245, 176, 22, 0.45);
+            --bg-dark: #060709;
+            --bg-card: rgba(18, 20, 26, 0.85);
             --discord: #5865F2;
             --whatsapp: #25D366;
             --instagram: #e1306c;
+        }
+
+        /* Renk Temaları */
+        body.theme-gold {
+            --theme-color: #f5b016;
+            --theme-glow: rgba(245, 176, 22, 0.45);
+        }
+        body.theme-blue {
+            --theme-color: #00a8ff;
+            --theme-glow: rgba(0, 168, 255, 0.45);
+        }
+        body.theme-red {
+            --theme-color: #e74c3c;
+            --theme-glow: rgba(231, 76, 60, 0.45);
+        }
+        body.theme-green {
+            --theme-color: #2ecc71;
+            --theme-glow: rgba(46, 204, 113, 0.45);
         }
 
         * {
@@ -29,10 +48,11 @@
         }
 
         body {
-            background-color: #060709;
+            background-color: var(--bg-dark);
             color: #ffffff;
             font-family: 'Rajdhani', sans-serif;
             overflow-x: hidden;
+            transition: all 0.3s ease;
         }
 
         /* Top Bar / Header */
@@ -40,14 +60,15 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 18px 4%;
+            padding: 16px 4%;
             background: rgba(6, 7, 9, 0.95);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(245, 176, 22, 0.15);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            transition: border-color 0.3s;
         }
 
         .logo {
@@ -55,15 +76,16 @@
             font-size: 26px;
             font-weight: 800;
             letter-spacing: 2.5px;
-            color: var(--gold);
+            color: var(--theme-color);
             text-transform: uppercase;
-            text-shadow: 0 0 12px var(--gold-glow);
+            text-shadow: 0 0 12px var(--theme-glow);
+            transition: color 0.3s, text-shadow 0.3s;
         }
 
         nav {
             display: flex;
             align-items: center;
-            gap: 22px;
+            gap: 20px;
         }
 
         nav a {
@@ -77,28 +99,27 @@
         }
 
         nav a:hover {
-            color: var(--gold);
-            text-shadow: 0 0 8px var(--gold-glow);
+            color: var(--theme-color);
+            text-shadow: 0 0 8px var(--theme-glow);
         }
 
         /* Header Social Badges */
         .header-socials {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
         }
 
         .h-badge {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            padding: 7px 18px;
+            gap: 6px;
+            padding: 7px 16px;
             border-radius: 30px;
             font-size: 13px;
             font-weight: 700;
             text-decoration: none;
             transition: all 0.3s ease;
-            background: transparent;
         }
 
         .h-badge.discord {
@@ -131,14 +152,14 @@
             box-shadow: 0 0 15px rgba(225, 48, 108, 0.6);
         }
 
-        /* Left Floating Theme Switcher / Controls */
+        /* Left Floating Theme Switcher */
         .side-palette {
             position: fixed;
             left: 20px;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(12, 14, 18, 0.85);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(12, 14, 18, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.12);
             border-radius: 40px;
             padding: 14px 10px;
             display: flex;
@@ -158,13 +179,13 @@
             transition: all 0.3s ease;
         }
         .color-dot:hover {
-            transform: scale(1.2);
+            transform: scale(1.25);
             border-color: #fff;
         }
-        .dot-gold { background: #f5b016; }
-        .dot-blue { background: #00a8ff; }
-        .dot-red { background: #e74c3c; }
-        .dot-green { background: #2ecc71; }
+        .dot-gold { background: #f5b016; box-shadow: 0 0 10px rgba(245, 176, 22, 0.5); }
+        .dot-blue { background: #00a8ff; box-shadow: 0 0 10px rgba(0, 168, 255, 0.5); }
+        .dot-red { background: #e74c3c; box-shadow: 0 0 10px rgba(231, 76, 60, 0.5); }
+        .dot-green { background: #2ecc71; box-shadow: 0 0 10px rgba(46, 204, 113, 0.5); }
 
         /* Hero Section */
         .hero {
@@ -176,11 +197,10 @@
             text-align: center;
             padding: 0 20px;
             position: relative;
-            background: linear-gradient(rgba(6, 7, 9, 0.7), rgba(6, 7, 9, 0.85)),
+            background: linear-gradient(rgba(6, 7, 9, 0.72), rgba(6, 7, 9, 0.9)),
                         url('https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
         }
 
-        /* Watermark Background Text */
         .hero-watermark {
             position: absolute;
             bottom: 60px;
@@ -202,27 +222,29 @@
             gap: 8px;
             padding: 8px 30px;
             border-radius: 30px;
-            border: 1px solid rgba(245, 176, 22, 0.5);
-            background: rgba(245, 176, 22, 0.08);
-            color: var(--gold);
+            border: 1px solid var(--theme-color);
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--theme-color);
             font-size: 15px;
             font-weight: 700;
             letter-spacing: 2px;
             margin-bottom: 25px;
             z-index: 2;
-            box-shadow: 0 0 15px rgba(245, 176, 22, 0.2);
+            box-shadow: 0 0 15px var(--theme-glow);
+            transition: all 0.3s ease;
         }
 
         .main-hero-title {
             font-family: 'Rajdhani', sans-serif;
             font-size: 80px;
             font-weight: 800;
-            color: var(--gold);
+            color: var(--theme-color);
             text-transform: capitalize;
             letter-spacing: 3px;
             margin-bottom: 12px;
             z-index: 2;
-            text-shadow: 0 0 20px rgba(245, 176, 22, 0.45);
+            text-shadow: 0 0 20px var(--theme-glow);
+            transition: all 0.3s ease;
         }
 
         .hero-subtitle {
@@ -234,7 +256,6 @@
             z-index: 2;
         }
 
-        /* Action Buttons Grid */
         .hero-buttons {
             display: flex;
             gap: 20px;
@@ -280,31 +301,38 @@
         }
 
         .btn-players {
-            color: var(--gold);
-            border: 1.5px solid var(--gold);
+            color: var(--theme-color);
+            border: 1.5px solid var(--theme-color);
+            transition: all 0.3s ease;
         }
         .btn-players:hover {
-            background: var(--gold);
+            background: var(--theme-color);
             color: #0b0c10;
-            box-shadow: 0 0 25px rgba(245, 176, 22, 0.6);
+            box-shadow: 0 0 25px var(--theme-glow);
             transform: translateY(-4px);
         }
 
-        /* Section Layouts */
+        /* Generic Section */
         .section {
             padding: 110px 8%;
             text-align: center;
             position: relative;
             background: #08090c;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .section:nth-child(even) {
+            background: #0c0e14;
         }
 
         .section-title {
-            font-size: 42px;
+            font-size: 40px;
             font-weight: 800;
             letter-spacing: 3px;
-            color: var(--gold);
+            color: var(--theme-color);
             text-transform: uppercase;
             margin-bottom: 12px;
+            transition: color 0.3s ease;
         }
 
         .section-desc {
@@ -313,6 +341,193 @@
             margin-bottom: 50px;
         }
 
+        /* Hakkımızda Cards */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .about-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 35px 25px;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .about-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--theme-color);
+            box-shadow: 0 10px 25px var(--theme-glow);
+        }
+
+        .about-card i {
+            font-size: 40px;
+            color: var(--theme-color);
+            margin-bottom: 15px;
+            transition: color 0.3s;
+        }
+
+        .about-card h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+
+        .about-card p {
+            color: #aaa;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* Videolar Bölümü */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .video-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s;
+        }
+
+        .video-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--theme-color);
+            box-shadow: 0 10px 25px var(--theme-glow);
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            border: 0;
+        }
+
+        .video-info {
+            padding: 18px 20px;
+            text-align: left;
+        }
+
+        .video-info h4 {
+            font-size: 18px;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .video-info span {
+            color: var(--theme-color);
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        /* Galeri Bölümü */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            height: 220px;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 100%);
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay span {
+            color: var(--theme-color);
+            font-weight: 700;
+            font-size: 16px;
+            letter-spacing: 1px;
+        }
+
+        /* İletişim Bölümü */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .contact-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 35px 20px;
+            text-align: center;
+            text-decoration: none;
+            color: #fff;
+            transition: all 0.3s;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--theme-color);
+            box-shadow: 0 10px 25px var(--theme-glow);
+        }
+
+        .contact-card i {
+            font-size: 45px;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .contact-card.dc i { color: var(--discord); }
+        .contact-card.wa i { color: var(--whatsapp); }
+        .contact-card.ig i { color: var(--instagram); }
+
+        .contact-card h4 {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .contact-card p {
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        /* Lonca Kadrosu Bölümü */
         .category-heading {
             font-size: 24px;
             font-weight: 800;
@@ -325,7 +540,7 @@
             gap: 12px;
         }
 
-        .category-heading.gold { color: var(--gold); }
+        .category-heading.gold { color: var(--theme-color); transition: color 0.3s; }
         .category-heading.cyan { color: #00a8ff; }
 
         .team-grid {
@@ -335,7 +550,7 @@
         }
 
         .member-card {
-            background: rgba(18, 20, 26, 0.85);
+            background: var(--bg-card);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 12px;
             padding: 30px 20px;
@@ -344,28 +559,37 @@
 
         .member-card:hover {
             transform: translateY(-6px);
-            border-color: var(--gold);
-            box-shadow: 0 10px 25px rgba(245, 176, 22, 0.2);
+            border-color: var(--theme-color);
+            box-shadow: 0 10px 25px var(--theme-glow);
         }
 
-        .avatar {
-            width: 75px;
-            height: 75px;
+        /* Avatar Styling (Direct bayram.jpg support with Fallback) */
+        .avatar-img-wrapper {
+            width: 90px;
+            height: 90px;
             border-radius: 50%;
             margin: 0 auto 15px;
+            overflow: hidden;
+            border: 2.5px solid var(--theme-color);
+            box-shadow: 0 0 18px var(--theme-glow);
+            transition: all 0.3s ease;
+            position: relative;
+            background: #12141a;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 28px;
-            background: rgba(245, 176, 22, 0.1);
-            color: var(--gold);
-            border: 1px solid var(--gold);
         }
 
-        .avatar.cyan {
-            background: rgba(0, 168, 255, 0.1);
-            color: #00a8ff;
+        .avatar-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .avatar-img-wrapper.cyan {
             border-color: #00a8ff;
+            box-shadow: 0 0 15px rgba(0, 168, 255, 0.4);
         }
 
         .member-card h4 {
@@ -375,23 +599,42 @@
             margin-bottom: 4px;
         }
 
+        .member-card .leader-name {
+            color: var(--theme-color);
+            font-weight: 800;
+            transition: color 0.3s;
+        }
+
+        .member-card .nick-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            color: #d1d5db;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .member-card .nick-badge i {
+            color: var(--theme-color);
+            margin-right: 4px;
+        }
+
         .member-card span {
             font-size: 13px;
             font-weight: 700;
-            color: var(--gold);
+            color: var(--theme-color);
             letter-spacing: 1px;
             display: block;
             margin-bottom: 8px;
+            transition: color 0.3s;
         }
 
-        .member-card span.cyan {
-            color: #00a8ff;
-        }
-
-        .member-card p {
-            font-size: 14px;
-            color: #aaa;
-        }
+        .member-card span.cyan { color: #00a8ff; }
+        .member-card p { font-size: 14px; color: #aaa; }
 
         /* Footer */
         footer {
@@ -405,10 +648,7 @@
             gap: 15px;
         }
 
-        footer p {
-            color: #666;
-            font-size: 14px;
-        }
+        footer p { color: #666; font-size: 14px; }
 
         @media (max-width: 900px) {
             header nav { display: none; }
@@ -420,14 +660,14 @@
         }
     </style>
 </head>
-<body>
+<body class="theme-gold">
 
-    <!-- Left Color Palette Controls (Like in preview) -->
+    <!-- Sol Renk Değiştirici Butonlar -->
     <div class="side-palette">
-        <div class="color-dot dot-gold" title="Altın Sarısı"></div>
-        <div class="color-dot dot-blue" title="Mavi"></div>
-        <div class="color-dot dot-red" title="Kırmızı"></div>
-        <div class="color-dot dot-green" title="Yeşil"></div>
+        <div class="color-dot dot-gold" onclick="setTheme('gold')" title="Altın Sarısı"></div>
+        <div class="color-dot dot-blue" onclick="setTheme('blue')" title="Mavi"></div>
+        <div class="color-dot dot-red" onclick="setTheme('red')" title="Kırmızı"></div>
+        <div class="color-dot dot-green" onclick="setTheme('green')" title="Yeşil"></div>
     </div>
 
     <!-- Header Navigation -->
@@ -436,10 +676,11 @@
         <nav>
             <a href="#home">ANA SAYFA</a>
             <a href="#about">HAKKIMIZDA</a>
+            <a href="#staff">YÖNETİCİLER</a>
+            <a href="#roster">OYUNCULARIMIZ</a>
             <a href="#videos">VİDEOLAR</a>
             <a href="#gallery">GALERİ</a>
             <a href="#contact">İLETİŞİM</a>
-            <a href="#roster">OYUNCULARIMIZ</a>
         </nav>
         <div class="header-socials">
             <a href="https://discord.gg/ravix" target="_blank" class="h-badge discord"><i class="fa-brands fa-discord"></i> Discord</a>
@@ -448,20 +689,17 @@
         </div>
     </header>
 
-    <!-- Hero Section (Exact Layout of Redemption Image) -->
+    <!-- Hero Bölümü -->
     <section class="hero" id="home">
-        
-        <!-- Big Watermark Text Behind -->
         <div class="hero-watermark">RAVIX</div>
 
         <div class="since-pill">
-            <i class="fa-solid fa-shield-halved"></i> Since 2026
+            <i class="fa-solid fa-shield-halved"></i> Since 2024
         </div>
 
         <h1 class="main-hero-title">Ravix Ailesi</h1>
         <div class="hero-subtitle">Bir loncadan daha fazlası...</div>
 
-        <!-- 3 Big Action Buttons -->
         <div class="hero-buttons">
             <a href="https://discord.gg/ravix" target="_blank" class="action-btn btn-dc">
                 <i class="fa-brands fa-discord"></i> Discord'a Katıl
@@ -469,86 +707,249 @@
             <a href="https://chat.whatsapp.com/L6gztVWYA5hFtKULUhDl1Z" target="_blank" class="action-btn btn-wa">
                 <i class="fa-brands fa-whatsapp"></i> WhatsApp Grubu
             </a>
-            <a href="#roster" class="action-btn btn-players">
-                <i class="fa-solid fa-users"></i> OYUNCULARIMIZ
+            <a href="#staff" class="action-btn btn-players">
+                <i class="fa-solid fa-crown"></i> YÖNETİCİLER
             </a>
         </div>
-
     </section>
 
-    <!-- Kadro / Roster Section (Lonca Yetkilileri & Oyuncuları) -->
-    <section class="section" id="roster">
-        <h2 class="section-title">LONCA KADROSU</h2>
-        <p class="section-desc">Ravix Ailesi yönetim ekibi ve aktif lonca oyuncularımız.</p>
-
-        <!-- Kategori 1: Yetkililer -->
-        <div class="category-heading gold">
-            <i class="fa-solid fa-crown"></i> Lonca Yetkilileri & Liderler
+    <!-- HAKKIMIZDA -->
+    <section class="section" id="about">
+        <h2 class="section-title">HAKKIMIZDA</h2>
+        <p class="section-desc">Ravix Ailesi'nin vizyonu, kuruluş hikayesi ve temel ilkeleri.</p>
+        
+        <div class="about-grid">
+            <div class="about-card">
+                <i class="fa-solid fa-handshake-angle"></i>
+                <h3>Sarsılmaz Kardeşlik</h3>
+                <p>Bizim için her şeyden önce saygı ve güven gelir. Kazanılan zaferlerden çok, birlikte kurduğumuz dostluk bağlarına değer veririz.</p>
+            </div>
+            <div class="about-card">
+                <i class="fa-solid fa-chess-rook"></i>
+                <h3>Strateji & Disiplin</h3>
+                <p>Savaş meydanında rastgele değil, planlı hareket ederiz. Her savaşçımız loncanın taktik düzenine tam uyum sağlar.</p>
+            </div>
+            <div class="about-card">
+                <i class="fa-solid fa-fire"></i>
+                <h3>Bitmeyen Tutku</h3>
+                <p>2024'ten bu yana süregelen oyun tutkumuz ve rekabetçi ruhumuzla adımızı her zaman zirveye yazdırmayı hedefleriz.</p>
+            </div>
         </div>
+    </section>
+
+    <!-- YÖNETİCİLER / LONCA YETKİLİLERİ -->
+    <section class="section" id="staff">
+        <h2 class="section-title">LONCA YÖNETİCİLERİ</h2>
+        <p class="section-desc">Ravix Ailesi'ni yöneten, stratejileri belirleyen lider kadromuz.</p>
+
+        <div class="category-heading gold">
+            <i class="fa-solid fa-crown"></i> Yetkili Kadrosu
+        </div>
+
         <div class="team-grid">
+            <!-- Lonca Lideri: Bayram (bayram.jpg entegre edildi) -->
             <div class="member-card">
-                <div class="avatar"><i class="fa-solid fa-crown"></i></div>
-                <h4>LONCA LİDERİ</h4>
+                <div class="avatar-img-wrapper">
+                    <img src="bayram.jpg" alt="Bayram" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Bayram&backgroundColor=f5b016';">
+                </div>
+                <h4>Lonca Lideri : <span class="leader-name">Bayram</span></h4>
+                <div class="nick-badge"><i class="fa-solid fa-gamepad"></i> Nickname: <strong>Bosver</strong></div>
                 <span>KURUCU / LİDER</span>
                 <p>Genel Yönetim & Strateji</p>
             </div>
+
+            <!-- Lider Yardımcısı -->
             <div class="member-card">
-                <div class="avatar"><i class="fa-solid fa-shield-halved"></i></div>
-                <h4>LİDER YARDIMCISI</h4>
+                <div class="avatar-img-wrapper">
+                    <img src="https://api.dicebear.com/7.x/bottts/svg?seed=Ravix2&backgroundColor=f5b016" alt="Lider Yrd Avatar">
+                </div>
+                <h4>Lider Yardımcısı</h4>
+                <div class="nick-badge"><i class="fa-solid fa-gamepad"></i> Nickname: <strong>RavixYrd</strong></div>
                 <span>GENEL SORUMLU</span>
                 <p>İç Düzen & Organizasyon</p>
             </div>
+
+            <!-- Baş Disiplin -->
             <div class="member-card">
-                <div class="avatar"><i class="fa-solid fa-gavel"></i></div>
-                <h4>BAŞ DİSİPLİN</h4>
+                <div class="avatar-img-wrapper">
+                    <img src="https://api.dicebear.com/7.x/bottts/svg?seed=Disiplin&backgroundColor=f5b016" alt="Disiplin Avatar">
+                </div>
+                <h4>Baş Disiplin</h4>
+                <div class="nick-badge"><i class="fa-solid fa-gamepad"></i> Nickname: <strong>Moderatör</strong></div>
                 <span>MODERATÖR</span>
                 <p>Kural Takibi & Düzen</p>
             </div>
+
+            <!-- Savaş Komutanı -->
             <div class="member-card">
-                <div class="avatar"><i class="fa-solid fa-chess-knight"></i></div>
-                <h4>SAVAŞ KOMUTANI</h4>
+                <div class="avatar-img-wrapper">
+                    <img src="https://api.dicebear.com/7.x/bottts/svg?seed=Komutan&backgroundColor=f5b016" alt="Komutan Avatar">
+                </div>
+                <h4>Savaş Komutanı</h4>
+                <div class="nick-badge"><i class="fa-solid fa-gamepad"></i> Nickname: <strong>Komutan</strong></div>
                 <span>KOMUTAN</span>
                 <p>Savaş Taktikleri & Yönetim</p>
             </div>
         </div>
+    </section>
 
-        <!-- Kategori 2: Oyuncular -->
-        <div class="category-heading cyan" style="margin-top: 50px;">
-            <i class="fa-solid fa-crosshairs"></i> Lonca Savaşçıları & Oyuncuları
+    <!-- LONCA OYUNCULARI -->
+    <section class="section" id="roster" style="background: #08090c;">
+        <h2 class="section-title">LONCA SAVAŞÇILARI</h2>
+        <p class="section-desc">Sahada loncamızı temsil eden aktif savaşçı kadromuz.</p>
+
+        <div class="category-heading cyan">
+            <i class="fa-solid fa-crosshairs"></i> Aktif Oyuncular
         </div>
+
         <div class="team-grid">
             <div class="member-card">
-                <div class="avatar cyan"><i class="fa-solid fa-gun"></i></div>
+                <div class="avatar-img-wrapper cyan">
+                    <img src="https://api.dicebear.com/7.x/bottts/svg?seed=AsKadro&backgroundColor=00a8ff" alt="As Kadro">
+                </div>
                 <h4>AS KADRO</h4>
+                <div class="nick-badge"><i class="fa-solid fa-gamepad"></i> Nickname: <strong>Savaşçı</strong></div>
                 <span class="cyan">SALDIRI TİMİ</span>
                 <p>Birincil Savaş Kadrosu</p>
             </div>
+
             <div class="member-card">
-                <div class="avatar cyan"><i class="fa-solid fa-crosshairs"></i></div>
+                <div class="avatar-img-wrapper cyan">
+                    <img src="https://api.dicebear.com/7.x/bottts/svg?seed=Sniper&backgroundColor=00a8ff" alt="Keskin Nişancı">
+                </div>
                 <h4>KESKİN NİŞANCI</h4>
+                <div class="nick-badge"><i class="fa-solid fa-gamepad"></i> Nickname: <strong>Sniper</strong></div>
                 <span class="cyan">UZAK MENZİL</span>
                 <p>Gözcü & Keskin Nişancı</p>
             </div>
+
             <div class="member-card">
-                <div class="avatar cyan"><i class="fa-solid fa-bolt"></i></div>
+                <div class="avatar-img-wrapper cyan">
+                    <img src="https://api.dicebear.com/7.x/bottts/svg?seed=Akinci&backgroundColor=00a8ff" alt="Akıncı">
+                </div>
                 <h4>AKINCI</h4>
+                <div class="nick-badge"><i class="fa-solid fa-gamepad"></i> Nickname: <strong>Akıncı</strong></div>
                 <span class="cyan">ÖNCÜ BİRLİK</span>
                 <p>Hızlı Baskın Timi</p>
             </div>
+
             <div class="member-card">
-                <div class="avatar cyan"><i class="fa-solid fa-shield-virus"></i></div>
+                <div class="avatar-img-wrapper cyan">
+                    <img src="https://api.dicebear.com/7.x/bottts/svg?seed=Defans&backgroundColor=00a8ff" alt="Savunma">
+                </div>
                 <h4>SAVUNMA TİMİ</h4>
+                <div class="nick-badge"><i class="fa-solid fa-gamepad"></i> Nickname: <strong>Kalkan</strong></div>
                 <span class="cyan">DEFANS HATTI</span>
                 <p>Kale & Bölge Muhafızı</p>
             </div>
         </div>
     </section>
 
+    <!-- VİDEOLAR -->
+    <section class="section" id="videos">
+        <h2 class="section-title">LONCA VİDEOLARI</h2>
+        <p class="section-desc">En heyecanlı savaş anları, klip montajları ve lonca etkinliklerimiz.</p>
+
+        <div class="video-grid">
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" title="Ravix Savaş Klibi" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <h4>Büyük Lonca Savaşı Highlights #1</h4>
+                    <span>RAVIX MEDIA</span>
+                </div>
+            </div>
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" title="Ravix Turnuva Montajı" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <h4>Turnuva Şampiyonluk Anları</h4>
+                    <span>RAVIX MEDIA</span>
+                </div>
+            </div>
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" title="Ravix Tanıtım" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <h4>Ravix Ailesi Resmi Tanıtım Filmi</h4>
+                    <span>RAVIX MEDIA</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERİ -->
+    <section class="section" id="gallery">
+        <h2 class="section-title">FOTOĞRAF GALERİSİ</h2>
+        <p class="section-desc">Oyun içi etkinliklerimizden ve zafer anlarımızdan öne çıkan kareler.</p>
+
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80" alt="Galeri 1">
+                <div class="gallery-overlay"><span>Lonca Buluşması</span></div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=600&q=80" alt="Galeri 2">
+                <div class="gallery-overlay"><span>Kale Savunması</span></div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=600&q=80" alt="Galeri 3">
+                <div class="gallery-overlay"><span>Raid Zaferi</span></div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1563089145-599997674d42?auto=format&fit=crop&w=600&q=80" alt="Galeri 4">
+                <div class="gallery-overlay"><span>Şampiyonluk Kutlaması</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- İLETİŞİM -->
+    <section class="section" id="contact">
+        <h2 class="section-title">İLETİŞİM KANALLARI</h2>
+        <p class="section-desc">Bize dilediğiniz platformdan ulaşabilir, loncamıza başvuru yapabilirsiniz.</p>
+
+        <div class="contact-grid">
+            <a href="https://discord.gg/ravix" target="_blank" class="contact-card dc">
+                <i class="fa-brands fa-discord"></i>
+                <h4>Discord Sunucumuz</h4>
+                <p>Sesli sohbetler, duyurular ve başvuru odaları için katılın.</p>
+            </a>
+            <a href="https://chat.whatsapp.com/L6gztVWYA5hFtKULUhDl1Z" target="_blank" class="contact-card wa">
+                <i class="fa-brands fa-whatsapp"></i>
+                <h4>WhatsApp Grubu</h4>
+                <p>Hızlı haberleşme ve genel sohbet grubumuza dahil olun.</p>
+            </a>
+            <a href="https://www.instagram.com/ravixailesi/" target="_blank" class="contact-card ig">
+                <i class="fa-brands fa-instagram"></i>
+                <h4>Instagram Hesabı</h4>
+                <p>Fotoğraflar, hikayeler ve özel paylaşımlarımızı takip edin.</p>
+            </a>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Ravix Ailesi. Tüm hakları saklıdır. | www.ravix.com</p>
+        <p>&copy; 2024 - 2026 Ravix Ailesi. Tüm hakları saklıdır. | www.ravix.com</p>
         <p style="color:#555;">Bir loncadan daha fazlası...</p>
     </footer>
+
+    <!-- Renk Değiştirme JavaScript Kodu -->
+    <script>
+        function setTheme(themeName) {
+            document.body.className = 'theme-' + themeName;
+            localStorage.setItem('ravix_theme', themeName);
+        }
+
+        window.onload = function() {
+            const savedTheme = localStorage.getItem('ravix_theme');
+            if (savedTheme) {
+                document.body.className = 'theme-' + savedTheme;
+            }
+        };
+    </script>
 
 </body>
 </html>
