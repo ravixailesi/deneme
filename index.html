@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ravix Ailesi | Bir loncadan daha fazlası...</title>
+
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700;800&family=Teko:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --gold: #f5b016;
+            --gold-glow: rgba(245, 176, 22, 0.4);
+            --bg-dark: #0b0c10;
+            --discord: #5865F2;
+            --whatsapp: #25D366;
+            --instagram: #e1306c;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #060709;
+            color: #ffffff;
+            font-family: 'Rajdhani', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Top Bar / Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 4%;
+            background: rgba(6, 7, 9, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(245, 176, 22, 0.15);
+        }
+
+        .logo {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 26px;
+            font-weight: 800;
+            letter-spacing: 2.5px;
+            color: var(--gold);
+            text-transform: uppercase;
+            text-shadow: 0 0 12px var(--gold-glow);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+        }
+
+        nav a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--gold);
+            text-shadow: 0 0 8px var(--gold-glow);
+        }
+
+        /* Header Social Badges */
+        .header-socials {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .h-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 18px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+
+        .h-badge.discord {
+            color: #fff;
+            border: 1px solid var(--discord);
+            background: rgba(88, 101, 242, 0.12);
+        }
+        .h-badge.discord:hover {
+            background: var(--discord);
+            box-shadow: 0 0 15px rgba(88, 101, 242, 0.6);
+        }
+
+        .h-badge.whatsapp {
+            color: #fff;
+            border: 1px solid var(--whatsapp);
+            background: rgba(37, 211, 102, 0.12);
+        }
+        .h-badge.whatsapp:hover {
+            background: var(--whatsapp);
+            box-shadow: 0 0 15px rgba(37, 211, 102, 0.6);
+        }
+
+        .h-badge.instagram {
+            color: #fff;
+            border: 1px solid var(--instagram);
+            background: rgba(225, 48, 108, 0.12);
+        }
+        .h-badge.instagram:hover {
+            background: var(--instagram);
+            box-shadow: 0 0 15px rgba(225, 48, 108, 0.6);
+        }
+
+        /* Left Floating Theme Switcher / Controls */
+        .side-palette {
+            position: fixed;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(12, 14, 18, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 40px;
+            padding: 14px 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            z-index: 999;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            backdrop-filter: blur(8px);
+        }
+
+        .color-dot {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+        .color-dot:hover {
+            transform: scale(1.2);
+            border-color: #fff;
+        }
+        .dot-gold { background: #f5b016; }
+        .dot-blue { background: #00a8ff; }
+        .dot-red { background: #e74c3c; }
+        .dot-green { background: #2ecc71; }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+            background: linear-gradient(rgba(6, 7, 9, 0.7), rgba(6, 7, 9, 0.85)),
+                        url('https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+        }
+
+        /* Watermark Background Text */
+        .hero-watermark {
+            position: absolute;
+            bottom: 60px;
+            font-family: 'Teko', sans-serif;
+            font-size: 21vw;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.035);
+            letter-spacing: 12px;
+            text-transform: uppercase;
+            user-select: none;
+            pointer-events: none;
+            line-height: 0.8;
+            z-index: 1;
+        }
+
+        .since-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 30px;
+            border-radius: 30px;
+            border: 1px solid rgba(245, 176, 22, 0.5);
+            background: rgba(245, 176, 22, 0.08);
+            color: var(--gold);
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+            z-index: 2;
+            box-shadow: 0 0 15px rgba(245, 176, 22, 0.2);
+        }
+
+        .main-hero-title {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 80px;
+            font-weight: 800;
+            color: var(--gold);
+            text-transform: capitalize;
+            letter-spacing: 3px;
+            margin-bottom: 12px;
+            z-index: 2;
+            text-shadow: 0 0 20px rgba(245, 176, 22, 0.45);
+        }
+
+        .hero-subtitle {
+            font-size: 24px;
+            color: #d1d5db;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            margin-bottom: 45px;
+            z-index: 2;
+        }
+
+        /* Action Buttons Grid */
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            z-index: 2;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 36px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 800;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: all 0.3s ease;
+            background: rgba(12, 14, 18, 0.7);
+            backdrop-filter: blur(5px);
+        }
+
+        .btn-dc {
+            color: #fff;
+            border: 1.5px solid var(--discord);
+        }
+        .btn-dc:hover {
+            background: var(--discord);
+            box-shadow: 0 0 25px rgba(88, 101, 242, 0.6);
+            transform: translateY(-4px);
+        }
+
+        .btn-wa {
+            color: #fff;
+            border: 1.5px solid var(--whatsapp);
+        }
+        .btn-wa:hover {
+            background: var(--whatsapp);
+            box-shadow: 0 0 25px rgba(37, 211, 102, 0.6);
+            transform: translateY(-4px);
+        }
+
+        .btn-players {
+            color: var(--gold);
+            border: 1.5px solid var(--gold);
+        }
+        .btn-players:hover {
+            background: var(--gold);
+            color: #0b0c10;
+            box-shadow: 0 0 25px rgba(245, 176, 22, 0.6);
+            transform: translateY(-4px);
+        }
+
+        /* Section Layouts */
+        .section {
+            padding: 110px 8%;
+            text-align: center;
+            position: relative;
+            background: #08090c;
+        }
+
+        .section-title {
+            font-size: 42px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .section-desc {
+            color: #888;
+            font-size: 16px;
+            margin-bottom: 50px;
+        }
+
+        .category-heading {
+            font-size: 24px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 40px 0 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .category-heading.gold { color: var(--gold); }
+        .category-heading.cyan { color: #00a8ff; }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+        }
+
+        .member-card {
+            background: rgba(18, 20, 26, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 30px 20px;
+            transition: all 0.3s ease;
+        }
+
+        .member-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--gold);
+            box-shadow: 0 10px 25px rgba(245, 176, 22, 0.2);
+        }
+
+        .avatar {
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            background: rgba(245, 176, 22, 0.1);
+            color: var(--gold);
+            border: 1px solid var(--gold);
+        }
+
+        .avatar.cyan {
+            background: rgba(0, 168, 255, 0.1);
+            color: #00a8ff;
+            border-color: #00a8ff;
+        }
+
+        .member-card h4 {
+            font-size: 20px;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .member-card span {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .member-card span.cyan {
+            color: #00a8ff;
+        }
+
+        .member-card p {
+            font-size: 14px;
+            color: #aaa;
+        }
+
+        /* Footer */
+        footer {
+            padding: 30px 4%;
+            background: #040406;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        footer p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        @media (max-width: 900px) {
+            header nav { display: none; }
+            .side-palette { display: none; }
+            .main-hero-title { font-size: 48px; }
+            .hero-subtitle { font-size: 18px; }
+            .hero-buttons { flex-direction: column; width: 100%; }
+            .action-btn { width: 100%; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Left Color Palette Controls (Like in preview) -->
+    <div class="side-palette">
+        <div class="color-dot dot-gold" title="Altın Sarısı"></div>
+        <div class="color-dot dot-blue" title="Mavi"></div>
+        <div class="color-dot dot-red" title="Kırmızı"></div>
+        <div class="color-dot dot-green" title="Yeşil"></div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="logo">RAVİX AİLESİ</div>
+        <nav>
+            <a href="#home">ANA SAYFA</a>
+            <a href="#about">HAKKIMIZDA</a>
+            <a href="#videos">VİDEOLAR</a>
+            <a href="#gallery">GALERİ</a>
+            <a href="#contact">İLETİŞİM</a>
+            <a href="#roster">OYUNCULARIMIZ</a>
+        </nav>
+        <div class="header-socials">
+            <a href="https://discord.gg/ravix" target="_blank" class="h-badge discord"><i class="fa-brands fa-discord"></i> Discord</a>
+            <a href="https://chat.whatsapp.com/L6gztVWYA5hFtKULUhDl1Z" target="_blank" class="h-badge whatsapp"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+            <a href="https://www.instagram.com/ravixailesi/" target="_blank" class="h-badge instagram"><i class="fa-brands fa-instagram"></i> Instagram</a>
+        </div>
+    </header>
+
+    <!-- Hero Section (Exact Layout of Redemption Image) -->
+    <section class="hero" id="home">
+        
+        <!-- Big Watermark Text Behind -->
+        <div class="hero-watermark">RAVIX</div>
+
+        <div class="since-pill">
+            <i class="fa-solid fa-shield-halved"></i> Since 2026
+        </div>
+
+        <h1 class="main-hero-title">Ravix Ailesi</h1>
+        <div class="hero-subtitle">Bir loncadan daha fazlası...</div>
+
+        <!-- 3 Big Action Buttons -->
+        <div class="hero-buttons">
+            <a href="https://discord.gg/ravix" target="_blank" class="action-btn btn-dc">
+                <i class="fa-brands fa-discord"></i> Discord'a Katıl
+            </a>
+            <a href="https://chat.whatsapp.com/L6gztVWYA5hFtKULUhDl1Z" target="_blank" class="action-btn btn-wa">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp Grubu
+            </a>
+            <a href="#roster" class="action-btn btn-players">
+                <i class="fa-solid fa-users"></i> OYUNCULARIMIZ
+            </a>
+        </div>
+
+    </section>
+
+    <!-- Kadro / Roster Section (Lonca Yetkilileri & Oyuncuları) -->
+    <section class="section" id="roster">
+        <h2 class="section-title">LONCA KADROSU</h2>
+        <p class="section-desc">Ravix Ailesi yönetim ekibi ve aktif lonca oyuncularımız.</p>
+
+        <!-- Kategori 1: Yetkililer -->
+        <div class="category-heading gold">
+            <i class="fa-solid fa-crown"></i> Lonca Yetkilileri & Liderler
+        </div>
+        <div class="team-grid">
+            <div class="member-card">
+                <div class="avatar"><i class="fa-solid fa-crown"></i></div>
+                <h4>LONCA LİDERİ</h4>
+                <span>KURUCU / LİDER</span>
+                <p>Genel Yönetim & Strateji</p>
+            </div>
+            <div class="member-card">
+                <div class="avatar"><i class="fa-solid fa-shield-halved"></i></div>
+                <h4>LİDER YARDIMCISI</h4>
+                <span>GENEL SORUMLU</span>
+                <p>İç Düzen & Organizasyon</p>
+            </div>
+            <div class="member-card">
+                <div class="avatar"><i class="fa-solid fa-gavel"></i></div>
+                <h4>BAŞ DİSİPLİN</h4>
+                <span>MODERATÖR</span>
+                <p>Kural Takibi & Düzen</p>
+            </div>
+            <div class="member-card">
+                <div class="avatar"><i class="fa-solid fa-chess-knight"></i></div>
+                <h4>SAVAŞ KOMUTANI</h4>
+                <span>KOMUTAN</span>
+                <p>Savaş Taktikleri & Yönetim</p>
+            </div>
+        </div>
+
+        <!-- Kategori 2: Oyuncular -->
+        <div class="category-heading cyan" style="margin-top: 50px;">
+            <i class="fa-solid fa-crosshairs"></i> Lonca Savaşçıları & Oyuncuları
+        </div>
+        <div class="team-grid">
+            <div class="member-card">
+                <div class="avatar cyan"><i class="fa-solid fa-gun"></i></div>
+                <h4>AS KADRO</h4>
+                <span class="cyan">SALDIRI TİMİ</span>
+                <p>Birincil Savaş Kadrosu</p>
+            </div>
+            <div class="member-card">
+                <div class="avatar cyan"><i class="fa-solid fa-crosshairs"></i></div>
+                <h4>KESKİN NİŞANCI</h4>
+                <span class="cyan">UZAK MENZİL</span>
+                <p>Gözcü & Keskin Nişancı</p>
+            </div>
+            <div class="member-card">
+                <div class="avatar cyan"><i class="fa-solid fa-bolt"></i></div>
+                <h4>AKINCI</h4>
+                <span class="cyan">ÖNCÜ BİRLİK</span>
+                <p>Hızlı Baskın Timi</p>
+            </div>
+            <div class="member-card">
+                <div class="avatar cyan"><i class="fa-solid fa-shield-virus"></i></div>
+                <h4>SAVUNMA TİMİ</h4>
+                <span class="cyan">DEFANS HATTI</span>
+                <p>Kale & Bölge Muhafızı</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Ravix Ailesi. Tüm hakları saklıdır. | www.ravix.com</p>
+        <p style="color:#555;">Bir loncadan daha fazlası...</p>
+    </footer>
+
+</body>
+</html>
