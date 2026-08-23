@@ -368,8 +368,16 @@
             letter-spacing: 0.5px;
             padding: 3px 10px;
             border-radius: 4px;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             text-transform: uppercase;
+        }
+
+        .real-name-tag {
+            font-size: 13px;
+            color: #94a3b8;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
         }
 
         .p-avatar {
@@ -384,6 +392,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
         }
 
         .p-avatar img {
@@ -392,12 +401,30 @@
             object-fit: cover;
         }
 
+        /* Tıklanabilirlik Belirteci (Simge) */
+        .click-indicator {
+            position: absolute;
+            bottom: 2px;
+            right: 2px;
+            background: var(--theme-gold);
+            color: #000;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            box-shadow: 0 0 10px var(--theme-glow);
+            border: 2px solid #111;
+        }
+
         .p-name {
             font-family: 'Orbitron', sans-serif;
             font-size: 16px;
             font-weight: 800;
             color: var(--theme-gold);
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             letter-spacing: 1px;
             text-align: center;
             white-space: nowrap;
@@ -444,8 +471,8 @@
             box-shadow: 0 0 35px rgba(245, 176, 22, 0.25);
             border-radius: 12px;
             width: 100%;
-            max-width: 480px;
-            padding: 22px 28px 30px;
+            max-width: 500px;
+            padding: 24px 28px 30px;
             position: relative;
             animation: modalFadeIn 0.3s ease-out;
         }
@@ -461,7 +488,7 @@
             align-items: center;
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             padding-bottom: 12px;
-            margin-bottom: 22px;
+            margin-bottom: 20px;
         }
 
         .modal-title {
@@ -518,7 +545,7 @@
             font-weight: 900;
             color: var(--theme-gold);
             text-align: center;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
             letter-spacing: 1.5px;
         }
 
@@ -532,7 +559,6 @@
             letter-spacing: 1px;
         }
 
-        /* Modal Details List */
         .modal-info-grid {
             display: flex;
             flex-direction: column;
@@ -572,6 +598,38 @@
             display: inline-block;
             margin-right: 4px;
             vertical-align: middle;
+        }
+
+        /* Oyuncu Özel Kod Sekmesi Bölümü */
+        .config-code-section {
+            margin-top: 20px;
+            background: #07080a;
+            border: 1px solid #1f232b;
+            border-radius: 8px;
+            padding: 12px;
+        }
+
+        .config-code-title {
+            font-size: 12px;
+            color: #888;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .config-code-box {
+            font-family: monospace;
+            font-size: 12px;
+            color: #f5b016;
+            background: #12141a;
+            padding: 8px;
+            border-radius: 4px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-break: break-all;
         }
 
         /* Footer */
@@ -640,7 +698,7 @@
         <div>
             <h3 class="sub-group-title">Lonca Liderimiz</h3>
             <div class="leader-box-container">
-                <!-- 1. BAYRAM (bayram.jpg) -->
+                <!-- BAYRAM -->
                 <div class="p-card" style="width: 230px; border-color: rgba(245, 176, 22, 0.45);"
                      onclick="openPlayerModal({
                          name: 'Bosver',
@@ -651,12 +709,15 @@
                          cinsiyet: 'Erkek',
                          beceri: 'Ejderha Yardımı',
                          krallik: 'Jinno',
-                         discord: 'Profili gizli'
+                         discord: 'bayram#0001',
+                         codeId: 'bayram_config_01'
                      })">
                     <div class="leader-ribbon"><i class="fa-solid fa-crown"></i> LİDER</div>
                     <div class="role-badge">Lonca Lideri</div>
+                    <div class="real-name-tag">Bayram</div>
                     <div class="p-avatar">
                         <img src="bayram.jpg" alt="Bayram" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Bayram&backgroundColor=f5b016';">
+                        <div class="click-indicator" title="Detaylar için tıkla"><i class="fa-solid fa-arrow-pointer"></i></div>
                     </div>
                     <div class="p-name">Bosver</div>
                     <div class="p-tag">ŞAMAN</div>
@@ -664,109 +725,124 @@
             </div>
         </div>
 
-        <!-- 2. KADRO (denis, omer, berke, musur, onur) -->
+        <!-- 2. KADRO (DENİS, ÖMER, BERKE, MÜSÜR, ONUR) -->
         <div class="player-grid">
 
-            <!-- 2. DENİS (denis.jpg) -->
+            <!-- DENİS -->
             <div class="p-card" data-class="saman"
                  onclick="openPlayerModal({
                      name: 'Xenophanes',
                      realName: 'Denis',
-                     role: 'Lonca Alım Sorumlusu Lideri',
+                     role: 'Lonca Sorumlusu',
                      img: 'denis.jpg',
                      sinif: 'Şaman',
                      cinsiyet: 'Erkek',
                      beceri: 'İyileştirme',
                      krallik: 'Jinno',
-                     discord: 'Profili gizli'
+                     discord: 'denis#0002',
+                     codeId: 'denis_config_02'
                  })">
-                <div class="role-badge">Alım Sorumlusu Lideri</div>
+                <div class="role-badge">Lonca Sorumlusu</div>
+                <div class="real-name-tag">Denis</div>
                 <div class="p-avatar">
                     <img src="denis.jpg" alt="Denis" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Denis&backgroundColor=f5b016';">
+                    <div class="click-indicator" title="Detaylar için tıkla"><i class="fa-solid fa-arrow-pointer"></i></div>
                 </div>
                 <div class="p-name">Xenophanes</div>
                 <div class="p-tag">ŞAMAN</div>
             </div>
 
-            <!-- 3. ÖMER (omer.jpg) -->
+            <!-- ÖMER -->
             <div class="p-card" data-class="saman"
                  onclick="openPlayerModal({
                      name: 'KYOJIN',
                      realName: 'Ömer',
-                     role: 'Lonca Alım Sorumlusu Lideri',
+                     role: 'Lonca Sorumlusu',
                      img: 'omer.jpg',
                      sinif: 'Şaman',
                      cinsiyet: 'Erkek',
                      beceri: 'Ejderha Yardımı',
                      krallik: 'Jinno',
-                     discord: 'Profili gizli'
+                     discord: 'omer#0003',
+                     codeId: 'omer_config_03'
                  })">
-                <div class="role-badge">Alım Sorumlusu Lideri</div>
+                <div class="role-badge">Lonca Sorumlusu</div>
+                <div class="real-name-tag">Ömer</div>
                 <div class="p-avatar">
                     <img src="omer.jpg" alt="Ömer" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Omer&backgroundColor=f5b016';">
+                    <div class="click-indicator" title="Detaylar için tıkla"><i class="fa-solid fa-arrow-pointer"></i></div>
                 </div>
                 <div class="p-name">KYOJIN</div>
                 <div class="p-tag">ŞAMAN</div>
             </div>
 
-            <!-- 4. BERKE (berke.jpg) -->
+            <!-- BERKE -->
             <div class="p-card" data-class="saman"
                  onclick="openPlayerModal({
                      name: 'FatherOfTheTurksATATURK',
                      realName: 'Berke',
-                     role: 'Lonca Alım Sorumlusu',
+                     role: 'Lonca Sorumlusu',
                      img: 'berke.jpg',
                      sinif: 'Şaman',
                      cinsiyet: 'Erkek',
                      beceri: 'Ejderha Gücü',
                      krallik: 'Jinno',
-                     discord: 'Profili gizli'
+                     discord: 'berke#0004',
+                     codeId: 'berke_config_04'
                  })">
-                <div class="role-badge">Alım Sorumlusu</div>
+                <div class="role-badge">Lonca Sorumlusu</div>
+                <div class="real-name-tag">Berke</div>
                 <div class="p-avatar">
                     <img src="berke.jpg" alt="Berke" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Berke&backgroundColor=f5b016';">
+                    <div class="click-indicator" title="Detaylar için tıkla"><i class="fa-solid fa-arrow-pointer"></i></div>
                 </div>
                 <div class="p-name" title="FatherOfTheTurksATATURK">FatherOfTheTurks...</div>
                 <div class="p-tag">ŞAMAN</div>
             </div>
 
-            <!-- 5. MÜSÜR (musur.jpg) -->
+            <!-- MÜSÜR -->
             <div class="p-card" data-class="sura"
                  onclick="openPlayerModal({
                      name: 'DeaDGoD',
                      realName: 'Müsür',
-                     role: 'Savaş Komutanı',
+                     role: 'Lonca Sorumlusu',
                      img: 'musur.jpg',
                      sinif: 'Sura',
                      cinsiyet: 'Erkek',
                      beceri: 'Büyülü Silah',
                      krallik: 'Jinno',
-                     discord: 'Profili gizli'
+                     discord: 'musur#0005',
+                     codeId: 'musur_config_05'
                  })">
-                <div class="role-badge">Savaş Komutanı</div>
+                <div class="role-badge">Lonca Sorumlusu</div>
+                <div class="real-name-tag">Müsür</div>
                 <div class="p-avatar">
                     <img src="musur.jpg" alt="Müsür" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Musur&backgroundColor=f5b016';">
+                    <div class="click-indicator" title="Detaylar için tıkla"><i class="fa-solid fa-arrow-pointer"></i></div>
                 </div>
                 <div class="p-name">DeaDGoD</div>
                 <div class="p-tag">SURA</div>
             </div>
 
-            <!-- 6. ONUR (onur.jpg) -->
+            <!-- ONUR -->
             <div class="p-card" data-class="savasci"
                  onclick="openPlayerModal({
                      name: 'Angrenost',
                      realName: 'Onur',
-                     role: 'Baş Muhafız',
+                     role: 'Lonca Sorumlusu',
                      img: 'onur.jpg',
                      sinif: 'Savaşçı',
                      cinsiyet: 'Erkek',
                      beceri: 'Bedensel',
                      krallik: 'Jinno',
-                     discord: 'Profili gizli'
+                     discord: 'onur#0006',
+                     codeId: 'onur_config_06'
                  })">
-                <div class="role-badge">Baş Muhafız</div>
+                <div class="role-badge">Lonca Sorumlusu</div>
+                <div class="real-name-tag">Onur</div>
                 <div class="p-avatar">
                     <img src="onur.jpg" alt="Onur" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Onur&backgroundColor=f5b016';">
+                    <div class="click-indicator" title="Detaylar için tıkla"><i class="fa-solid fa-arrow-pointer"></i></div>
                 </div>
                 <div class="p-name">Angrenost</div>
                 <div class="p-tag">SAVAŞÇI</div>
@@ -819,9 +895,21 @@
 
                 <div class="modal-info-item">
                     <span class="modal-label">Discord:</span>
-                    <span class="modal-val" id="mDiscord">Profili gizli</span>
+                    <span class="modal-val" id="mDiscord">kullanici#0000</span>
                 </div>
             </div>
+
+            <!-- Özel Kod Sekmesi -->
+            <div class="config-code-section">
+                <div class="config-code-title">
+                    <span>Özel Oyuncu Kod Sekmesi</span>
+                    <i class="fa-solid fa-code" style="color: #f5b016;"></i>
+                </div>
+                <div class="config-code-box" id="mCodeId">
+                    ID: member_config_x
+                </div>
+            </div>
+
         </div>
     </div>
 
@@ -842,6 +930,7 @@
             document.getElementById('mBeceri').innerText = data.beceri;
             document.getElementById('mKrallik').innerText = data.krallik;
             document.getElementById('mDiscord').innerText = data.discord;
+            document.getElementById('mCodeId').innerText = '// Oyuncu Özel Kod Bloğu\nID: ' + data.codeId + '\nNick: ' + data.name + '\nReal: ' + data.realName + '\nDiscord: ' + data.discord;
 
             document.getElementById('playerModal').classList.add('active');
         }
@@ -882,4 +971,4 @@
         }
     </script>
 </body>
-</html>
+</html
