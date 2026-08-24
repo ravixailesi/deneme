@@ -37,7 +37,7 @@
             overflow-x: hidden;
         }
 
-        /* Header */
+        /* Header & Navigation */
         header {
             display: flex;
             justify-content: space-between;
@@ -99,34 +99,23 @@
             transition: 0.3s;
         }
 
-        .h-badge.discord {
-            color: #fff;
-            border: 1px solid var(--discord);
-            background: rgba(88, 101, 242, 0.15);
-        }
-        .h-badge.discord:hover {
-            background: var(--discord);
-            box-shadow: 0 0 15px rgba(88, 101, 242, 0.6);
-        }
+        .h-badge.discord { color: #fff; border: 1px solid var(--discord); background: rgba(88, 101, 242, 0.15); }
+        .h-badge.discord:hover { background: var(--discord); box-shadow: 0 0 15px rgba(88, 101, 242, 0.6); }
 
-        .h-badge.whatsapp {
-            color: #fff;
-            border: 1px solid var(--whatsapp);
-            background: rgba(37, 211, 102, 0.15);
-        }
-        .h-badge.whatsapp:hover {
-            background: var(--whatsapp);
-            box-shadow: 0 0 15px rgba(37, 211, 102, 0.6);
-        }
+        .h-badge.whatsapp { color: #fff; border: 1px solid var(--whatsapp); background: rgba(37, 211, 102, 0.15); }
+        .h-badge.whatsapp:hover { background: var(--whatsapp); box-shadow: 0 0 15px rgba(37, 211, 102, 0.6); }
 
-        .h-badge.instagram {
-            color: #fff;
-            border: 1px solid var(--instagram);
-            background: rgba(225, 48, 108, 0.15);
-        }
-        .h-badge.instagram:hover {
-            background: var(--instagram);
-            box-shadow: 0 0 15px rgba(225, 48, 108, 0.6);
+        .h-badge.instagram { color: #fff; border: 1px solid var(--instagram); background: rgba(225, 48, 108, 0.15); }
+        .h-badge.instagram:hover { background: var(--instagram); box-shadow: 0 0 15px rgba(225, 48, 108, 0.6); }
+
+        /* Mobile Menu Toggle Button */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--theme-gold);
+            font-size: 24px;
+            cursor: pointer;
         }
 
         /* Hero */
@@ -141,6 +130,7 @@
             position: relative;
             background: linear-gradient(rgba(10, 11, 14, 0.82), rgba(10, 11, 14, 0.98)),
                         url('https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            margin-top: 60px;
         }
 
         .since-pill {
@@ -161,7 +151,7 @@
 
         .main-hero-title {
             font-family: 'Orbitron', sans-serif;
-            font-size: 60px;
+            font-size: clamp(38px, 6vw, 60px);
             font-weight: 900;
             color: var(--theme-gold);
             text-shadow: 0 0 25px var(--theme-glow);
@@ -170,7 +160,7 @@
         }
 
         .hero-subtitle {
-            font-size: 22px;
+            font-size: clamp(16px, 3vw, 22px);
             color: #ccc;
             font-weight: 600;
             letter-spacing: 2px;
@@ -197,55 +187,100 @@
             transition: all 0.3s ease;
         }
 
-        .btn-dc {
-            color: #fff;
-            background: var(--discord);
-            border: 1px solid var(--discord);
-        }
-        .btn-dc:hover {
-            box-shadow: 0 0 20px rgba(88, 101, 242, 0.7);
-            transform: translateY(-3px);
+        .btn-dc { color: #fff; background: var(--discord); border: 1px solid var(--discord); }
+        .btn-dc:hover { box-shadow: 0 0 20px rgba(88, 101, 242, 0.7); transform: translateY(-3px); }
+
+        .btn-wa { color: #fff; background: var(--whatsapp); border: 1px solid var(--whatsapp); }
+        .btn-wa:hover { box-shadow: 0 0 20px rgba(37, 211, 102, 0.7); transform: translateY(-3px); }
+
+        .btn-gold { color: #111; background: var(--theme-gold); border: 1px solid var(--theme-gold); }
+        .btn-gold:hover { box-shadow: 0 0 20px var(--theme-glow); transform: translateY(-3px); }
+
+        /* SECTION STYLES */
+        section {
+            padding: 80px 6%;
         }
 
-        .btn-wa {
-            color: #fff;
-            background: var(--whatsapp);
-            border: 1px solid var(--whatsapp);
-        }
-        .btn-wa:hover {
-            box-shadow: 0 0 20px rgba(37, 211, 102, 0.7);
-            transform: translateY(-3px);
-        }
-
-        .btn-gold {
-            color: #111;
-            background: var(--theme-gold);
-            border: 1px solid var(--theme-gold);
-        }
-        .btn-gold:hover {
-            box-shadow: 0 0 20px var(--theme-glow);
-            transform: translateY(-3px);
-        }
-
-        /* OYUNCULARIMIZ SECTION */
-        .players-section {
-            padding: 70px 6%;
+        .section-header {
             text-align: center;
-            background: #0b0c10;
+            margin-bottom: 45px;
         }
 
         .main-section-title {
             font-family: 'Orbitron', sans-serif;
-            font-size: 36px;
+            font-size: clamp(28px, 4vw, 36px);
             font-weight: 900;
             color: var(--theme-gold);
             letter-spacing: 3px;
             text-shadow: 0 0 18px var(--theme-glow);
-            margin-bottom: 25px;
+            margin-bottom: 15px;
             text-transform: uppercase;
         }
 
-        /* Filter Tabs */
+        .section-desc {
+            color: #94a3b8;
+            font-size: 16px;
+            max-width: 650px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* 1. HAKKIMIZDA & VİZYON / MİSYON */
+        .about-section {
+            background: #0d0e13;
+            border-top: 1px solid #1a1d26;
+            border-bottom: 1px solid #1a1d26;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-card {
+            background: #12151c;
+            border: 1px solid #20242e;
+            border-radius: 12px;
+            padding: 35px 25px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .about-card:hover {
+            border-color: var(--theme-gold);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(245, 176, 22, 0.15);
+        }
+
+        .about-icon {
+            font-size: 40px;
+            color: var(--theme-gold);
+            margin-bottom: 20px;
+            text-shadow: 0 0 12px var(--theme-glow);
+        }
+
+        .about-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 20px;
+            color: #fff;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .about-card p {
+            color: #aaa;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        /* 2. OYUNCULARIMIZ SECTION */
+        .players-section {
+            background: #0b0c10;
+        }
+
         .filter-tabs {
             display: inline-flex;
             gap: 12px;
@@ -265,27 +300,18 @@
             border: 1px solid transparent;
             color: #bbb;
             font-family: 'Rajdhani', sans-serif;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
         }
 
-        .tab-btn:hover {
-            color: #fff;
-            background: #232732;
-        }
-
-        .tab-btn.active {
-            background: var(--theme-gold);
-            color: #111;
-            font-weight: 800;
-            box-shadow: 0 0 15px var(--theme-glow);
-        }
+        .tab-btn:hover { color: #fff; background: #232732; }
+        .tab-btn.active { background: var(--theme-gold); color: #111; font-weight: 800; box-shadow: 0 0 15px var(--theme-glow); }
 
         .sub-group-title {
             font-family: 'Orbitron', sans-serif;
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 800;
             color: var(--theme-gold);
             text-shadow: 0 0 12px var(--theme-glow);
@@ -295,28 +321,16 @@
             display: inline-block;
         }
 
-        .sub-group-title::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 20%;
-            width: 60%;
-            height: 2px;
-            background: var(--theme-gold);
-            box-shadow: 0 0 8px var(--theme-glow);
-        }
-
         .leader-box-container {
             display: flex;
             justify-content: center;
-            margin-bottom: 60px;
+            margin-bottom: 55px;
         }
 
-        /* Cards Grid */
         .player-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-            gap: 22px;
+            grid-template-columns: repeat(auto-fill, minmax(195px, 1fr));
+            gap: 20px;
             max-width: 1300px;
             margin: 0 auto;
         }
@@ -325,7 +339,7 @@
             background: #111318;
             border: 1px solid #20242e;
             border-radius: 12px;
-            padding: 24px 15px 18px;
+            padding: 22px 15px 16px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -343,20 +357,19 @@
 
         .leader-ribbon {
             position: absolute;
-            top: 12px;
-            right: 12px;
+            top: 10px;
+            right: 10px;
             background: rgba(18, 20, 26, 0.95);
             border: 1px solid var(--theme-gold);
             color: var(--theme-gold);
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 800;
-            padding: 3px 8px;
+            padding: 3px 7px;
             border-radius: 6px;
             display: flex;
             align-items: center;
             gap: 4px;
             box-shadow: 0 0 8px var(--theme-glow);
-            letter-spacing: 1px;
         }
 
         .role-badge {
@@ -365,7 +378,6 @@
             color: var(--theme-gold);
             font-size: 11px;
             font-weight: 800;
-            letter-spacing: 0.5px;
             padding: 3px 10px;
             border-radius: 4px;
             margin-bottom: 8px;
@@ -376,56 +388,48 @@
             font-size: 13px;
             color: #94a3b8;
             font-weight: 700;
-            margin-bottom: 12px;
-            letter-spacing: 1px;
+            margin-bottom: 10px;
         }
 
         .p-avatar {
-            width: 95px;
-            height: 95px;
+            width: 90px;
+            height: 90px;
             border-radius: 50%;
             border: 2.5px solid var(--theme-gold);
-            box-shadow: 0 0 16px var(--theme-glow);
+            box-shadow: 0 0 15px var(--theme-glow);
             overflow: hidden;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             background: #0a0b0e;
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
         }
 
-        .p-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+        .p-avatar img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* Tıklanabilirlik Belirteci (Simge) */
         .click-indicator {
             position: absolute;
             bottom: 2px;
             right: 2px;
             background: var(--theme-gold);
             color: #000;
-            width: 24px;
-            height: 24px;
+            width: 22px;
+            height: 22px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 11px;
-            box-shadow: 0 0 10px var(--theme-glow);
+            font-size: 10px;
             border: 2px solid #111;
         }
 
         .p-name {
             font-family: 'Orbitron', sans-serif;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 800;
             color: var(--theme-gold);
-            margin-bottom: 8px;
-            letter-spacing: 1px;
+            margin-bottom: 6px;
             text-align: center;
             white-space: nowrap;
             overflow: hidden;
@@ -441,17 +445,131 @@
             font-weight: 800;
             letter-spacing: 1.5px;
             text-transform: uppercase;
-            padding: 3px 14px;
+            padding: 3px 12px;
             border-radius: 20px;
         }
 
-        /* POPUP MODAL */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
+        /* 3. GALERİ SECTION */
+        .gallery-section {
+            background: #0d0e13;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #20242e;
+            height: 250px;
+            background: #12151c;
+        }
+
+        .gallery-item img {
             width: 100%;
             height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover img { transform: scale(1.08); }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(transparent, rgba(10, 11, 14, 0.95));
+            font-family: 'Orbitron', sans-serif;
+            font-size: 15px;
+            color: var(--theme-gold);
+            font-weight: 700;
+        }
+
+        /* 4. VİDEO SECTION */
+        .video-section {
+            background: #0b0c10;
+        }
+
+        .video-container {
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 2px solid rgba(245, 176, 22, 0.3);
+            box-shadow: 0 0 30px var(--theme-glow);
+            aspect-ratio: 16 / 9;
+            background: #111318;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* 5. İLETİŞİM SECTION */
+        .contact-section {
+            background: #0d0e13;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-card {
+            background: #12151c;
+            border: 1px solid #20242e;
+            border-radius: 12px;
+            padding: 35px 20px;
+            text-align: center;
+            text-decoration: none;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .contact-card:hover {
+            border-color: var(--theme-gold);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(245, 176, 22, 0.2);
+        }
+
+        .contact-card i { font-size: 42px; }
+        .contact-card.dc i { color: var(--discord); }
+        .contact-card.wa i { color: var(--whatsapp); }
+        .contact-card.ig i { color: var(--instagram); }
+
+        .contact-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 18px;
+            color: #fff;
+            letter-spacing: 1px;
+        }
+
+        .contact-card span {
+            color: #aaa;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* OYUNCU DETAYLARI MODAL */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0, 0, 0, 0.82);
             backdrop-filter: blur(8px);
             display: none;
@@ -461,9 +579,7 @@
             padding: 20px;
         }
 
-        .modal-overlay.active {
-            display: flex;
-        }
+        .modal-overlay.active { display: flex; }
 
         .modal-box {
             background: #101217;
@@ -471,10 +587,12 @@
             box-shadow: 0 0 35px rgba(245, 176, 22, 0.25);
             border-radius: 12px;
             width: 100%;
-            max-width: 500px;
-            padding: 24px 28px 30px;
+            max-width: 480px;
+            padding: 24px;
             position: relative;
             animation: modalFadeIn 0.3s ease-out;
+            max-height: 90vh;
+            overflow-y: auto;
         }
 
         @keyframes modalFadeIn {
@@ -493,7 +611,7 @@
 
         .modal-title {
             font-family: 'Orbitron', sans-serif;
-            font-size: 19px;
+            font-size: 18px;
             font-weight: 800;
             color: var(--theme-gold);
             letter-spacing: 1.5px;
@@ -512,10 +630,7 @@
             cursor: pointer;
             transition: color 0.2s;
         }
-
-        .modal-close:hover {
-            color: var(--theme-gold);
-        }
+        .modal-close:hover { color: var(--theme-gold); }
 
         .modal-avatar-area {
             display: flex;
@@ -524,20 +639,15 @@
         }
 
         .modal-avatar-wrapper {
-            width: 110px;
-            height: 110px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
             border: 2.5px solid var(--theme-gold);
             box-shadow: 0 0 20px var(--theme-glow);
             overflow: hidden;
             background: #0a0b0e;
         }
-
-        .modal-avatar-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+        .modal-avatar-wrapper img { width: 100%; height: 100%; object-fit: cover; }
 
         .modal-player-name {
             font-family: 'Orbitron', sans-serif;
@@ -546,17 +656,15 @@
             color: var(--theme-gold);
             text-align: center;
             margin-bottom: 4px;
-            letter-spacing: 1.5px;
         }
 
         .modal-player-role {
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 700;
             color: #aaa;
             text-align: center;
             margin-bottom: 20px;
             text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
         .modal-info-grid {
@@ -569,7 +677,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 15px;
+            font-size: 14px;
         }
 
         .modal-info-item {
@@ -578,20 +686,12 @@
             gap: 8px;
         }
 
-        .modal-label {
-            color: var(--theme-gold);
-            font-weight: 700;
-            letter-spacing: 0.5px;
-        }
-
-        .modal-val {
-            color: #e2e8f0;
-            font-weight: 600;
-        }
+        .modal-label { color: var(--theme-gold); font-weight: 700; }
+        .modal-val { color: #e2e8f0; font-weight: 600; }
 
         .kingdom-flag {
-            width: 18px;
-            height: 18px;
+            width: 16px;
+            height: 16px;
             background: #1e40af;
             border: 1px solid #3b82f6;
             border-radius: 3px;
@@ -600,29 +700,27 @@
             vertical-align: middle;
         }
 
-        /* Oyuncu Özel Kod Sekmesi Bölümü */
         .config-code-section {
-            margin-top: 20px;
+            margin-top: 18px;
             background: #07080a;
             border: 1px solid #1f232b;
             border-radius: 8px;
-            padding: 12px;
+            padding: 10px;
         }
 
         .config-code-title {
-            font-size: 12px;
+            font-size: 11px;
             color: #888;
             font-weight: 700;
             text-transform: uppercase;
             margin-bottom: 6px;
             display: flex;
             justify-content: space-between;
-            align-items: center;
         }
 
         .config-code-box {
             font-family: monospace;
-            font-size: 12px;
+            font-size: 11px;
             color: #f5b016;
             background: #12141a;
             padding: 8px;
@@ -641,6 +739,26 @@
             font-size: 14px;
             border-top: 1px solid #18191f;
         }
+
+        /* Responsive Media Queries */
+        @media (max-width: 900px) {
+            .menu-toggle { display: block; }
+            nav {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 65px;
+                left: 0;
+                width: 100%;
+                background: rgba(10, 11, 14, 0.98);
+                backdrop-filter: blur(15px);
+                padding: 20px 0;
+                border-bottom: 1px solid rgba(245, 176, 22, 0.2);
+                box-shadow: 0 10px 25px rgba(0,0,0,0.8);
+            }
+            nav.active { display: flex; }
+            .header-socials { display: none; }
+        }
     </style>
 </head>
 <body>
@@ -648,10 +766,14 @@
     <!-- Header -->
     <header>
         <div class="logo">RAVİX AİLESİ</div>
-        <nav>
-            <a href="#home">ANA SAYFA</a>
-            <a href="#players">OYUNCULARIMIZ</a>
-            <a href="https://discord.gg/ravix" target="_blank">DİSCORD</a>
+        <button class="menu-toggle" onclick="toggleMobileMenu()"><i class="fa-solid fa-bars"></i></button>
+        <nav id="navMenu">
+            <a href="#home" onclick="closeMobileMenu()">ANA SAYFA</a>
+            <a href="#about" onclick="closeMobileMenu()">HAKKIMIZDA</a>
+            <a href="#players" onclick="closeMobileMenu()">OYUNCULARIMIZ</a>
+            <a href="#gallery" onclick="closeMobileMenu()">GALERİ</a>
+            <a href="#video" onclick="closeMobileMenu()">VİDEO</a>
+            <a href="#contact" onclick="closeMobileMenu()">İLETİŞİM</a>
         </nav>
         <div class="header-socials">
             <a href="https://discord.gg/ravix" target="_blank" class="h-badge discord"><i class="fa-brands fa-discord"></i> Discord</a>
@@ -681,9 +803,37 @@
         </div>
     </section>
 
-    <!-- OYUNCULARIMIZ BÖLÜMÜ -->
+    <!-- 1. HAKKIMIZDA SECTION (VİZYONUMUZ & MİSYONUMUZ) -->
+    <section class="about-section" id="about">
+        <div class="section-header">
+            <h2 class="main-section-title">Hakkımızda</h2>
+            <p class="section-desc">Ravix Ailesi; Metin2 evreninde adalet, yardımlaşma ve en üst düzey rekabet ruhunu benimsemiş seçkin bir topluluktur.</p>
+        </div>
+        <div class="about-grid">
+            <div class="about-card">
+                <div class="about-icon"><i class="fa-solid fa-bullseye"></i></div>
+                <h3>Misyonumuz</h3>
+                <p>Üyelerimiz arasında kusursuz bir dayanışma ağı kurmak; boss kesimlerinde, lonca savaşlarında ve farm süreçlerinde birbirimize omuz vererek her daim zirvede kalmaktır.</p>
+            </div>
+            <div class="about-card">
+                <div class="about-icon"><i class="fa-solid fa-eye"></i></div>
+                <h3>Vizyonumuz</h3>
+                <p>Seviyeli oyun anlayışı ve organize yapısıyla serverin en saygın ve en güçlü loncası olmak; adımızı Metin2 tarihine altın harflerle yazdırmaktır.</p>
+            </div>
+            <div class="about-card">
+                <div class="about-icon"><i class="fa-solid fa-handshake-angle"></i></div>
+                <h3>Kardeşlik & Dostluk</h3>
+                <p>Bizler sadece bir oyun ekibi değiliz; gerçek dostlukların kurulduğu, discord sohbetlerinin ve kahkahaların eksik olmadığı kocaman bir aileyiz.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. OYUNCULARIMIZ SECTION (20 OYUNCU TAM KADRO) -->
     <section class="players-section" id="players">
-        <h2 class="main-section-title">OYUNCULARIMIZ</h2>
+        <div class="section-header">
+            <h2 class="main-section-title">OYUNCULARIMIZ</h2>
+            <p class="section-desc">Ravix Ailesi'nin 20 kişilik elit kadrosu. Karakter detayları ve konfigürasyonlar için kartlara tıklayabilirsiniz.</p>
+        </div>
 
         <!-- Sınıf Filtreleri -->
         <div class="filter-tabs">
@@ -694,7 +844,7 @@
             <button class="tab-btn" onclick="filterClass('saman')">Şaman</button>
         </div>
 
-        <!-- 1. LONCA LİDERİMİZ -->
+        <!-- Lonca Liderimiz -->
         <div>
             <h3 class="sub-group-title">Lonca Liderimiz</h3>
             <div class="leader-box-container">
@@ -725,129 +875,204 @@
             </div>
         </div>
 
-        <!-- 2. KADRO (DENİS, ÖMER, BERKE, MÜSÜR, ONUR) -->
+        <!-- Kadronun Geri Kalanı (19 Oyuncu) -->
         <div class="player-grid">
-
             <!-- DENİS -->
-            <div class="p-card" data-class="saman"
-                 onclick="openPlayerModal({
-                     name: 'Xenophanes',
-                     realName: 'Denis',
-                     role: 'Lonca Sorumlusu',
-                     img: 'denis.jpg',
-                     sinif: 'Şaman',
-                     cinsiyet: 'Erkek',
-                     beceri: 'Ejderha Yardımı',
-                     krallik: 'Jinno',
-                     discord: 'kadirxbey010101',
-                     codeId: 'denis_config_02'
-                 })">
+            <div class="p-card" data-class="saman" onclick="openPlayerModal({name:'Xenophanes', realName:'Denis', role:'Lonca Sorumlusu', img:'denis.jpg', sinif:'Şaman', cinsiyet:'Erkek', beceri:'Ejderha Yardımı', krallik:'Jinno', discord:'kadirxbey010101', codeId:'denis_config_02'})">
                 <div class="role-badge">Lonca Sorumlusu</div>
                 <div class="real-name-tag">Denis</div>
-                <div class="p-avatar">
-                    <img src="denis.jpg" alt="Denis" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Denis&backgroundColor=f5b016';">
-                    <div class="click-indicator" title="Detaylar için tıkla"><i class="fa-solid fa-arrow-pointer"></i></div>
-                </div>
-                <div class="p-name">Xenophanes</div>
-                <div class="p-tag">ŞAMAN</div>
+                <div class="p-avatar"><img src="denis.jpg" alt="Denis" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Denis&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
+                <div class="p-name">Xenophanes</div><div class="p-tag">ŞAMAN</div>
             </div>
 
             <!-- ÖMER -->
-            <div class="p-card" data-class="saman"
-                 onclick="openPlayerModal({
-                     name: 'KYOJIN',
-                     realName: 'Ömer',
-                     role: 'Lonca Sorumlusu',
-                     img: 'omer.jpg',
-                     sinif: 'Şaman',
-                     cinsiyet: 'Erkek',
-                     beceri: 'Ejderha Yardımı',
-                     krallik: 'Jinno',
-                     discord: 'kyojin__',
-                     codeId: 'omer_config_03'
-                 })">
+            <div class="p-card" data-class="saman" onclick="openPlayerModal({name:'KYOJIN', realName:'Ömer', role:'Lonca Sorumlusu', img:'omer.jpg', sinif:'Şaman', cinsiyet:'Erkek', beceri:'Ejderha Yardımı', krallik:'Jinno', discord:'kyojin__', codeId:'omer_config_03'})">
                 <div class="role-badge">Lonca Sorumlusu</div>
                 <div class="real-name-tag">Ömer</div>
-                <div class="p-avatar">
-                    <img src="omer.jpg" alt="Ömer" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Omer&backgroundColor=f5b016';">
-                    <div class="click-indicator" title="Detaylar için tıkla"><i class="fa-solid fa-arrow-pointer"></i></div>
-                </div>
-                <div class="p-name">KYOJIN</div>
-                <div class="p-tag">ŞAMAN</div>
+                <div class="p-avatar"><img src="omer.jpg" alt="Ömer" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Omer&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
+                <div class="p-name">KYOJIN</div><div class="p-tag">ŞAMAN</div>
             </div>
 
             <!-- BERKE -->
-            <div class="p-card" data-class="saman"
-                 onclick="openPlayerModal({
-                     name: 'FatherOfTheTurksATATURK',
-                     realName: 'Berke',
-                     role: 'Lonca Sorumlusu',
-                     img: 'berke.jpg',
-                     sinif: 'Şaman',
-                     cinsiyet: 'Erkek',
-                     beceri: 'Ejderha Gücü',
-                     krallik: 'Jinno',
-                     discord: 'alazoflaz',
-                     codeId: 'berke_config_04'
-                 })">
+            <div class="p-card" data-class="saman" onclick="openPlayerModal({name:'FatherOfTheTurksATATURK', realName:'Berke', role:'Lonca Sorumlusu', img:'berke.jpg', sinif:'Şaman', cinsiyet:'Erkek', beceri:'Ejderha Gücü', krallik:'Jinno', discord:'alazoflaz', codeId:'berke_config_04'})">
                 <div class="role-badge">Lonca Sorumlusu</div>
                 <div class="real-name-tag">Berke</div>
-                <div class="p-avatar">
-                    <img src="berke.jpg" alt="Berke" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Berke&backgroundColor=f5b016';">
-                    <div class="click-indicator" title="Detaylar için tıkla"><i class="fa-solid fa-arrow-pointer"></i></div>
-                </div>
-                <div class="p-name" title="FatherOfTheTurksATATURK">FatherOfTheTurks</div>
-                <div class="p-tag">ŞAMAN</div>
+                <div class="p-avatar"><img src="berke.jpg" alt="Berke" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Berke&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
+                <div class="p-name">FatherOfTheTurks</div><div class="p-tag">ŞAMAN</div>
             </div>
 
             <!-- MERT -->
-            <div class="p-card" data-class="ninja"
-                 onclick="openPlayerModal({
-                     name: 'JesseP',
-                     realName: 'Mert',
-                     role: 'Lonca Sorumlusu',
-                     img: 'mert.jpg',
-                     sinif: 'Ninja',
-                     cinsiyet: 'Erkek',
-                     beceri: 'Yakın Dövüşcü',
-                     krallik: 'Jinno',
-                     discord: 'impos1ng',
-                     codeId: 'mert_config_05'
-                 })">
+            <div class="p-card" data-class="ninja" onclick="openPlayerModal({name:'JesseP', realName:'Mert', role:'Lonca Sorumlusu', img:'mert.jpg', sinif:'Ninja', cinsiyet:'Erkek', beceri:'Yakın Dövüşçü', krallik:'Jinno', discord:'impos1ng', codeId:'mert_config_05'})">
                 <div class="role-badge">Lonca Sorumlusu</div>
                 <div class="real-name-tag">Mert</div>
-                <div class="p-avatar">
-                    <img src="mert.jpg" alt="Mert" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Musur&backgroundColor=f5b016';">
-                    <div class="click-indicator" title="Detaylar için tıkla"><i class="fa-solid fa-arrow-pointer"></i></div>
-                </div>
-                <div class="p-name">JesseP</div>
-                <div class="p-tag">NİNJA</div>
+                <div class="p-avatar"><img src="mert.jpg" alt="Mert" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Mert&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
+                <div class="p-name">JesseP</div><div class="p-tag">NİNJA</div>
             </div>
 
             <!-- CAFER -->
-            <div class="p-card" data-class="savasci"
-                 onclick="openPlayerModal({
-                     name: 'Bonjour',
-                     realName: 'Cafer',
-                     role: 'Lonca Sorumlusu',
-                     img: 'cafer.jpg',
-                     sinif: 'Sura',
-                     cinsiyet: 'Erkek',
-                     beceri: 'Karabuyu',
-                     krallik: 'Jinno',
-                     discord: 'ifredcafer24',
-                     codeId: 'cafer_config_06'
-                 })">
+            <div class="p-card" data-class="sura" onclick="openPlayerModal({name:'Bonjour', realName:'Cafer', role:'Lonca Sorumlusu', img:'cafer.jpg', sinif:'Sura', cinsiyet:'Erkek', beceri:'Karabüyü', krallik:'Jinno', discord:'ifredcafer24', codeId:'cafer_config_06'})">
                 <div class="role-badge">Lonca Sorumlusu</div>
                 <div class="real-name-tag">Cafer</div>
-                <div class="p-avatar">
-                    <img src="cafer.jpg" alt="Cafer" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Onur&backgroundColor=f5b016';">
-                    <div class="click-indicator" title="Detaylar için tıkla"><i class="fa-solid fa-arrow-pointer"></i></div>
-                </div>
-                <div class="p-name">Bonjour</div>
-                <div class="p-tag">SURA</div>
+                <div class="p-avatar"><img src="cafer.jpg" alt="Cafer" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Cafer&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
+                <div class="p-name">Bonjour</div><div class="p-tag">SURA</div>
             </div>
 
+            <!-- 7. OYUNCU -->
+            <div class="p-card" data-class="savasci" onclick="openPlayerModal({name:'ShadowBlade', realName:'Kerem', role:'Lonca Üyesi', img:'kerem.jpg', sinif:'Savaşçı', cinsiyet:'Erkek', beceri:'Bedensel', krallik:'Jinno', discord:'kerem#0007', codeId:'oyuncu_07'})">
+                <div class="role-badge">Lonca Üyesi</div><div class="real-name-tag">Kerem</div>
+                <div class="p-avatar"><img src="kerem.jpg" alt="Üye" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Kerem&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
+                <div class="p-name">ShadowBlade</div><div class="p-tag">SAVAŞÇI</div>
+            </div>
+
+            <!-- 8. OYUNCU -->
+            <div class="p-card" data-class="ninja" onclick="openPlayerModal({name:'Vortex', realName:'Yusuf', role:'Lonca Üyesi', img:'yusuf.jpg', sinif:'Ninja', cinsiyet:'Erkek', beceri:'Bıçakçı', krallik:'Jinno', discord:'yusuf#0008', codeId:'oyuncu_08'})">
+                <div class="role-badge">Lonca Üyesi</div><div class="real-name-tag">Yusuf</div>
+                <div class="p-avatar"><img src="yusuf.jpg" alt="Üye" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Yusuf&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
+                <div class="p-name">Vortex</div><div class="p-tag">NİNJA</div>
+            </div>
+
+            <!-- 9. OYUNCU -->
+            <div class="p-card" data-class="sura" onclick="openPlayerModal({name:'Nightmare', realName:'Emre', role:'Lonca Üyesi', img:'emre.jpg', sinif:'Sura', cinsiyet:'Erkek', beceri:'Büyülü Silah', krallik:'Jinno', discord:'emre#0009', codeId:'oyuncu_09'})">
+                <div class="role-badge">Lonca Üyesi</div><div class="real-name-tag">Emre</div>
+                <div class="p-avatar"><img src="emre.jpg" alt="Üye" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Emre&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
+                <div class="p-name">Nightmare</div><div class="p-tag">SURA</div>
+            </div>
+
+            <!-- 10. OYUNCU -->
+            <div class="p-card" data-class="saman" onclick="openPlayerModal({name:'HealerQueen', realName:'Zeynep', role:'Lonca Üyesi', img:'zeynep.jpg', sinif:'Şaman', cinsiyet:'Kadın', beceri:'İyileştirme', krallik:'Jinno', discord:'zeynep#0010', codeId:'oyuncu_10'})">
+                <div class="role-badge">Lonca Üyesi</div><div class="real-name-tag">Zeynep</div>
+                <div class="p-avatar"><img src="zeynep.jpg" alt="Üye" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Zeynep&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
+                <div class="p-name">HealerQueen</div><div class="p-tag">ŞAMAN</div>
+            </div>
+
+            <!-- 11. OYUNCU -->
+            <div class="p-card" data-class="savasci" onclick="openPlayerModal({name:'Zeus', realName:'Burak', role:'Lonca Üyesi', img:'burak.jpg', sinif:'Savaşçı', cinsiyet:'Erkek', beceri:'Zihinsel', krallik:'Jinno', discord:'burak#0011', codeId:'oyuncu_11'})">
+                <div class="role-badge">Lonca Üyesi</div><div class="real-name-tag">Burak</div>
+                <div class="p-avatar"><img src="burak.jpg" alt="Üye" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Burak&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
+                <div class="p-name">Zeus</div><div class="p-tag">SAVAŞÇI</div>
+            </div>
+
+            <!-- 12. OYUNCU -->
+            <div class="p-card" data-class="ninja" onclick="openPlayerModal({name:'Lethal', realName:'Ahmet', role:'Lonca Üyesi', img:'ahmet.jpg', sinif:'Ninja', cinsiyet:'Erkek', beceri:'Okçuluk', krallik:'Jinno', discord:'ahmet#0012', codeId:'oyuncu_12'})">
+                <div class="role-badge">Lonca Üyesi</div><div class="real-name-tag">Ahmet</div>
+                <div class="p-avatar"><img src="ahmet.jpg" alt="Üye" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Ahmet&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
+                <div class="p-name">Lethal</div><div class="p-tag">NİNJA</div>
+            </div>
+
+            <!-- 13. OYUNCU -->
+            <div class="p-card" data-class="sura" onclick="openPlayerModal({name:'Hades', realName:'Kaan', role:'Lonca Üyesi', img:'kaan.jpg', sinif:'Sura', cinsiyet:'Erkek', beceri:'Karabüyü', krallik:'Jinno', discord:'kaan#0013', codeId:'oyuncu_13'})">
+                <div class="role-badge">Lonca Üyesi</div><div class="real-name-tag">Kaan</div>
+                <div class="p-avatar"><img src="kaan.jpg" alt="Üye" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Kaan&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
+                <div class="p-name">Hades</div><div class="p-tag">SURA</div>
+            </div>
+
+            <!-- 14. OYUNCU -->
+            <div class="p-card" data-class="saman" onclick="openPlayerModal({name:'DragonRider', realName:'Eren', role:'Lonca Üyesi', img:'eren.jpg', sinif:'Şaman', cinsiyet:'Erkek', beceri:'Ejderha Gücü', krallik:'Jinno', discord:'eren#0014', codeId:'oyuncu_14'})">
+                <div class="role-badge">Lonca Üyesi</div><div class="real-name-tag">Eren</div>
+                <div class="p-avatar"><img src="eren.jpg" alt="Üye" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Eren&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
+                <div class="p-name">DragonRider</div><div class="p-tag">ŞAMAN</div>
+            </div>
+
+            <!-- 15. OYUNCU -->
+            <div class="p-card" data-class="savasci" onclick="openPlayerModal({name:'Titan', realName:'Berk', role:'Lonca Üyesi', img:'berk.jpg', sinif:'Savaşçı', cinsiyet:'Erkek', beceri:'Bedensel', krallik:'Jinno', discord:'berk#0015', codeId:'oyuncu_15'})">
+                <div class="role-badge">Lonca Üyesi</div><div class="real-name-tag">Berk</div>
+                <div class="p-avatar"><img src="berk.jpg" alt="Üye" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Berk&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
+                <div class="p-name">Titan</div><div class="p-tag">SAVAŞÇI</div>
+            </div>
+
+            <!-- 16. OYUNCU -->
+            <div class="p-card" data-class="ninja" onclick="openPlayerModal({name:'Spectre', realName:'Mehmet', role:'Lonca Üyesi', img:'mehmet.jpg', sinif:'Ninja', cinsiyet:'Erkek', beceri:'Bıçakçı', krallik:'Jinno', discord:'mehmet#0016', codeId:'oyuncu_16'})">
+                <div class="role-badge">Lonca Üyesi</div><div class="real-name-tag">Mehmet</div>
+                <div class="p-avatar"><img src="mehmet.jpg" alt="Üye" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Mehmet&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
+                <div class="p-name">Spectre</div><div class="p-tag">NİNJA</div>
+            </div>
+
+            <!-- 17. OYUNCU -->
+            <div class="p-card" data-class="sura" onclick="openPlayerModal({name:'Phantom', realName:'Arda', role:'Lonca Üyesi', img:'arda.jpg', sinif:'Sura', cinsiyet:'Erkek', beceri:'Büyülü Silah', krallik:'Jinno', discord:'arda#0017', codeId:'oyuncu_17'})">
+                <div class="role-badge">Lonca Üyesi</div><div class="real-name-tag">Arda</div>
+                <div class="p-avatar"><img src="arda.jpg" alt="Üye" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Arda&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
+                <div class="p-name">Phantom</div><div class="p-tag">SURA</div>
+            </div>
+
+            <!-- 18. OYUNCU -->
+            <div class="p-card" data-class="saman" onclick="openPlayerModal({name:'AuraQueen', realName:'İrem', role:'Lonca Üyesi', img:'irem.jpg', sinif:'Şaman', cinsiyet:'Kadın', beceri:'Ejderha Yardımı', krallik:'Jinno', discord:'irem#0018', codeId:'oyuncu_18'})">
+                <div class="role-badge">Lonca Üyesi</div><div class="real-name-tag">İrem</div>
+                <div class="p-avatar"><img src="irem.jpg" alt="Üye" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Irem&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
+                <div class="p-name">AuraQueen</div><div class="p-tag">ŞAMAN</div>
+            </div>
+
+            <!-- 19. OYUNCU -->
+            <div class="p-card" data-class="savasci" onclick="openPlayerModal({name:'Ares', realName:'Taha', role:'Lonca Üyesi', img:'taha.jpg', sinif:'Savaşçı', cinsiyet:'Erkek', beceri:'Zihinsel', krallik:'Jinno', discord:'taha#0019', codeId:'oyuncu_19'})">
+                <div class="role-badge">Lonca Üyesi</div><div class="real-name-tag">Taha</div>
+                <div class="p-avatar"><img src="taha.jpg" alt="Üye" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Taha&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
+                <div class="p-name">Ares</div><div class="p-tag">SAVAŞÇI</div>
+            </div>
+
+            <!-- 20. OYUNCU -->
+            <div class="p-card" data-class="ninja" onclick="openPlayerModal({name:'Venom', realName:'Can', role:'Lonca Üyesi', img:'can.jpg', sinif:'Ninja', cinsiyet:'Erkek', beceri:'Bıçakçı', krallik:'Jinno', discord:'can#0020', codeId:'oyuncu_20'})">
+                <div class="role-badge">Lonca Üyesi</div><div class="real-name-tag">Can</div>
+                <div class="p-avatar"><img src="can.jpg" alt="Üye" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Can&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
+                <div class="p-name">Venom</div><div class="p-tag">NİNJA</div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 3. GALERİ SECTION -->
+    <section class="gallery-section" id="gallery">
+        <div class="section-header">
+            <h2 class="main-section-title">Galeri</h2>
+            <p class="section-desc">Lonca savaşlarımızdan, boss kesimlerinden ve unutulmaz anlardan kareler.</p>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=600&q=80" alt="Savaş Anı">
+                <div class="gallery-overlay">Lonca Savaşı Buluşması</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80" alt="Boss Kesimi">
+                <div class="gallery-overlay">Ejderha Kesimi Katliamı</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=600&q=80" alt="Kutlama">
+                <div class="gallery-overlay">Zafer Kutlaması</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. VİDEO SECTION -->
+    <section class="video-section" id="video">
+        <div class="section-header">
+            <h2 class="main-section-title">Tanıtım & Savaş Videosu</h2>
+            <p class="section-desc">Ravix Ailesi'nin büyüleyici atmosferini ve savaş taktiklerini videoda izleyin.</p>
+        </div>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Ravix Ailesi Tanıtım" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <!-- 5. İLETİŞİM SECTION -->
+    <section class="contact-section" id="contact">
+        <div class="section-header">
+            <h2 class="main-section-title">İletişim</h2>
+            <p class="section-desc">Loncamıza katılmak veya bizimle iletişime geçmek için resmi sosyal medya kanallarımızı kullanabilirsiniz.</p>
+        </div>
+        <div class="contact-grid">
+            <a href="https://discord.gg/ravix" target="_blank" class="contact-card dc">
+                <i class="fa-brands fa-discord"></i>
+                <h3>Discord Sunucusu</h3>
+                <span>Sesli sohbet ve alımlar için tıkla</span>
+            </a>
+            <a href="https://chat.whatsapp.com/L6gztVWYA5hFtKULUhDl1Z" target="_blank" class="contact-card wa">
+                <i class="fa-brands fa-whatsapp"></i>
+                <h3>WhatsApp Grubu</h3>
+                <span>Anlık duyurular ve sohbet</span>
+            </a>
+            <a href="https://www.instagram.com/ravixailesi/" target="_blank" class="contact-card ig">
+                <i class="fa-brands fa-instagram"></i>
+                <h3>Instagram Sayfası</h3>
+                <span>Güncel paylaşımlar ve videolar</span>
+            </a>
         </div>
     </section>
 
@@ -920,6 +1145,17 @@
 
     <!-- JavaScript Fonksiyonları -->
     <script>
+        // Mobil Menü Aç/Kapat
+        function toggleMobileMenu() {
+            const nav = document.getElementById('navMenu');
+            nav.classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            const nav = document.getElementById('navMenu');
+            nav.classList.remove('active');
+        }
+
         // Modal Açma Fonksiyonu
         function openPlayerModal(data) {
             document.getElementById('mName').innerText = data.name + ' (' + data.realName + ')';
@@ -971,4 +1207,4 @@
         }
     </script>
 </body>
-</html
+</html>
