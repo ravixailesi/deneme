@@ -119,9 +119,9 @@
             cursor: pointer;
         }
 
-        /* Hero */
+        /* Hero / Anasayfa Bölümü */
         .hero {
-            height: 85vh;
+            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -131,7 +131,7 @@
             position: relative;
             background: linear-gradient(rgba(10, 11, 14, 0.82), rgba(10, 11, 14, 0.98)),
                         url('https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
-            margin-top: 60px;
+            padding-top: 60px;
         }
 
         .since-pill {
@@ -198,7 +198,7 @@
         .btn-gold:hover { box-shadow: 0 0 20px var(--theme-glow); transform: translateY(-3px); }
 
         /* SECTIONS GENERAL */
-        section { padding: 80px 6%; }
+        section { padding: 100px 6% 80px; }
         .section-header { text-align: center; margin-bottom: 45px; }
 
         .main-section-title {
@@ -220,7 +220,7 @@
             line-height: 1.6;
         }
 
-        /* 1. HAKKIMIZDA */
+        /* 1. HAKKIMIZDA BÖLÜMÜ */
         .about-section { background: #0d0e13; border-top: 1px solid #1a1d26; border-bottom: 1px solid #1a1d26; }
         .about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
         .about-card { background: #12151c; border: 1px solid #20242e; border-radius: 12px; padding: 35px 25px; text-align: center; transition: 0.3s; }
@@ -229,7 +229,7 @@
         .about-card h3 { font-family: 'Orbitron', sans-serif; font-size: 20px; color: #fff; margin-bottom: 15px; letter-spacing: 1px; }
         .about-card p { color: #aaa; font-size: 15px; line-height: 1.7; }
 
-        /* 2. OYUNCULARIMIZ */
+        /* 2. OYUNCULARIMIZ BÖLÜMÜ */
         .players-section { background: #0b0c10; }
 
         .filter-tabs {
@@ -393,7 +393,7 @@
             border-radius: 20px;
         }
 
-        /* 3. RESİMLER (GALERİ) */
+        /* 3. RESİMLER BÖLÜMÜ (GALERİ) */
         .gallery-section { background: #0d0e13; }
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; }
         .gallery-item { position: relative; border-radius: 12px; overflow: hidden; border: 1px solid #20242e; height: 250px; background: #12151c; }
@@ -401,12 +401,12 @@
         .gallery-item:hover img { transform: scale(1.08); }
         .gallery-overlay { position: absolute; bottom: 0; left: 0; width: 100%; padding: 20px; background: linear-gradient(transparent, rgba(10, 11, 14, 0.95)); font-family: 'Orbitron', sans-serif; font-size: 15px; color: var(--theme-gold); font-weight: 700; }
 
-        /* 4. VİDEOLAR */
+        /* 4. VİDEOLAR BÖLÜMÜ */
         .video-section { background: #0b0c10; }
         .video-container { max-width: 900px; margin: 0 auto; border-radius: 12px; overflow: hidden; border: 2px solid rgba(245, 176, 22, 0.3); box-shadow: 0 0 30px var(--theme-glow); aspect-ratio: 16 / 9; background: #111318; }
         .video-container iframe { width: 100%; height: 100%; border: none; }
 
-        /* 5. İLETİŞİM (Social Links Grid + Form) */
+        /* 5. İLETİŞİM BÖLÜMÜ (Formspree Entegreli + Sosyal Kartlar) */
         .contact-section { background: #0d0e13; }
         .contact-container {
             max-width: 950px;
@@ -698,7 +698,7 @@
 </head>
 <body>
 
-    <!-- Header -->
+    <!-- Header & Navigation -->
     <header>
         <div class="logo">RAVİX AİLESİ</div>
         <button class="menu-toggle" onclick="toggleMobileMenu()"><i class="fa-solid fa-bars"></i></button>
@@ -717,7 +717,7 @@
         </div>
     </header>
 
-    <!-- Hero -->
+    <!-- 1. ANASAYFA BÖLÜMÜ -->
     <section class="hero" id="home">
         <div class="since-pill"><i class="fa-solid fa-shield-halved"></i> Since 2024</div>
         <h1 class="main-hero-title">Ravix Ailesi</h1>
@@ -729,7 +729,7 @@
         </div>
     </section>
 
-    <!-- 1. HAKKIMIZDA -->
+    <!-- 2. HAKKIMIZDA BÖLÜMÜ -->
     <section class="about-section" id="about">
         <div class="section-header">
             <h2 class="main-section-title">Hakkımızda</h2>
@@ -754,7 +754,102 @@
         </div>
     </section>
 
-    <!-- 2. OYUNCULARIMIZ (Lider en üstte, özel oyuncular en üst sıralarda) -->
+    <!-- 3. RESİMLER (GALERİ) BÖLÜMÜ -->
+    <section class="gallery-section" id="gallery">
+        <div class="section-header">
+            <h2 class="main-section-title">Resimler (Galeri)</h2>
+            <p class="section-desc">Lonca savaşlarımızdan, boss kesimlerinden ve unutulmaz anlardan kareler.</p>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=600&q=80" alt="Savaş Anı">
+                <div class="gallery-overlay">Lonca Savaşı Buluşması</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80" alt="Boss Kesimi">
+                <div class="gallery-overlay">Ejderha Kesimi Katliamı</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=600&q=80" alt="Kutlama">
+                <div class="gallery-overlay">Zafer Kutlaması</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. VİDEOLAR BÖLÜMÜ -->
+    <section class="video-section" id="video">
+        <div class="section-header">
+            <h2 class="main-section-title">Videolar</h2>
+            <p class="section-desc">Ravix Ailesi'nin büyüleyici atmosferini ve savaş taktiklerini videoda izleyin.</p>
+        </div>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Ravix Ailesi Tanıtım" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <!-- 5. İLETİŞİM BÖLÜMÜ (Formspree Destekli & Sosyal Kartlar) -->
+    <section class="contact-section" id="contact">
+        <div class="section-header">
+            <h2 class="main-section-title">İletişim</h2>
+            <p class="section-desc">Loncamıza katılmak veya bizimle iletişime geçmek için sosyal ağlarımızı kullanabilir ya da formu doldurabilirsiniz.</p>
+        </div>
+        
+        <div class="contact-container">
+            <!-- Sosyal Medya Kartları -->
+            <div class="contact-social-grid">
+                <a href="https://discord.gg/ravix" target="_blank" class="contact-social-card discord-card">
+                    <i class="fa-brands fa-discord"></i>
+                    <div class="contact-social-title">Discord Sunucusu</div>
+                    <div class="contact-social-desc">discord.gg/ravix</div>
+                </a>
+                <a href="https://chat.whatsapp.com/L6gztVWYA5hFtKULUhDl1Z" target="_blank" class="contact-social-card whatsapp-card">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <div class="contact-social-title">WhatsApp Grubu</div>
+                    <div class="contact-social-desc">Topluluk Sohbet Hattı</div>
+                </a>
+                <a href="https://www.instagram.com/ravixailesi/" target="_blank" class="contact-social-card instagram-card">
+                    <i class="fa-brands fa-instagram"></i>
+                    <div class="contact-social-title">Instagram Adresi</div>
+                    <div class="contact-social-desc">@ravixailesi</div>
+                </a>
+            </div>
+
+            <!-- Formspree E-posta Gönderim Formu -->
+            <div class="contact-form-wrapper">
+                <div class="contact-form-title">BİZE YAZIN</div>
+                <div class="contact-form-desc">Aşağıdaki formu doldurarak bize doğrudan mesaj gönderebilirsiniz.</div>
+                <form action="https://formspree.io/f/ornekformkodu" method="POST">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label">İsim Soyisim</label>
+                            <input type="text" name="name" class="form-input" placeholder="Adınız ve Soyadınız" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Discord Kullanıcı Adı</label>
+                            <input type="text" name="discord" class="form-input" placeholder="Örn: kullanici#1234" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">E-Posta Adresi</label>
+                            <input type="email" name="email" class="form-input" placeholder="ornek@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Telefon Numarası</label>
+                            <input type="tel" name="phone" class="form-input" placeholder="0555 555 55 55">
+                        </div>
+                        <div class="form-group full">
+                            <label class="form-label">Mesajınız</label>
+                            <textarea name="message" class="form-textarea" placeholder="Mesajınızı buraya yazın..." required></textarea>
+                        </div>
+                    </div>
+                    <div class="submit-btn-area">
+                        <button type="submit" class="submit-btn"><i class="fa-solid fa-paper-plane"></i> MESAJI GÖNDER</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. OYUNCULARIMIZ BÖLÜMÜ -->
     <section class="players-section" id="players">
         <div class="section-header">
             <h2 class="main-section-title">OYUNCULARIMIZ</h2>
@@ -770,12 +865,12 @@
             <button class="tab-btn" onclick="switchTab('samanTab', event)">Şaman (10)</button>
         </div>
 
-        <!-- 1. TÜMÜ SEKMESİ (40 OYUNCU - Lider en üstte tek başına, sonra önceki özel oyuncular, sonra diğerleri) -->
+        <!-- 1. TÜMÜ SEKMESİ (Lider en üstte tek başına, özel oyuncular üstte) -->
         <div id="allTab" class="tab-content active">
             <div style="text-align: center;"><h3 class="sub-group-title">Tüm Lonca Kadrosu</h3></div>
             <div class="player-grid">
 
-                <!-- 1. Lider (Tek Başına En Üstte) -->
+                <!-- Lider (Tek Başına En Üstte) -->
                 <div class="p-card" onclick="openPlayerModal({name:'Bosver', realName:'Bayram', role:'Lonca Lideri', img:'bayram.jpg', sinif:'Şaman', cinsiyet:'Erkek', beceri:'Ejderha Yardımı', krallik:'Jinno', discord:'b.baran1', codeId:'bayram_config_01'})">
                     <div class="leader-ribbon"><i class="fa-solid fa-crown"></i> LİDER</div>
                     <div class="role-badge">Lonca Lideri</div>
@@ -784,7 +879,7 @@
                     <div class="p-name">Bosver</div><div class="p-tag">ŞAMAN</div>
                 </div>
 
-                <!-- 2. Önceden Yaptığımız Özel Oyuncular -->
+                <!-- Özel Oyuncularımız -->
                 <div class="p-card" onclick="openPlayerModal({name:'Xenophanes', realName:'Denis', role:'Lonca Sorumlusu', img:'denis.jpg', sinif:'Şaman', cinsiyet:'Erkek', beceri:'İyileştirme', krallik:'Jinno', discord:'kadirxbey010101', codeId:'denis_config_02'})">
                     <div class="role-badge">Lonca Sorumlusu</div>
                     <div class="real-name-tag">Denis</div>
@@ -816,7 +911,7 @@
                     <div class="p-name">Bonjour</div><div class="p-tag">SURA</div>
                 </div>
 
-                <!-- Diğer Üyeler -->
+                <!-- Diğer Oyuncular -->
                 <div class="p-card" onclick="openPlayerModal({name:'Angrenost', realName:'Onur', role:'Lonca Sorumlusu', img:'onur.jpg', sinif:'Savaşçı', cinsiyet:'Erkek', beceri:'Bedensel', krallik:'Jinno', discord:'onur#0006', codeId:'savasci_01'})">
                     <div class="role-badge">Lonca Sorumlusu</div>
                     <div class="real-name-tag">Onur</div>
@@ -1091,7 +1186,7 @@
             </div>
         </div>
 
-        <!-- 3. NİNJA SEKMESİ (10 OYUNCU - Mert (JesseP) en üstte) -->
+        <!-- 3. NİNJA SEKMESİ (Mert en üstte) -->
         <div id="ninjaTab" class="tab-content">
             <div style="text-align: center;"><h3 class="sub-group-title">Ninja Sınıfı Kadrosu (10 Kişi)</h3></div>
             <div class="player-grid">
@@ -1158,7 +1253,7 @@
             </div>
         </div>
 
-        <!-- 4. SURA SEKMESİ (10 OYUNCU - Cafer (Bonjour) en üstte) -->
+        <!-- 4. SURA SEKMESİ (Cafer en üstte) -->
         <div id="suraTab" class="tab-content">
             <div style="text-align: center;"><h3 class="sub-group-title">Sura Sınıfı Kadrosu (10 Kişi)</h3></div>
             <div class="player-grid">
@@ -1225,7 +1320,7 @@
             </div>
         </div>
 
-        <!-- 5. ŞAMAN SEKMESİ (10 OYUNCU - Lider ve diğer şaman sorumlular en üstte) -->
+        <!-- 5. ŞAMAN SEKMESİ (Lider ve şaman sorumlular en üstte) -->
         <div id="samanTab" class="tab-content">
             <div style="text-align: center;"><h3 class="sub-group-title">Şaman Sınıfı Kadrosu (10 Kişi)</h3></div>
             <div class="player-grid">
@@ -1290,102 +1385,6 @@
                     <div class="p-avatar"><img src="busra.jpg" alt="Oracle" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Oracle&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
                     <div class="p-name">Oracle</div><div class="p-tag">ŞAMAN</div>
                 </div>
-            </div>
-        </div>
-
-    </section>
-
-    <!-- 3. RESİMLER (GALERİ) -->
-    <section class="gallery-section" id="gallery">
-        <div class="section-header">
-            <h2 class="main-section-title">Resimler (Galeri)</h2>
-            <p class="section-desc">Lonca savaşlarımızdan, boss kesimlerinden ve unutulmaz anlardan kareler.</p>
-        </div>
-        <div class="gallery-grid">
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=600&q=80" alt="Savaş Anı">
-                <div class="gallery-overlay">Lonca Savaşı Buluşması</div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80" alt="Boss Kesimi">
-                <div class="gallery-overlay">Ejderha Kesimi Katliamı</div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=600&q=80" alt="Kutlama">
-                <div class="gallery-overlay">Zafer Kutlaması</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 4. VİDEOLAR -->
-    <section class="video-section" id="video">
-        <div class="section-header">
-            <h2 class="main-section-title">Videolar</h2>
-            <p class="section-desc">Ravix Ailesi'nin büyüleyici atmosferini ve savaş taktiklerini videoda izleyin.</p>
-        </div>
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Ravix Ailesi Tanıtım" allowfullscreen></iframe>
-        </div>
-    </section>
-
-    <!-- 5. İLETİŞİM (Sosyal Adres Kartları + Bize Yazın Formu) -->
-    <section class="contact-section" id="contact">
-        <div class="section-header">
-            <h2 class="main-section-title">İletişim</h2>
-            <p class="section-desc">Loncamıza katılmak veya bizimle iletişime geçmek için sosyal ağlarımızı kullanabilir ya da formu doldurabilirsiniz.</p>
-        </div>
-        
-        <div class="contact-container">
-            <!-- Ekstra Eklenen Discord, WhatsApp ve Instagram Kartları -->
-            <div class="contact-social-grid">
-                <a href="https://discord.gg/ravix" target="_blank" class="contact-social-card discord-card">
-                    <i class="fa-brands fa-discord"></i>
-                    <div class="contact-social-title">Discord Sunucusu</div>
-                    <div class="contact-social-desc">discord.gg/ravix</div>
-                </a>
-                <a href="https://chat.whatsapp.com/L6gztVWYA5hFtKULUhDl1Z" target="_blank" class="contact-social-card whatsapp-card">
-                    <i class="fa-brands fa-whatsapp"></i>
-                    <div class="contact-social-title">WhatsApp Grubu</div>
-                    <div class="contact-social-desc">Topluluk Sohbet Hattı</div>
-                </a>
-                <a href="https://www.instagram.com/ravixailesi/" target="_blank" class="contact-social-card instagram-card">
-                    <i class="fa-brands fa-instagram"></i>
-                    <div class="contact-social-title">Instagram Adresi</div>
-                    <div class="contact-social-desc">@ravixailesi</div>
-                </a>
-            </div>
-
-            <!-- Form Alanı -->
-            <div class="contact-form-wrapper">
-                <div class="contact-form-title">BİZE YAZIN</div>
-                <div class="contact-form-desc">Aşağıdaki formu doldurarak bize doğrudan mesaj gönderebilirsiniz.</div>
-                <form onsubmit="event.preventDefault(); alert('Mesajınız başarıyla gönderildi!');">
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label class="form-label">İsim Soyisim</label>
-                            <input type="text" class="form-input" placeholder="Adınız ve Soyadınız" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Discord Kullanıcı Adı</label>
-                            <input type="text" class="form-input" placeholder="Örn: kullanici#1234" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">E-Posta Adresi</label>
-                            <input type="email" class="form-input" placeholder="ornek@email.com" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Telefon Numarası</label>
-                            <input type="tel" class="form-input" placeholder="0555 555 55 55">
-                        </div>
-                        <div class="form-group full">
-                            <label class="form-label">Mesajınız</label>
-                            <textarea class="form-textarea" placeholder="Mesajınızı buraya yazın..." required></textarea>
-                        </div>
-                    </div>
-                    <div class="submit-btn-area">
-                        <button type="submit" class="submit-btn"><i class="fa-solid fa-paper-plane"></i> MESAJI GÖNDER</button>
-                    </div>
-                </form>
             </div>
         </div>
     </section>
@@ -1463,10 +1462,11 @@
                 <h3>Hızlı Linkler</h3>
                 <ul class="footer-links">
                     <li><a href="#home"><i class="fa-solid fa-chevron-right" style="font-size: 10px; color: var(--theme-gold);"></i> Ana Sayfa</a></li>
-                    <li><a href="#players"><i class="fa-solid fa-chevron-right" style="font-size: 10px; color: var(--theme-gold);"></i> Oyuncularımız</a></li>
+                    <li><a href="#about"><i class="fa-solid fa-chevron-right" style="font-size: 10px; color: var(--theme-gold);"></i> Hakkımızda</a></li>
                     <li><a href="#gallery"><i class="fa-solid fa-chevron-right" style="font-size: 10px; color: var(--theme-gold);"></i> Galeri</a></li>
                     <li><a href="#video"><i class="fa-solid fa-chevron-right" style="font-size: 10px; color: var(--theme-gold);"></i> Videolar</a></li>
-                    <li><a href="#about"><i class="fa-solid fa-chevron-right" style="font-size: 10px; color: var(--theme-gold);"></i> Hakkımızda</a></li>
+                    <li><a href="#contact"><i class="fa-solid fa-chevron-right" style="font-size: 10px; color: var(--theme-gold);"></i> İletişim</a></li>
+                    <li><a href="#players"><i class="fa-solid fa-chevron-right" style="font-size: 10px; color: var(--theme-gold);"></i> Oyuncularımız</a></li>
                 </ul>
             </div>
             <div class="footer-col">
