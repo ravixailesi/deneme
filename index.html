@@ -21,6 +21,8 @@
             --discord: #5865F2;
             --whatsapp: #25D366;
             --instagram: #e1306c;
+            --tiktok: #ff0050;
+            --facebook: #1877f2;
         }
 
         * {
@@ -227,7 +229,7 @@
         .about-card h3 { font-family: 'Orbitron', sans-serif; font-size: 20px; color: #fff; margin-bottom: 15px; letter-spacing: 1px; }
         .about-card p { color: #aaa; font-size: 15px; line-height: 1.7; }
 
-        /* 2. OYUNCULARIMIZ (120 OYUNCU - TÜMÜ, SAVAŞÇI, NİNJA, SURA, ŞAMAN) */
+        /* 2. OYUNCULARIMIZ (40 OYUNCU - TÜMÜ, SAVAŞÇI, NİNJA, SURA, ŞAMAN) */
         .players-section { background: #0b0c10; }
 
         .filter-tabs {
@@ -404,17 +406,109 @@
         .video-container { max-width: 900px; margin: 0 auto; border-radius: 12px; overflow: hidden; border: 2px solid rgba(245, 176, 22, 0.3); box-shadow: 0 0 30px var(--theme-glow); aspect-ratio: 16 / 9; background: #111318; }
         .video-container iframe { width: 100%; height: 100%; border: none; }
 
-        /* 5. İLETİŞİM */
+        /* 5. İLETİŞİM (Redemption Ailesi style contact form) */
         .contact-section { background: #0d0e13; }
-        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; max-width: 1000px; margin: 0 auto; }
-        .contact-card { background: #12151c; border: 1px solid #20242e; border-radius: 12px; padding: 35px 20px; text-align: center; text-decoration: none; transition: 0.3s; display: flex; flex-direction: column; align-items: center; gap: 15px; }
-        .contact-card:hover { border-color: var(--theme-gold); transform: translateY(-5px); box-shadow: 0 10px 25px rgba(245, 176, 22, 0.2); }
-        .contact-card i { font-size: 42px; }
-        .contact-card.dc i { color: var(--discord); }
-        .contact-card.wa i { color: var(--whatsapp); }
-        .contact-card.ig i { color: var(--instagram); }
-        .contact-card h3 { font-family: 'Orbitron', sans-serif; font-size: 18px; color: #fff; letter-spacing: 1px; }
-        .contact-card span { color: #aaa; font-size: 14px; font-weight: 600; }
+        .contact-form-wrapper {
+            max-width: 950px;
+            margin: 0 auto;
+            background: #111317;
+            border: 1px solid rgba(245, 176, 22, 0.3);
+            box-shadow: 0 0 30px rgba(245, 176, 22, 0.15);
+            border-radius: 16px;
+            padding: 45px 40px;
+            position: relative;
+        }
+        .contact-form-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 50%; transform: translateX(-50%);
+            width: 250px; height: 3px;
+            background: var(--theme-gold);
+            box-shadow: 0 0 15px var(--theme-glow);
+        }
+        .contact-form-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--theme-gold);
+            text-align: center;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        .contact-form-desc {
+            color: #94a3b8;
+            text-align: center;
+            font-size: 15px;
+            margin-bottom: 35px;
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-bottom: 25px;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .form-group.full {
+            grid-column: span 2;
+        }
+        .form-label {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            color: #94a3b8;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .form-input, .form-textarea {
+            background: #161920;
+            border: 1px solid #252a36;
+            border-radius: 8px;
+            padding: 14px 18px;
+            color: #fff;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+        .form-input:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--theme-gold);
+            box-shadow: 0 0 12px rgba(245, 176, 22, 0.25);
+        }
+        .form-textarea {
+            resize: vertical;
+            min-height: 140px;
+        }
+        .submit-btn-area {
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+        }
+        .submit-btn {
+            background: transparent;
+            border: 1px solid var(--theme-gold);
+            color: var(--theme-gold);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 14px;
+            font-weight: 800;
+            padding: 14px 35px;
+            border-radius: 30px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+        }
+        .submit-btn:hover {
+            background: var(--theme-gold);
+            color: #000;
+            box-shadow: 0 0 20px var(--theme-glow);
+            transform: translateY(-3px);
+        }
 
         /* MODAL */
         .modal-overlay {
@@ -450,7 +544,92 @@
         .config-code-title { font-size: 11px; color: #888; font-weight: 700; text-transform: uppercase; margin-bottom: 6px; display: flex; justify-content: space-between; }
         .config-code-box { font-family: monospace; font-size: 11px; color: #f5b016; background: #12141a; padding: 8px; border-radius: 4px; overflow-x: auto; white-space: pre-wrap; word-break: break-all; }
 
-        footer { padding: 30px 5%; background: #070709; text-align: center; color: #666; font-size: 14px; border-top: 1px solid #18191f; }
+        /* FOOTER (Matched with Redemption style image) */
+        footer {
+            background: #070709;
+            border-top: 1px solid #18191f;
+            padding: 60px 8% 30px;
+            color: #94a3b8;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1.5fr 2fr;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto 50px;
+        }
+        .footer-col h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 18px;
+            color: var(--theme-gold);
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        .footer-col p {
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: #888;
+        }
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .footer-links li a {
+            color: #888;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .footer-links li a:hover {
+            color: var(--theme-gold);
+            transform: translateX(4px);
+        }
+        .footer-social-icons {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+        .f-icon-btn {
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            background: #111318;
+            border: 1px solid #22262e;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .f-icon-btn.dc:hover { background: var(--discord); border-color: var(--discord); box-shadow: 0 0 10px rgba(88,101,242,0.5); }
+        .f-icon-btn.wa:hover { background: var(--whatsapp); border-color: var(--whatsapp); box-shadow: 0 0 10px rgba(37,211,102,0.5); }
+        .f-icon-btn.ig:hover { background: var(--instagram); border-color: var(--instagram); box-shadow: 0 0 10px rgba(225,48,108,0.5); }
+        .f-icon-btn.tk:hover { background: var(--tiktok); border-color: var(--tiktok); box-shadow: 0 0 10px rgba(255,0,80,0.5); }
+        .f-icon-btn.fb:hover { background: var(--facebook); border-color: var(--facebook); box-shadow: 0 0 10px rgba(24,119,242,0.5); }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 25px;
+            border-top: 1px solid #14161c;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            color: #666;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .footer-bottom span a {
+            color: var(--theme-gold);
+            text-decoration: none;
+        }
 
         @media (max-width: 900px) {
             .menu-toggle { display: block; }
@@ -460,6 +639,9 @@
             }
             nav.active { display: flex; }
             .header-socials { display: none; }
+            .form-grid { grid-template-columns: 1fr; }
+            .form-group.full { grid-column: span 1; }
+            .footer-grid { grid-template-columns: 1fr; gap: 30px; }
         }
     </style>
 </head>
@@ -521,23 +703,23 @@
         </div>
     </section>
 
-    <!-- 2. OYUNCULARIMIZ (120 KİŞİLİK DEV KADRO - TÜMÜ, SAVAŞÇI, NİNJA, SURA, ŞAMAN) -->
+    <!-- 2. OYUNCULARIMIZ (40 KİŞİ - TÜMÜ, SAVAŞÇI, NİNJA, SURA, ŞAMAN 10'AR KİŞİ - SEKMELER AYRI) -->
     <section class="players-section" id="players">
         <div class="section-header">
-            <h2 class="main-section-title">OYUNCULARIMIZ (120 KİŞİLİK DEV KADRO)</h2>
-            <p class="section-desc">Her sınıftan 30'ar oyuncu olmak üzere toplam 120 kişilik elit kadromuz aşağıda sekmeler halinde listelenmiştir.</p>
+            <h2 class="main-section-title">OYUNCULARIMIZ</h2>
+            <p class="section-desc">Elit kadromuzun sınıf dağılımları ve tümü sekmesi aşağıda ayrı ayrı listelenmiştir.</p>
         </div>
 
         <!-- Sekmeler -->
         <div class="filter-tabs">
-            <button class="tab-btn active" onclick="switchTab('allTab')">Tümü (120)</button>
-            <button class="tab-btn" onclick="switchTab('savasciTab')">Savaşçı (30)</button>
-            <button class="tab-btn" onclick="switchTab('ninjaTab')">Ninja (30)</button>
-            <button class="tab-btn" onclick="switchTab('suraTab')">Sura (30)</button>
-            <button class="tab-btn" onclick="switchTab('samanTab')">Şaman (30)</button>
+            <button class="tab-btn active" onclick="switchTab('allTab', event)">Tümü (40)</button>
+            <button class="tab-btn" onclick="switchTab('savasciTab', event)">Savaşçı (10)</button>
+            <button class="tab-btn" onclick="switchTab('ninjaTab', event)">Ninja (10)</button>
+            <button class="tab-btn" onclick="switchTab('suraTab', event)">Sura (10)</button>
+            <button class="tab-btn" onclick="switchTab('samanTab', event)">Şaman (10)</button>
         </div>
 
-        <!-- 1. TÜMÜ SEKMESİ (120 OYUNCU) -->
+        <!-- 1. TÜMÜ SEKMESİ (40 OYUNCU) -->
         <div id="allTab" class="tab-content active">
             <div style="text-align: center;"><h3 class="sub-group-title">Tüm Lonca Kadrosu</h3></div>
             <div class="player-grid">
@@ -612,146 +794,6 @@
                     <div class="p-avatar"><img src="umut.jpg" alt="Barbar" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Barbar&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
                     <div class="p-name">Barbar</div><div class="p-tag">SAVAŞÇI</div>
                 </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Warrior_11', realName:'Oyuncu_11', role:'Lonca Üyesi', img:'savasci_11.jpg', sinif:'Savaşçı', cinsiyet:'Kadın', beceri:'Zihinsel', krallik:'Jinno', discord:'warrior11#0000', codeId:'savasci_11'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_11</div>
-                    <div class="p-avatar"><img src="savasci_11.jpg" alt="Warrior_11" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Warrior_11&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Warrior_11</div><div class="p-tag">SAVAŞÇI</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Warrior_12', realName:'Oyuncu_12', role:'Lonca Üyesi', img:'savasci_12.jpg', sinif:'Savaşçı', cinsiyet:'Erkek', beceri:'Bedensel', krallik:'Jinno', discord:'warrior12#0000', codeId:'savasci_12'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_12</div>
-                    <div class="p-avatar"><img src="savasci_12.jpg" alt="Warrior_12" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Warrior_12&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Warrior_12</div><div class="p-tag">SAVAŞÇI</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Warrior_13', realName:'Oyuncu_13', role:'Lonca Üyesi', img:'savasci_13.jpg', sinif:'Savaşçı', cinsiyet:'Kadın', beceri:'Zihinsel', krallik:'Jinno', discord:'warrior13#0000', codeId:'savasci_13'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_13</div>
-                    <div class="p-avatar"><img src="savasci_13.jpg" alt="Warrior_13" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Warrior_13&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Warrior_13</div><div class="p-tag">SAVAŞÇI</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Warrior_14', realName:'Oyuncu_14', role:'Lonca Üyesi', img:'savasci_14.jpg', sinif:'Savaşçı', cinsiyet:'Erkek', beceri:'Bedensel', krallik:'Jinno', discord:'warrior14#0000', codeId:'savasci_14'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_14</div>
-                    <div class="p-avatar"><img src="savasci_14.jpg" alt="Warrior_14" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Warrior_14&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Warrior_14</div><div class="p-tag">SAVAŞÇI</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Warrior_15', realName:'Oyuncu_15', role:'Lonca Üyesi', img:'savasci_15.jpg', sinif:'Savaşçı', cinsiyet:'Kadın', beceri:'Zihinsel', krallik:'Jinno', discord:'warrior15#0000', codeId:'savasci_15'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_15</div>
-                    <div class="p-avatar"><img src="savasci_15.jpg" alt="Warrior_15" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Warrior_15&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Warrior_15</div><div class="p-tag">SAVAŞÇI</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Warrior_16', realName:'Oyuncu_16', role:'Lonca Üyesi', img:'savasci_16.jpg', sinif:'Savaşçı', cinsiyet:'Erkek', beceri:'Bedensel', krallik:'Jinno', discord:'warrior16#0000', codeId:'savasci_16'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_16</div>
-                    <div class="p-avatar"><img src="savasci_16.jpg" alt="Warrior_16" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Warrior_16&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Warrior_16</div><div class="p-tag">SAVAŞÇI</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Warrior_17', realName:'Oyuncu_17', role:'Lonca Üyesi', img:'savasci_17.jpg', sinif:'Savaşçı', cinsiyet:'Kadın', beceri:'Zihinsel', krallik:'Jinno', discord:'warrior17#0000', codeId:'savasci_17'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_17</div>
-                    <div class="p-avatar"><img src="savasci_17.jpg" alt="Warrior_17" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Warrior_17&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Warrior_17</div><div class="p-tag">SAVAŞÇI</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Warrior_18', realName:'Oyuncu_18', role:'Lonca Üyesi', img:'savasci_18.jpg', sinif:'Savaşçı', cinsiyet:'Erkek', beceri:'Bedensel', krallik:'Jinno', discord:'warrior18#0000', codeId:'savasci_18'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_18</div>
-                    <div class="p-avatar"><img src="savasci_18.jpg" alt="Warrior_18" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Warrior_18&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Warrior_18</div><div class="p-tag">SAVAŞÇI</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Warrior_19', realName:'Oyuncu_19', role:'Lonca Üyesi', img:'savasci_19.jpg', sinif:'Savaşçı', cinsiyet:'Kadın', beceri:'Zihinsel', krallik:'Jinno', discord:'warrior19#0000', codeId:'savasci_19'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_19</div>
-                    <div class="p-avatar"><img src="savasci_19.jpg" alt="Warrior_19" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Warrior_19&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Warrior_19</div><div class="p-tag">SAVAŞÇI</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Warrior_20', realName:'Oyuncu_20', role:'Lonca Üyesi', img:'savasci_20.jpg', sinif:'Savaşçı', cinsiyet:'Erkek', beceri:'Bedensel', krallik:'Jinno', discord:'warrior20#0000', codeId:'savasci_20'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_20</div>
-                    <div class="p-avatar"><img src="savasci_20.jpg" alt="Warrior_20" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Warrior_20&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Warrior_20</div><div class="p-tag">SAVAŞÇI</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Warrior_21', realName:'Oyuncu_21', role:'Lonca Üyesi', img:'savasci_21.jpg', sinif:'Savaşçı', cinsiyet:'Kadın', beceri:'Zihinsel', krallik:'Jinno', discord:'warrior21#0000', codeId:'savasci_21'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_21</div>
-                    <div class="p-avatar"><img src="savasci_21.jpg" alt="Warrior_21" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Warrior_21&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Warrior_21</div><div class="p-tag">SAVAŞÇI</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Warrior_22', realName:'Oyuncu_22', role:'Lonca Üyesi', img:'savasci_22.jpg', sinif:'Savaşçı', cinsiyet:'Erkek', beceri:'Bedensel', krallik:'Jinno', discord:'warrior22#0000', codeId:'savasci_22'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_22</div>
-                    <div class="p-avatar"><img src="savasci_22.jpg" alt="Warrior_22" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Warrior_22&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Warrior_22</div><div class="p-tag">SAVAŞÇI</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Warrior_23', realName:'Oyuncu_23', role:'Lonca Üyesi', img:'savasci_23.jpg', sinif:'Savaşçı', cinsiyet:'Kadın', beceri:'Zihinsel', krallik:'Jinno', discord:'warrior23#0000', codeId:'savasci_23'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_23</div>
-                    <div class="p-avatar"><img src="savasci_23.jpg" alt="Warrior_23" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Warrior_23&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Warrior_23</div><div class="p-tag">SAVAŞÇI</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Warrior_24', realName:'Oyuncu_24', role:'Lonca Üyesi', img:'savasci_24.jpg', sinif:'Savaşçı', cinsiyet:'Erkek', beceri:'Bedensel', krallik:'Jinno', discord:'warrior24#0000', codeId:'savasci_24'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_24</div>
-                    <div class="p-avatar"><img src="savasci_24.jpg" alt="Warrior_24" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Warrior_24&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Warrior_24</div><div class="p-tag">SAVAŞÇI</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Warrior_25', realName:'Oyuncu_25', role:'Lonca Üyesi', img:'savasci_25.jpg', sinif:'Savaşçı', cinsiyet:'Kadın', beceri:'Zihinsel', krallik:'Jinno', discord:'warrior25#0000', codeId:'savasci_25'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_25</div>
-                    <div class="p-avatar"><img src="savasci_25.jpg" alt="Warrior_25" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Warrior_25&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Warrior_25</div><div class="p-tag">SAVAŞÇI</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Warrior_26', realName:'Oyuncu_26', role:'Lonca Üyesi', img:'savasci_26.jpg', sinif:'Savaşçı', cinsiyet:'Erkek', beceri:'Bedensel', krallik:'Jinno', discord:'warrior26#0000', codeId:'savasci_26'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_26</div>
-                    <div class="p-avatar"><img src="savasci_26.jpg" alt="Warrior_26" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Warrior_26&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Warrior_26</div><div class="p-tag">SAVAŞÇI</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Warrior_27', realName:'Oyuncu_27', role:'Lonca Üyesi', img:'savasci_27.jpg', sinif:'Savaşçı', cinsiyet:'Kadın', beceri:'Zihinsel', krallik:'Jinno', discord:'warrior27#0000', codeId:'savasci_27'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_27</div>
-                    <div class="p-avatar"><img src="savasci_27.jpg" alt="Warrior_27" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Warrior_27&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Warrior_27</div><div class="p-tag">SAVAŞÇI</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Warrior_28', realName:'Oyuncu_28', role:'Lonca Üyesi', img:'savasci_28.jpg', sinif:'Savaşçı', cinsiyet:'Erkek', beceri:'Bedensel', krallik:'Jinno', discord:'warrior28#0000', codeId:'savasci_28'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_28</div>
-                    <div class="p-avatar"><img src="savasci_28.jpg" alt="Warrior_28" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Warrior_28&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Warrior_28</div><div class="p-tag">SAVAŞÇI</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Warrior_29', realName:'Oyuncu_29', role:'Lonca Üyesi', img:'savasci_29.jpg', sinif:'Savaşçı', cinsiyet:'Kadın', beceri:'Zihinsel', krallik:'Jinno', discord:'warrior29#0000', codeId:'savasci_29'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_29</div>
-                    <div class="p-avatar"><img src="savasci_29.jpg" alt="Warrior_29" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Warrior_29&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Warrior_29</div><div class="p-tag">SAVAŞÇI</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Warrior_30', realName:'Oyuncu_30', role:'Lonca Üyesi', img:'savasci_30.jpg', sinif:'Savaşçı', cinsiyet:'Erkek', beceri:'Bedensel', krallik:'Jinno', discord:'warrior30#0000', codeId:'savasci_30'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_30</div>
-                    <div class="p-avatar"><img src="savasci_30.jpg" alt="Warrior_30" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Warrior_30&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Warrior_30</div><div class="p-tag">SAVAŞÇI</div>
-                </div>
                 <div class="p-card" onclick="openPlayerModal({name:'JesseP', realName:'Mert', role:'Lonca Sorumlusu', img:'mert.jpg', sinif:'Ninja', cinsiyet:'Erkek', beceri:'Yakın Dövüşçü', krallik:'Jinno', discord:'impos1ng', codeId:'mert_config_05'})">
                     
                     <div class="role-badge">Lonca Sorumlusu</div>
@@ -822,146 +864,6 @@
                     <div class="p-avatar"><img src="kadir.jpg" alt="Assassin" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Assassin&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
                     <div class="p-name">Assassin</div><div class="p-tag">NINJA</div>
                 </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Ninja_11', realName:'Oyuncu_11', role:'Lonca Üyesi', img:'ninja_11.jpg', sinif:'Ninja', cinsiyet:'Kadın', beceri:'Okçuluk', krallik:'Jinno', discord:'ninja11#0000', codeId:'ninja_11'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_11</div>
-                    <div class="p-avatar"><img src="ninja_11.jpg" alt="Ninja_11" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Ninja_11&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Ninja_11</div><div class="p-tag">NINJA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Ninja_12', realName:'Oyuncu_12', role:'Lonca Üyesi', img:'ninja_12.jpg', sinif:'Ninja', cinsiyet:'Erkek', beceri:'Bıçakçı', krallik:'Jinno', discord:'ninja12#0000', codeId:'ninja_12'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_12</div>
-                    <div class="p-avatar"><img src="ninja_12.jpg" alt="Ninja_12" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Ninja_12&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Ninja_12</div><div class="p-tag">NINJA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Ninja_13', realName:'Oyuncu_13', role:'Lonca Üyesi', img:'ninja_13.jpg', sinif:'Ninja', cinsiyet:'Kadın', beceri:'Okçuluk', krallik:'Jinno', discord:'ninja13#0000', codeId:'ninja_13'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_13</div>
-                    <div class="p-avatar"><img src="ninja_13.jpg" alt="Ninja_13" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Ninja_13&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Ninja_13</div><div class="p-tag">NINJA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Ninja_14', realName:'Oyuncu_14', role:'Lonca Üyesi', img:'ninja_14.jpg', sinif:'Ninja', cinsiyet:'Erkek', beceri:'Bıçakçı', krallik:'Jinno', discord:'ninja14#0000', codeId:'ninja_14'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_14</div>
-                    <div class="p-avatar"><img src="ninja_14.jpg" alt="Ninja_14" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Ninja_14&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Ninja_14</div><div class="p-tag">NINJA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Ninja_15', realName:'Oyuncu_15', role:'Lonca Üyesi', img:'ninja_15.jpg', sinif:'Ninja', cinsiyet:'Kadın', beceri:'Okçuluk', krallik:'Jinno', discord:'ninja15#0000', codeId:'ninja_15'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_15</div>
-                    <div class="p-avatar"><img src="ninja_15.jpg" alt="Ninja_15" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Ninja_15&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Ninja_15</div><div class="p-tag">NINJA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Ninja_16', realName:'Oyuncu_16', role:'Lonca Üyesi', img:'ninja_16.jpg', sinif:'Ninja', cinsiyet:'Erkek', beceri:'Bıçakçı', krallik:'Jinno', discord:'ninja16#0000', codeId:'ninja_16'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_16</div>
-                    <div class="p-avatar"><img src="ninja_16.jpg" alt="Ninja_16" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Ninja_16&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Ninja_16</div><div class="p-tag">NINJA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Ninja_17', realName:'Oyuncu_17', role:'Lonca Üyesi', img:'ninja_17.jpg', sinif:'Ninja', cinsiyet:'Kadın', beceri:'Okçuluk', krallik:'Jinno', discord:'ninja17#0000', codeId:'ninja_17'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_17</div>
-                    <div class="p-avatar"><img src="ninja_17.jpg" alt="Ninja_17" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Ninja_17&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Ninja_17</div><div class="p-tag">NINJA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Ninja_18', realName:'Oyuncu_18', role:'Lonca Üyesi', img:'ninja_18.jpg', sinif:'Ninja', cinsiyet:'Erkek', beceri:'Bıçakçı', krallik:'Jinno', discord:'ninja18#0000', codeId:'ninja_18'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_18</div>
-                    <div class="p-avatar"><img src="ninja_18.jpg" alt="Ninja_18" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Ninja_18&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Ninja_18</div><div class="p-tag">NINJA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Ninja_19', realName:'Oyuncu_19', role:'Lonca Üyesi', img:'ninja_19.jpg', sinif:'Ninja', cinsiyet:'Kadın', beceri:'Okçuluk', krallik:'Jinno', discord:'ninja19#0000', codeId:'ninja_19'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_19</div>
-                    <div class="p-avatar"><img src="ninja_19.jpg" alt="Ninja_19" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Ninja_19&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Ninja_19</div><div class="p-tag">NINJA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Ninja_20', realName:'Oyuncu_20', role:'Lonca Üyesi', img:'ninja_20.jpg', sinif:'Ninja', cinsiyet:'Erkek', beceri:'Bıçakçı', krallik:'Jinno', discord:'ninja20#0000', codeId:'ninja_20'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_20</div>
-                    <div class="p-avatar"><img src="ninja_20.jpg" alt="Ninja_20" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Ninja_20&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Ninja_20</div><div class="p-tag">NINJA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Ninja_21', realName:'Oyuncu_21', role:'Lonca Üyesi', img:'ninja_21.jpg', sinif:'Ninja', cinsiyet:'Kadın', beceri:'Okçuluk', krallik:'Jinno', discord:'ninja21#0000', codeId:'ninja_21'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_21</div>
-                    <div class="p-avatar"><img src="ninja_21.jpg" alt="Ninja_21" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Ninja_21&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Ninja_21</div><div class="p-tag">NINJA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Ninja_22', realName:'Oyuncu_22', role:'Lonca Üyesi', img:'ninja_22.jpg', sinif:'Ninja', cinsiyet:'Erkek', beceri:'Bıçakçı', krallik:'Jinno', discord:'ninja22#0000', codeId:'ninja_22'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_22</div>
-                    <div class="p-avatar"><img src="ninja_22.jpg" alt="Ninja_22" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Ninja_22&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Ninja_22</div><div class="p-tag">NINJA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Ninja_23', realName:'Oyuncu_23', role:'Lonca Üyesi', img:'ninja_23.jpg', sinif:'Ninja', cinsiyet:'Kadın', beceri:'Okçuluk', krallik:'Jinno', discord:'ninja23#0000', codeId:'ninja_23'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_23</div>
-                    <div class="p-avatar"><img src="ninja_23.jpg" alt="Ninja_23" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Ninja_23&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Ninja_23</div><div class="p-tag">NINJA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Ninja_24', realName:'Oyuncu_24', role:'Lonca Üyesi', img:'ninja_24.jpg', sinif:'Ninja', cinsiyet:'Erkek', beceri:'Bıçakçı', krallik:'Jinno', discord:'ninja24#0000', codeId:'ninja_24'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_24</div>
-                    <div class="p-avatar"><img src="ninja_24.jpg" alt="Ninja_24" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Ninja_24&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Ninja_24</div><div class="p-tag">NINJA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Ninja_25', realName:'Oyuncu_25', role:'Lonca Üyesi', img:'ninja_25.jpg', sinif:'Ninja', cinsiyet:'Kadın', beceri:'Okçuluk', krallik:'Jinno', discord:'ninja25#0000', codeId:'ninja_25'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_25</div>
-                    <div class="p-avatar"><img src="ninja_25.jpg" alt="Ninja_25" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Ninja_25&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Ninja_25</div><div class="p-tag">NINJA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Ninja_26', realName:'Oyuncu_26', role:'Lonca Üyesi', img:'ninja_26.jpg', sinif:'Ninja', cinsiyet:'Erkek', beceri:'Bıçakçı', krallik:'Jinno', discord:'ninja26#0000', codeId:'ninja_26'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_26</div>
-                    <div class="p-avatar"><img src="ninja_26.jpg" alt="Ninja_26" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Ninja_26&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Ninja_26</div><div class="p-tag">NINJA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Ninja_27', realName:'Oyuncu_27', role:'Lonca Üyesi', img:'ninja_27.jpg', sinif:'Ninja', cinsiyet:'Kadın', beceri:'Okçuluk', krallik:'Jinno', discord:'ninja27#0000', codeId:'ninja_27'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_27</div>
-                    <div class="p-avatar"><img src="ninja_27.jpg" alt="Ninja_27" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Ninja_27&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Ninja_27</div><div class="p-tag">NINJA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Ninja_28', realName:'Oyuncu_28', role:'Lonca Üyesi', img:'ninja_28.jpg', sinif:'Ninja', cinsiyet:'Erkek', beceri:'Bıçakçı', krallik:'Jinno', discord:'ninja28#0000', codeId:'ninja_28'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_28</div>
-                    <div class="p-avatar"><img src="ninja_28.jpg" alt="Ninja_28" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Ninja_28&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Ninja_28</div><div class="p-tag">NINJA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Ninja_29', realName:'Oyuncu_29', role:'Lonca Üyesi', img:'ninja_29.jpg', sinif:'Ninja', cinsiyet:'Kadın', beceri:'Okçuluk', krallik:'Jinno', discord:'ninja29#0000', codeId:'ninja_29'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_29</div>
-                    <div class="p-avatar"><img src="ninja_29.jpg" alt="Ninja_29" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Ninja_29&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Ninja_29</div><div class="p-tag">NINJA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Ninja_30', realName:'Oyuncu_30', role:'Lonca Üyesi', img:'ninja_30.jpg', sinif:'Ninja', cinsiyet:'Erkek', beceri:'Bıçakçı', krallik:'Jinno', discord:'ninja30#0000', codeId:'ninja_30'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_30</div>
-                    <div class="p-avatar"><img src="ninja_30.jpg" alt="Ninja_30" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Ninja_30&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Ninja_30</div><div class="p-tag">NINJA</div>
-                </div>
                 <div class="p-card" onclick="openPlayerModal({name:'Bonjour', realName:'Cafer', role:'Lonca Sorumlusu', img:'cafer.jpg', sinif:'Sura', cinsiyet:'Erkek', beceri:'Karabüyü', krallik:'Jinno', discord:'ifredcafer24', codeId:'cafer_config_06'})">
                     
                     <div class="role-badge">Lonca Sorumlusu</div>
@@ -1031,146 +933,6 @@
                     <div class="real-name-tag">Sinan</div>
                     <div class="p-avatar"><img src="sinan.jpg" alt="Eclipse" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Eclipse&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
                     <div class="p-name">Eclipse</div><div class="p-tag">SURA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Sura_11', realName:'Oyuncu_11', role:'Lonca Üyesi', img:'sura_11.jpg', sinif:'Sura', cinsiyet:'Kadın', beceri:'Büyülü Silah', krallik:'Jinno', discord:'sura11#0000', codeId:'sura_11'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_11</div>
-                    <div class="p-avatar"><img src="sura_11.jpg" alt="Sura_11" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Sura_11&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Sura_11</div><div class="p-tag">SURA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Sura_12', realName:'Oyuncu_12', role:'Lonca Üyesi', img:'sura_12.jpg', sinif:'Sura', cinsiyet:'Erkek', beceri:'Karabüyü', krallik:'Jinno', discord:'sura12#0000', codeId:'sura_12'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_12</div>
-                    <div class="p-avatar"><img src="sura_12.jpg" alt="Sura_12" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Sura_12&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Sura_12</div><div class="p-tag">SURA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Sura_13', realName:'Oyuncu_13', role:'Lonca Üyesi', img:'sura_13.jpg', sinif:'Sura', cinsiyet:'Kadın', beceri:'Büyülü Silah', krallik:'Jinno', discord:'sura13#0000', codeId:'sura_13'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_13</div>
-                    <div class="p-avatar"><img src="sura_13.jpg" alt="Sura_13" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Sura_13&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Sura_13</div><div class="p-tag">SURA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Sura_14', realName:'Oyuncu_14', role:'Lonca Üyesi', img:'sura_14.jpg', sinif:'Sura', cinsiyet:'Erkek', beceri:'Karabüyü', krallik:'Jinno', discord:'sura14#0000', codeId:'sura_14'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_14</div>
-                    <div class="p-avatar"><img src="sura_14.jpg" alt="Sura_14" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Sura_14&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Sura_14</div><div class="p-tag">SURA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Sura_15', realName:'Oyuncu_15', role:'Lonca Üyesi', img:'sura_15.jpg', sinif:'Sura', cinsiyet:'Kadın', beceri:'Büyülü Silah', krallik:'Jinno', discord:'sura15#0000', codeId:'sura_15'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_15</div>
-                    <div class="p-avatar"><img src="sura_15.jpg" alt="Sura_15" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Sura_15&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Sura_15</div><div class="p-tag">SURA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Sura_16', realName:'Oyuncu_16', role:'Lonca Üyesi', img:'sura_16.jpg', sinif:'Sura', cinsiyet:'Erkek', beceri:'Karabüyü', krallik:'Jinno', discord:'sura16#0000', codeId:'sura_16'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_16</div>
-                    <div class="p-avatar"><img src="sura_16.jpg" alt="Sura_16" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Sura_16&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Sura_16</div><div class="p-tag">SURA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Sura_17', realName:'Oyuncu_17', role:'Lonca Üyesi', img:'sura_17.jpg', sinif:'Sura', cinsiyet:'Kadın', beceri:'Büyülü Silah', krallik:'Jinno', discord:'sura17#0000', codeId:'sura_17'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_17</div>
-                    <div class="p-avatar"><img src="sura_17.jpg" alt="Sura_17" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Sura_17&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Sura_17</div><div class="p-tag">SURA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Sura_18', realName:'Oyuncu_18', role:'Lonca Üyesi', img:'sura_18.jpg', sinif:'Sura', cinsiyet:'Erkek', beceri:'Karabüyü', krallik:'Jinno', discord:'sura18#0000', codeId:'sura_18'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_18</div>
-                    <div class="p-avatar"><img src="sura_18.jpg" alt="Sura_18" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Sura_18&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Sura_18</div><div class="p-tag">SURA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Sura_19', realName:'Oyuncu_19', role:'Lonca Üyesi', img:'sura_19.jpg', sinif:'Sura', cinsiyet:'Kadın', beceri:'Büyülü Silah', krallik:'Jinno', discord:'sura19#0000', codeId:'sura_19'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_19</div>
-                    <div class="p-avatar"><img src="sura_19.jpg" alt="Sura_19" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Sura_19&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Sura_19</div><div class="p-tag">SURA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Sura_20', realName:'Oyuncu_20', role:'Lonca Üyesi', img:'sura_20.jpg', sinif:'Sura', cinsiyet:'Erkek', beceri:'Karabüyü', krallik:'Jinno', discord:'sura20#0000', codeId:'sura_20'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_20</div>
-                    <div class="p-avatar"><img src="sura_20.jpg" alt="Sura_20" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Sura_20&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Sura_20</div><div class="p-tag">SURA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Sura_21', realName:'Oyuncu_21', role:'Lonca Üyesi', img:'sura_21.jpg', sinif:'Sura', cinsiyet:'Kadın', beceri:'Büyülü Silah', krallik:'Jinno', discord:'sura21#0000', codeId:'sura_21'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_21</div>
-                    <div class="p-avatar"><img src="sura_21.jpg" alt="Sura_21" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Sura_21&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Sura_21</div><div class="p-tag">SURA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Sura_22', realName:'Oyuncu_22', role:'Lonca Üyesi', img:'sura_22.jpg', sinif:'Sura', cinsiyet:'Erkek', beceri:'Karabüyü', krallik:'Jinno', discord:'sura22#0000', codeId:'sura_22'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_22</div>
-                    <div class="p-avatar"><img src="sura_22.jpg" alt="Sura_22" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Sura_22&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Sura_22</div><div class="p-tag">SURA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Sura_23', realName:'Oyuncu_23', role:'Lonca Üyesi', img:'sura_23.jpg', sinif:'Sura', cinsiyet:'Kadın', beceri:'Büyülü Silah', krallik:'Jinno', discord:'sura23#0000', codeId:'sura_23'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_23</div>
-                    <div class="p-avatar"><img src="sura_23.jpg" alt="Sura_23" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Sura_23&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Sura_23</div><div class="p-tag">SURA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Sura_24', realName:'Oyuncu_24', role:'Lonca Üyesi', img:'sura_24.jpg', sinif:'Sura', cinsiyet:'Erkek', beceri:'Karabüyü', krallik:'Jinno', discord:'sura24#0000', codeId:'sura_24'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_24</div>
-                    <div class="p-avatar"><img src="sura_24.jpg" alt="Sura_24" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Sura_24&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Sura_24</div><div class="p-tag">SURA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Sura_25', realName:'Oyuncu_25', role:'Lonca Üyesi', img:'sura_25.jpg', sinif:'Sura', cinsiyet:'Kadın', beceri:'Büyülü Silah', krallik:'Jinno', discord:'sura25#0000', codeId:'sura_25'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_25</div>
-                    <div class="p-avatar"><img src="sura_25.jpg" alt="Sura_25" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Sura_25&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Sura_25</div><div class="p-tag">SURA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Sura_26', realName:'Oyuncu_26', role:'Lonca Üyesi', img:'sura_26.jpg', sinif:'Sura', cinsiyet:'Erkek', beceri:'Karabüyü', krallik:'Jinno', discord:'sura26#0000', codeId:'sura_26'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_26</div>
-                    <div class="p-avatar"><img src="sura_26.jpg" alt="Sura_26" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Sura_26&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Sura_26</div><div class="p-tag">SURA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Sura_27', realName:'Oyuncu_27', role:'Lonca Üyesi', img:'sura_27.jpg', sinif:'Sura', cinsiyet:'Kadın', beceri:'Büyülü Silah', krallik:'Jinno', discord:'sura27#0000', codeId:'sura_27'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_27</div>
-                    <div class="p-avatar"><img src="sura_27.jpg" alt="Sura_27" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Sura_27&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Sura_27</div><div class="p-tag">SURA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Sura_28', realName:'Oyuncu_28', role:'Lonca Üyesi', img:'sura_28.jpg', sinif:'Sura', cinsiyet:'Erkek', beceri:'Karabüyü', krallik:'Jinno', discord:'sura28#0000', codeId:'sura_28'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_28</div>
-                    <div class="p-avatar"><img src="sura_28.jpg" alt="Sura_28" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Sura_28&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Sura_28</div><div class="p-tag">SURA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Sura_29', realName:'Oyuncu_29', role:'Lonca Üyesi', img:'sura_29.jpg', sinif:'Sura', cinsiyet:'Kadın', beceri:'Büyülü Silah', krallik:'Jinno', discord:'sura29#0000', codeId:'sura_29'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_29</div>
-                    <div class="p-avatar"><img src="sura_29.jpg" alt="Sura_29" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Sura_29&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Sura_29</div><div class="p-tag">SURA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Sura_30', realName:'Oyuncu_30', role:'Lonca Üyesi', img:'sura_30.jpg', sinif:'Sura', cinsiyet:'Erkek', beceri:'Karabüyü', krallik:'Jinno', discord:'sura30#0000', codeId:'sura_30'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_30</div>
-                    <div class="p-avatar"><img src="sura_30.jpg" alt="Sura_30" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Sura_30&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Sura_30</div><div class="p-tag">SURA</div>
                 </div>
                 <div class="p-card" onclick="openPlayerModal({name:'Bosver', realName:'Bayram', role:'Lonca Lideri', img:'bayram.jpg', sinif:'Şaman', cinsiyet:'Erkek', beceri:'Ejderha Yardımı', krallik:'Jinno', discord:'b.baran1', codeId:'bayram_config_01'})">
                     <div class="leader-ribbon"><i class="fa-solid fa-crown"></i> LİDER</div>
@@ -1242,152 +1004,12 @@
                     <div class="p-avatar"><img src="busra.jpg" alt="Oracle" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Oracle&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
                     <div class="p-name">Oracle</div><div class="p-tag">ŞAMAN</div>
                 </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Saman_11', realName:'Oyuncu_11', role:'Lonca Üyesi', img:'saman_11.jpg', sinif:'Şaman', cinsiyet:'Erkek', beceri:'İyileştirme', krallik:'Jinno', discord:'saman11#0000', codeId:'saman_11'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_11</div>
-                    <div class="p-avatar"><img src="saman_11.jpg" alt="Saman_11" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Saman_11&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Saman_11</div><div class="p-tag">ŞAMAN</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Saman_12', realName:'Oyuncu_12', role:'Lonca Üyesi', img:'saman_12.jpg', sinif:'Şaman', cinsiyet:'Kadın', beceri:'Ejderha Yardımı', krallik:'Jinno', discord:'saman12#0000', codeId:'saman_12'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_12</div>
-                    <div class="p-avatar"><img src="saman_12.jpg" alt="Saman_12" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Saman_12&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Saman_12</div><div class="p-tag">ŞAMAN</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Saman_13', realName:'Oyuncu_13', role:'Lonca Üyesi', img:'saman_13.jpg', sinif:'Şaman', cinsiyet:'Erkek', beceri:'İyileştirme', krallik:'Jinno', discord:'saman13#0000', codeId:'saman_13'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_13</div>
-                    <div class="p-avatar"><img src="saman_13.jpg" alt="Saman_13" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Saman_13&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Saman_13</div><div class="p-tag">ŞAMAN</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Saman_14', realName:'Oyuncu_14', role:'Lonca Üyesi', img:'saman_14.jpg', sinif:'Şaman', cinsiyet:'Kadın', beceri:'Ejderha Yardımı', krallik:'Jinno', discord:'saman14#0000', codeId:'saman_14'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_14</div>
-                    <div class="p-avatar"><img src="saman_14.jpg" alt="Saman_14" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Saman_14&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Saman_14</div><div class="p-tag">ŞAMAN</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Saman_15', realName:'Oyuncu_15', role:'Lonca Üyesi', img:'saman_15.jpg', sinif:'Şaman', cinsiyet:'Erkek', beceri:'İyileştirme', krallik:'Jinno', discord:'saman15#0000', codeId:'saman_15'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_15</div>
-                    <div class="p-avatar"><img src="saman_15.jpg" alt="Saman_15" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Saman_15&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Saman_15</div><div class="p-tag">ŞAMAN</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Saman_16', realName:'Oyuncu_16', role:'Lonca Üyesi', img:'saman_16.jpg', sinif:'Şaman', cinsiyet:'Kadın', beceri:'Ejderha Yardımı', krallik:'Jinno', discord:'saman16#0000', codeId:'saman_16'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_16</div>
-                    <div class="p-avatar"><img src="saman_16.jpg" alt="Saman_16" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Saman_16&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Saman_16</div><div class="p-tag">ŞAMAN</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Saman_17', realName:'Oyuncu_17', role:'Lonca Üyesi', img:'saman_17.jpg', sinif:'Şaman', cinsiyet:'Erkek', beceri:'İyileştirme', krallik:'Jinno', discord:'saman17#0000', codeId:'saman_17'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_17</div>
-                    <div class="p-avatar"><img src="saman_17.jpg" alt="Saman_17" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Saman_17&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Saman_17</div><div class="p-tag">ŞAMAN</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Saman_18', realName:'Oyuncu_18', role:'Lonca Üyesi', img:'saman_18.jpg', sinif:'Şaman', cinsiyet:'Kadın', beceri:'Ejderha Yardımı', krallik:'Jinno', discord:'saman18#0000', codeId:'saman_18'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_18</div>
-                    <div class="p-avatar"><img src="saman_18.jpg" alt="Saman_18" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Saman_18&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Saman_18</div><div class="p-tag">ŞAMAN</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Saman_19', realName:'Oyuncu_19', role:'Lonca Üyesi', img:'saman_19.jpg', sinif:'Şaman', cinsiyet:'Erkek', beceri:'İyileştirme', krallik:'Jinno', discord:'saman19#0000', codeId:'saman_19'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_19</div>
-                    <div class="p-avatar"><img src="saman_19.jpg" alt="Saman_19" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Saman_19&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Saman_19</div><div class="p-tag">ŞAMAN</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Saman_20', realName:'Oyuncu_20', role:'Lonca Üyesi', img:'saman_20.jpg', sinif:'Şaman', cinsiyet:'Kadın', beceri:'Ejderha Yardımı', krallik:'Jinno', discord:'saman20#0000', codeId:'saman_20'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_20</div>
-                    <div class="p-avatar"><img src="saman_20.jpg" alt="Saman_20" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Saman_20&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Saman_20</div><div class="p-tag">ŞAMAN</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Saman_21', realName:'Oyuncu_21', role:'Lonca Üyesi', img:'saman_21.jpg', sinif:'Şaman', cinsiyet:'Erkek', beceri:'İyileştirme', krallik:'Jinno', discord:'saman21#0000', codeId:'saman_21'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_21</div>
-                    <div class="p-avatar"><img src="saman_21.jpg" alt="Saman_21" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Saman_21&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Saman_21</div><div class="p-tag">ŞAMAN</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Saman_22', realName:'Oyuncu_22', role:'Lonca Üyesi', img:'saman_22.jpg', sinif:'Şaman', cinsiyet:'Kadın', beceri:'Ejderha Yardımı', krallik:'Jinno', discord:'saman22#0000', codeId:'saman_22'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_22</div>
-                    <div class="p-avatar"><img src="saman_22.jpg" alt="Saman_22" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Saman_22&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Saman_22</div><div class="p-tag">ŞAMAN</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Saman_23', realName:'Oyuncu_23', role:'Lonca Üyesi', img:'saman_23.jpg', sinif:'Şaman', cinsiyet:'Erkek', beceri:'İyileştirme', krallik:'Jinno', discord:'saman23#0000', codeId:'saman_23'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_23</div>
-                    <div class="p-avatar"><img src="saman_23.jpg" alt="Saman_23" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Saman_23&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Saman_23</div><div class="p-tag">ŞAMAN</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Saman_24', realName:'Oyuncu_24', role:'Lonca Üyesi', img:'saman_24.jpg', sinif:'Şaman', cinsiyet:'Kadın', beceri:'Ejderha Yardımı', krallik:'Jinno', discord:'saman24#0000', codeId:'saman_24'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_24</div>
-                    <div class="p-avatar"><img src="saman_24.jpg" alt="Saman_24" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Saman_24&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Saman_24</div><div class="p-tag">ŞAMAN</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Saman_25', realName:'Oyuncu_25', role:'Lonca Üyesi', img:'saman_25.jpg', sinif:'Şaman', cinsiyet:'Erkek', beceri:'İyileştirme', krallik:'Jinno', discord:'saman25#0000', codeId:'saman_25'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_25</div>
-                    <div class="p-avatar"><img src="saman_25.jpg" alt="Saman_25" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Saman_25&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Saman_25</div><div class="p-tag">ŞAMAN</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Saman_26', realName:'Oyuncu_26', role:'Lonca Üyesi', img:'saman_26.jpg', sinif:'Şaman', cinsiyet:'Kadın', beceri:'Ejderha Yardımı', krallik:'Jinno', discord:'saman26#0000', codeId:'saman_26'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_26</div>
-                    <div class="p-avatar"><img src="saman_26.jpg" alt="Saman_26" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Saman_26&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Saman_26</div><div class="p-tag">ŞAMAN</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Saman_27', realName:'Oyuncu_27', role:'Lonca Üyesi', img:'saman_27.jpg', sinif:'Şaman', cinsiyet:'Erkek', beceri:'İyileştirme', krallik:'Jinno', discord:'saman27#0000', codeId:'saman_27'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_27</div>
-                    <div class="p-avatar"><img src="saman_27.jpg" alt="Saman_27" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Saman_27&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Saman_27</div><div class="p-tag">ŞAMAN</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Saman_28', realName:'Oyuncu_28', role:'Lonca Üyesi', img:'saman_28.jpg', sinif:'Şaman', cinsiyet:'Kadın', beceri:'Ejderha Yardımı', krallik:'Jinno', discord:'saman28#0000', codeId:'saman_28'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_28</div>
-                    <div class="p-avatar"><img src="saman_28.jpg" alt="Saman_28" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Saman_28&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Saman_28</div><div class="p-tag">ŞAMAN</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Saman_29', realName:'Oyuncu_29', role:'Lonca Üyesi', img:'saman_29.jpg', sinif:'Şaman', cinsiyet:'Erkek', beceri:'İyileştirme', krallik:'Jinno', discord:'saman29#0000', codeId:'saman_29'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_29</div>
-                    <div class="p-avatar"><img src="saman_29.jpg" alt="Saman_29" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Saman_29&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Saman_29</div><div class="p-tag">ŞAMAN</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Saman_30', realName:'Oyuncu_30', role:'Lonca Üyesi', img:'saman_30.jpg', sinif:'Şaman', cinsiyet:'Kadın', beceri:'Ejderha Yardımı', krallik:'Jinno', discord:'saman30#0000', codeId:'saman_30'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_30</div>
-                    <div class="p-avatar"><img src="saman_30.jpg" alt="Saman_30" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Saman_30&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Saman_30</div><div class="p-tag">ŞAMAN</div>
-                </div>
             </div>
         </div>
 
-        <!-- 2. SAVAŞÇI SEKMESİ (30 OYUNCU) -->
+        <!-- 2. SAVAŞÇI SEKMESİ (10 OYUNCU) -->
         <div id="savasciTab" class="tab-content">
-            <div style="text-align: center;"><h3 class="sub-group-title">Savaşçı Sınıfı Kadrosu (30 Kişi)</h3></div>
+            <div style="text-align: center;"><h3 class="sub-group-title">Savaşçı Sınıfı Kadrosu (10 Kişi)</h3></div>
             <div class="player-grid">
 
                 <div class="p-card" onclick="openPlayerModal({name:'Angrenost', realName:'Onur', role:'Lonca Sorumlusu', img:'onur.jpg', sinif:'Savaşçı', cinsiyet:'Erkek', beceri:'Bedensel', krallik:'Jinno', discord:'onur#0006', codeId:'savasci_01'})">
@@ -1450,132 +1072,12 @@
                     <div class="p-avatar"><img src="umut.jpg" alt="Barbar" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Barbar&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
                     <div class="p-name">Barbar</div><div class="p-tag">SAVAŞÇI</div>
                 </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Warrior_11', realName:'Oyuncu_11', role:'Lonca Üyesi', img:'savasci_11.jpg', sinif:'Savaşçı', cinsiyet:'Kadın', beceri:'Zihinsel', krallik:'Jinno', discord:'warrior11#0000', codeId:'savasci_11'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_11</div>
-                    <div class="p-avatar"><img src="savasci_11.jpg" alt="Warrior_11" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Warrior_11&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Warrior_11</div><div class="p-tag">SAVAŞÇI</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Warrior_12', realName:'Oyuncu_12', role:'Lonca Üyesi', img:'savasci_12.jpg', sinif:'Savaşçı', cinsiyet:'Erkek', beceri:'Bedensel', krallik:'Jinno', discord:'warrior12#0000', codeId:'savasci_12'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_12</div>
-                    <div class="p-avatar"><img src="savasci_12.jpg" alt="Warrior_12" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Warrior_12&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Warrior_12</div><div class="p-tag">SAVAŞÇI</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Warrior_13', realName:'Oyuncu_13', role:'Lonca Üyesi', img:'savasci_13.jpg', sinif:'Savaşçı', cinsiyet:'Kadın', beceri:'Zihinsel', krallik:'Jinno', discord:'warrior13#0000', codeId:'savasci_13'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_13</div>
-                    <div class="p-avatar"><img src="savasci_13.jpg" alt="Warrior_13" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Warrior_13&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Warrior_13</div><div class="p-tag">SAVAŞÇI</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Warrior_14', realName:'Oyuncu_14', role:'Lonca Üyesi', img:'savasci_14.jpg', sinif:'Savaşçı', cinsiyet:'Erkek', beceri:'Bedensel', krallik:'Jinno', discord:'warrior14#0000', codeId:'savasci_14'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_14</div>
-                    <div class="p-avatar"><img src="savasci_14.jpg" alt="Warrior_14" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Warrior_14&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Warrior_14</div><div class="p-tag">SAVAŞÇI</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Warrior_15', realName:'Oyuncu_15', role:'Lonca Üyesi', img:'savasci_15.jpg', sinif:'Savaşçı', cinsiyet:'Kadın', beceri:'Zihinsel', krallik:'Jinno', discord:'warrior15#0000', codeId:'savasci_15'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_15</div>
-                    <div class="p-avatar"><img src="savasci_15.jpg" alt="Warrior_15" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Warrior_15&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Warrior_15</div><div class="p-tag">SAVAŞÇI</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Warrior_16', realName:'Oyuncu_16', role:'Lonca Üyesi', img:'savasci_16.jpg', sinif:'Savaşçı', cinsiyet:'Erkek', beceri:'Bedensel', krallik:'Jinno', discord:'warrior16#0000', codeId:'savasci_16'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_16</div>
-                    <div class="p-avatar"><img src="savasci_16.jpg" alt="Warrior_16" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Warrior_16&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Warrior_16</div><div class="p-tag">SAVAŞÇI</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Warrior_17', realName:'Oyuncu_17', role:'Lonca Üyesi', img:'savasci_17.jpg', sinif:'Savaşçı', cinsiyet:'Kadın', beceri:'Zihinsel', krallik:'Jinno', discord:'warrior17#0000', codeId:'savasci_17'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_17</div>
-                    <div class="p-avatar"><img src="savasci_17.jpg" alt="Warrior_17" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Warrior_17&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Warrior_17</div><div class="p-tag">SAVAŞÇI</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Warrior_18', realName:'Oyuncu_18', role:'Lonca Üyesi', img:'savasci_18.jpg', sinif:'Savaşçı', cinsiyet:'Erkek', beceri:'Bedensel', krallik:'Jinno', discord:'warrior18#0000', codeId:'savasci_18'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_18</div>
-                    <div class="p-avatar"><img src="savasci_18.jpg" alt="Warrior_18" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Warrior_18&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Warrior_18</div><div class="p-tag">SAVAŞÇI</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Warrior_19', realName:'Oyuncu_19', role:'Lonca Üyesi', img:'savasci_19.jpg', sinif:'Savaşçı', cinsiyet:'Kadın', beceri:'Zihinsel', krallik:'Jinno', discord:'warrior19#0000', codeId:'savasci_19'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_19</div>
-                    <div class="p-avatar"><img src="savasci_19.jpg" alt="Warrior_19" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Warrior_19&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Warrior_19</div><div class="p-tag">SAVAŞÇI</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Warrior_20', realName:'Oyuncu_20', role:'Lonca Üyesi', img:'savasci_20.jpg', sinif:'Savaşçı', cinsiyet:'Erkek', beceri:'Bedensel', krallik:'Jinno', discord:'warrior20#0000', codeId:'savasci_20'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_20</div>
-                    <div class="p-avatar"><img src="savasci_20.jpg" alt="Warrior_20" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Warrior_20&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Warrior_20</div><div class="p-tag">SAVAŞÇI</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Warrior_21', realName:'Oyuncu_21', role:'Lonca Üyesi', img:'savasci_21.jpg', sinif:'Savaşçı', cinsiyet:'Kadın', beceri:'Zihinsel', krallik:'Jinno', discord:'warrior21#0000', codeId:'savasci_21'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_21</div>
-                    <div class="p-avatar"><img src="savasci_21.jpg" alt="Warrior_21" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Warrior_21&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Warrior_21</div><div class="p-tag">SAVAŞÇI</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Warrior_22', realName:'Oyuncu_22', role:'Lonca Üyesi', img:'savasci_22.jpg', sinif:'Savaşçı', cinsiyet:'Erkek', beceri:'Bedensel', krallik:'Jinno', discord:'warrior22#0000', codeId:'savasci_22'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_22</div>
-                    <div class="p-avatar"><img src="savasci_22.jpg" alt="Warrior_22" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Warrior_22&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Warrior_22</div><div class="p-tag">SAVAŞÇI</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Warrior_23', realName:'Oyuncu_23', role:'Lonca Üyesi', img:'savasci_23.jpg', sinif:'Savaşçı', cinsiyet:'Kadın', beceri:'Zihinsel', krallik:'Jinno', discord:'warrior23#0000', codeId:'savasci_23'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_23</div>
-                    <div class="p-avatar"><img src="savasci_23.jpg" alt="Warrior_23" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Warrior_23&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Warrior_23</div><div class="p-tag">SAVAŞÇI</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Warrior_24', realName:'Oyuncu_24', role:'Lonca Üyesi', img:'savasci_24.jpg', sinif:'Savaşçı', cinsiyet:'Erkek', beceri:'Bedensel', krallik:'Jinno', discord:'warrior24#0000', codeId:'savasci_24'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_24</div>
-                    <div class="p-avatar"><img src="savasci_24.jpg" alt="Warrior_24" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Warrior_24&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Warrior_24</div><div class="p-tag">SAVAŞÇI</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Warrior_25', realName:'Oyuncu_25', role:'Lonca Üyesi', img:'savasci_25.jpg', sinif:'Savaşçı', cinsiyet:'Kadın', beceri:'Zihinsel', krallik:'Jinno', discord:'warrior25#0000', codeId:'savasci_25'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_25</div>
-                    <div class="p-avatar"><img src="savasci_25.jpg" alt="Warrior_25" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Warrior_25&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Warrior_25</div><div class="p-tag">SAVAŞÇI</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Warrior_26', realName:'Oyuncu_26', role:'Lonca Üyesi', img:'savasci_26.jpg', sinif:'Savaşçı', cinsiyet:'Erkek', beceri:'Bedensel', krallik:'Jinno', discord:'warrior26#0000', codeId:'savasci_26'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_26</div>
-                    <div class="p-avatar"><img src="savasci_26.jpg" alt="Warrior_26" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Warrior_26&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Warrior_26</div><div class="p-tag">SAVAŞÇI</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Warrior_27', realName:'Oyuncu_27', role:'Lonca Üyesi', img:'savasci_27.jpg', sinif:'Savaşçı', cinsiyet:'Kadın', beceri:'Zihinsel', krallik:'Jinno', discord:'warrior27#0000', codeId:'savasci_27'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_27</div>
-                    <div class="p-avatar"><img src="savasci_27.jpg" alt="Warrior_27" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Warrior_27&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Warrior_27</div><div class="p-tag">SAVAŞÇI</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Warrior_28', realName:'Oyuncu_28', role:'Lonca Üyesi', img:'savasci_28.jpg', sinif:'Savaşçı', cinsiyet:'Erkek', beceri:'Bedensel', krallik:'Jinno', discord:'warrior28#0000', codeId:'savasci_28'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_28</div>
-                    <div class="p-avatar"><img src="savasci_28.jpg" alt="Warrior_28" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Warrior_28&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Warrior_28</div><div class="p-tag">SAVAŞÇI</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Warrior_29', realName:'Oyuncu_29', role:'Lonca Üyesi', img:'savasci_29.jpg', sinif:'Savaşçı', cinsiyet:'Kadın', beceri:'Zihinsel', krallik:'Jinno', discord:'warrior29#0000', codeId:'savasci_29'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_29</div>
-                    <div class="p-avatar"><img src="savasci_29.jpg" alt="Warrior_29" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Warrior_29&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Warrior_29</div><div class="p-tag">SAVAŞÇI</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Warrior_30', realName:'Oyuncu_30', role:'Lonca Üyesi', img:'savasci_30.jpg', sinif:'Savaşçı', cinsiyet:'Erkek', beceri:'Bedensel', krallik:'Jinno', discord:'warrior30#0000', codeId:'savasci_30'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_30</div>
-                    <div class="p-avatar"><img src="savasci_30.jpg" alt="Warrior_30" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Warrior_30&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Warrior_30</div><div class="p-tag">SAVAŞÇI</div>
-                </div>
             </div>
         </div>
 
-        <!-- 3. NİNJA SEKMESİ (30 OYUNCU) -->
+        <!-- 3. NİNJA SEKMESİ (10 OYUNCU) -->
         <div id="ninjaTab" class="tab-content">
-            <div style="text-align: center;"><h3 class="sub-group-title">Ninja Sınıfı Kadrosu (30 Kişi)</h3></div>
+            <div style="text-align: center;"><h3 class="sub-group-title">Ninja Sınıfı Kadrosu (10 Kişi)</h3></div>
             <div class="player-grid">
 
                 <div class="p-card" onclick="openPlayerModal({name:'JesseP', realName:'Mert', role:'Lonca Sorumlusu', img:'mert.jpg', sinif:'Ninja', cinsiyet:'Erkek', beceri:'Yakın Dövüşçü', krallik:'Jinno', discord:'impos1ng', codeId:'mert_config_05'})">
@@ -1638,132 +1140,12 @@
                     <div class="p-avatar"><img src="kadir.jpg" alt="Assassin" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Assassin&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
                     <div class="p-name">Assassin</div><div class="p-tag">NİNJA</div>
                 </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Ninja_11', realName:'Oyuncu_11', role:'Lonca Üyesi', img:'ninja_11.jpg', sinif:'Ninja', cinsiyet:'Kadın', beceri:'Okçuluk', krallik:'Jinno', discord:'ninja11#0000', codeId:'ninja_11'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_11</div>
-                    <div class="p-avatar"><img src="ninja_11.jpg" alt="Ninja_11" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Ninja_11&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Ninja_11</div><div class="p-tag">NİNJA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Ninja_12', realName:'Oyuncu_12', role:'Lonca Üyesi', img:'ninja_12.jpg', sinif:'Ninja', cinsiyet:'Erkek', beceri:'Bıçakçı', krallik:'Jinno', discord:'ninja12#0000', codeId:'ninja_12'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_12</div>
-                    <div class="p-avatar"><img src="ninja_12.jpg" alt="Ninja_12" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Ninja_12&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Ninja_12</div><div class="p-tag">NİNJA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Ninja_13', realName:'Oyuncu_13', role:'Lonca Üyesi', img:'ninja_13.jpg', sinif:'Ninja', cinsiyet:'Kadın', beceri:'Okçuluk', krallik:'Jinno', discord:'ninja13#0000', codeId:'ninja_13'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_13</div>
-                    <div class="p-avatar"><img src="ninja_13.jpg" alt="Ninja_13" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Ninja_13&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Ninja_13</div><div class="p-tag">NİNJA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Ninja_14', realName:'Oyuncu_14', role:'Lonca Üyesi', img:'ninja_14.jpg', sinif:'Ninja', cinsiyet:'Erkek', beceri:'Bıçakçı', krallik:'Jinno', discord:'ninja14#0000', codeId:'ninja_14'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_14</div>
-                    <div class="p-avatar"><img src="ninja_14.jpg" alt="Ninja_14" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Ninja_14&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Ninja_14</div><div class="p-tag">NİNJA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Ninja_15', realName:'Oyuncu_15', role:'Lonca Üyesi', img:'ninja_15.jpg', sinif:'Ninja', cinsiyet:'Kadın', beceri:'Okçuluk', krallik:'Jinno', discord:'ninja15#0000', codeId:'ninja_15'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_15</div>
-                    <div class="p-avatar"><img src="ninja_15.jpg" alt="Ninja_15" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Ninja_15&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Ninja_15</div><div class="p-tag">NİNJA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Ninja_16', realName:'Oyuncu_16', role:'Lonca Üyesi', img:'ninja_16.jpg', sinif:'Ninja', cinsiyet:'Erkek', beceri:'Bıçakçı', krallik:'Jinno', discord:'ninja16#0000', codeId:'ninja_16'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_16</div>
-                    <div class="p-avatar"><img src="ninja_16.jpg" alt="Ninja_16" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Ninja_16&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Ninja_16</div><div class="p-tag">NİNJA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Ninja_17', realName:'Oyuncu_17', role:'Lonca Üyesi', img:'ninja_17.jpg', sinif:'Ninja', cinsiyet:'Kadın', beceri:'Okçuluk', krallik:'Jinno', discord:'ninja17#0000', codeId:'ninja_17'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_17</div>
-                    <div class="p-avatar"><img src="ninja_17.jpg" alt="Ninja_17" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Ninja_17&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Ninja_17</div><div class="p-tag">NİNJA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Ninja_18', realName:'Oyuncu_18', role:'Lonca Üyesi', img:'ninja_18.jpg', sinif:'Ninja', cinsiyet:'Erkek', beceri:'Bıçakçı', krallik:'Jinno', discord:'ninja18#0000', codeId:'ninja_18'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_18</div>
-                    <div class="p-avatar"><img src="ninja_18.jpg" alt="Ninja_18" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Ninja_18&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Ninja_18</div><div class="p-tag">NİNJA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Ninja_19', realName:'Oyuncu_19', role:'Lonca Üyesi', img:'ninja_19.jpg', sinif:'Ninja', cinsiyet:'Kadın', beceri:'Okçuluk', krallik:'Jinno', discord:'ninja19#0000', codeId:'ninja_19'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_19</div>
-                    <div class="p-avatar"><img src="ninja_19.jpg" alt="Ninja_19" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Ninja_19&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Ninja_19</div><div class="p-tag">NİNJA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Ninja_20', realName:'Oyuncu_20', role:'Lonca Üyesi', img:'ninja_20.jpg', sinif:'Ninja', cinsiyet:'Erkek', beceri:'Bıçakçı', krallik:'Jinno', discord:'ninja20#0000', codeId:'ninja_20'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_20</div>
-                    <div class="p-avatar"><img src="ninja_20.jpg" alt="Ninja_20" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Ninja_20&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Ninja_20</div><div class="p-tag">NİNJA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Ninja_21', realName:'Oyuncu_21', role:'Lonca Üyesi', img:'ninja_21.jpg', sinif:'Ninja', cinsiyet:'Kadın', beceri:'Okçuluk', krallik:'Jinno', discord:'ninja21#0000', codeId:'ninja_21'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_21</div>
-                    <div class="p-avatar"><img src="ninja_21.jpg" alt="Ninja_21" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Ninja_21&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Ninja_21</div><div class="p-tag">NİNJA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Ninja_22', realName:'Oyuncu_22', role:'Lonca Üyesi', img:'ninja_22.jpg', sinif:'Ninja', cinsiyet:'Erkek', beceri:'Bıçakçı', krallik:'Jinno', discord:'ninja22#0000', codeId:'ninja_22'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_22</div>
-                    <div class="p-avatar"><img src="ninja_22.jpg" alt="Ninja_22" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Ninja_22&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Ninja_22</div><div class="p-tag">NİNJA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Ninja_23', realName:'Oyuncu_23', role:'Lonca Üyesi', img:'ninja_23.jpg', sinif:'Ninja', cinsiyet:'Kadın', beceri:'Okçuluk', krallik:'Jinno', discord:'ninja23#0000', codeId:'ninja_23'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_23</div>
-                    <div class="p-avatar"><img src="ninja_23.jpg" alt="Ninja_23" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Ninja_23&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Ninja_23</div><div class="p-tag">NİNJA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Ninja_24', realName:'Oyuncu_24', role:'Lonca Üyesi', img:'ninja_24.jpg', sinif:'Ninja', cinsiyet:'Erkek', beceri:'Bıçakçı', krallik:'Jinno', discord:'ninja24#0000', codeId:'ninja_24'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_24</div>
-                    <div class="p-avatar"><img src="ninja_24.jpg" alt="Ninja_24" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Ninja_24&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Ninja_24</div><div class="p-tag">NİNJA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Ninja_25', realName:'Oyuncu_25', role:'Lonca Üyesi', img:'ninja_25.jpg', sinif:'Ninja', cinsiyet:'Kadın', beceri:'Okçuluk', krallik:'Jinno', discord:'ninja25#0000', codeId:'ninja_25'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_25</div>
-                    <div class="p-avatar"><img src="ninja_25.jpg" alt="Ninja_25" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Ninja_25&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Ninja_25</div><div class="p-tag">NİNJA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Ninja_26', realName:'Oyuncu_26', role:'Lonca Üyesi', img:'ninja_26.jpg', sinif:'Ninja', cinsiyet:'Erkek', beceri:'Bıçakçı', krallik:'Jinno', discord:'ninja26#0000', codeId:'ninja_26'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_26</div>
-                    <div class="p-avatar"><img src="ninja_26.jpg" alt="Ninja_26" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Ninja_26&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Ninja_26</div><div class="p-tag">NİNJA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Ninja_27', realName:'Oyuncu_27', role:'Lonca Üyesi', img:'ninja_27.jpg', sinif:'Ninja', cinsiyet:'Kadın', beceri:'Okçuluk', krallik:'Jinno', discord:'ninja27#0000', codeId:'ninja_27'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_27</div>
-                    <div class="p-avatar"><img src="ninja_27.jpg" alt="Ninja_27" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Ninja_27&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Ninja_27</div><div class="p-tag">NİNJA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Ninja_28', realName:'Oyuncu_28', role:'Lonca Üyesi', img:'ninja_28.jpg', sinif:'Ninja', cinsiyet:'Erkek', beceri:'Bıçakçı', krallik:'Jinno', discord:'ninja28#0000', codeId:'ninja_28'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_28</div>
-                    <div class="p-avatar"><img src="ninja_28.jpg" alt="Ninja_28" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Ninja_28&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Ninja_28</div><div class="p-tag">NİNJA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Ninja_29', realName:'Oyuncu_29', role:'Lonca Üyesi', img:'ninja_29.jpg', sinif:'Ninja', cinsiyet:'Kadın', beceri:'Okçuluk', krallik:'Jinno', discord:'ninja29#0000', codeId:'ninja_29'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_29</div>
-                    <div class="p-avatar"><img src="ninja_29.jpg" alt="Ninja_29" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Ninja_29&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Ninja_29</div><div class="p-tag">NİNJA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Ninja_30', realName:'Oyuncu_30', role:'Lonca Üyesi', img:'ninja_30.jpg', sinif:'Ninja', cinsiyet:'Erkek', beceri:'Bıçakçı', krallik:'Jinno', discord:'ninja30#0000', codeId:'ninja_30'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_30</div>
-                    <div class="p-avatar"><img src="ninja_30.jpg" alt="Ninja_30" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Ninja_30&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Ninja_30</div><div class="p-tag">NİNJA</div>
-                </div>
             </div>
         </div>
 
-        <!-- 4. SURA SEKMESİ (30 OYUNCU) -->
+        <!-- 4. SURA SEKMESİ (10 OYUNCU) -->
         <div id="suraTab" class="tab-content">
-            <div style="text-align: center;"><h3 class="sub-group-title">Sura Sınıfı Kadrosu (30 Kişi)</h3></div>
+            <div style="text-align: center;"><h3 class="sub-group-title">Sura Sınıfı Kadrosu (10 Kişi)</h3></div>
             <div class="player-grid">
 
                 <div class="p-card" onclick="openPlayerModal({name:'Bonjour', realName:'Cafer', role:'Lonca Sorumlusu', img:'cafer.jpg', sinif:'Sura', cinsiyet:'Erkek', beceri:'Karabüyü', krallik:'Jinno', discord:'ifredcafer24', codeId:'cafer_config_06'})">
@@ -1826,132 +1208,12 @@
                     <div class="p-avatar"><img src="sinan.jpg" alt="Eclipse" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Eclipse&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
                     <div class="p-name">Eclipse</div><div class="p-tag">SURA</div>
                 </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Sura_11', realName:'Oyuncu_11', role:'Lonca Üyesi', img:'sura_11.jpg', sinif:'Sura', cinsiyet:'Kadın', beceri:'Büyülü Silah', krallik:'Jinno', discord:'sura11#0000', codeId:'sura_11'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_11</div>
-                    <div class="p-avatar"><img src="sura_11.jpg" alt="Sura_11" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Sura_11&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Sura_11</div><div class="p-tag">SURA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Sura_12', realName:'Oyuncu_12', role:'Lonca Üyesi', img:'sura_12.jpg', sinif:'Sura', cinsiyet:'Erkek', beceri:'Karabüyü', krallik:'Jinno', discord:'sura12#0000', codeId:'sura_12'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_12</div>
-                    <div class="p-avatar"><img src="sura_12.jpg" alt="Sura_12" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Sura_12&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Sura_12</div><div class="p-tag">SURA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Sura_13', realName:'Oyuncu_13', role:'Lonca Üyesi', img:'sura_13.jpg', sinif:'Sura', cinsiyet:'Kadın', beceri:'Büyülü Silah', krallik:'Jinno', discord:'sura13#0000', codeId:'sura_13'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_13</div>
-                    <div class="p-avatar"><img src="sura_13.jpg" alt="Sura_13" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Sura_13&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Sura_13</div><div class="p-tag">SURA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Sura_14', realName:'Oyuncu_14', role:'Lonca Üyesi', img:'sura_14.jpg', sinif:'Sura', cinsiyet:'Erkek', beceri:'Karabüyü', krallik:'Jinno', discord:'sura14#0000', codeId:'sura_14'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_14</div>
-                    <div class="p-avatar"><img src="sura_14.jpg" alt="Sura_14" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Sura_14&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Sura_14</div><div class="p-tag">SURA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Sura_15', realName:'Oyuncu_15', role:'Lonca Üyesi', img:'sura_15.jpg', sinif:'Sura', cinsiyet:'Kadın', beceri:'Büyülü Silah', krallik:'Jinno', discord:'sura15#0000', codeId:'sura_15'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_15</div>
-                    <div class="p-avatar"><img src="sura_15.jpg" alt="Sura_15" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Sura_15&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Sura_15</div><div class="p-tag">SURA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Sura_16', realName:'Oyuncu_16', role:'Lonca Üyesi', img:'sura_16.jpg', sinif:'Sura', cinsiyet:'Erkek', beceri:'Karabüyü', krallik:'Jinno', discord:'sura16#0000', codeId:'sura_16'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_16</div>
-                    <div class="p-avatar"><img src="sura_16.jpg" alt="Sura_16" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Sura_16&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Sura_16</div><div class="p-tag">SURA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Sura_17', realName:'Oyuncu_17', role:'Lonca Üyesi', img:'sura_17.jpg', sinif:'Sura', cinsiyet:'Kadın', beceri:'Büyülü Silah', krallik:'Jinno', discord:'sura17#0000', codeId:'sura_17'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_17</div>
-                    <div class="p-avatar"><img src="sura_17.jpg" alt="Sura_17" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Sura_17&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Sura_17</div><div class="p-tag">SURA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Sura_18', realName:'Oyuncu_18', role:'Lonca Üyesi', img:'sura_18.jpg', sinif:'Sura', cinsiyet:'Erkek', beceri:'Karabüyü', krallik:'Jinno', discord:'sura18#0000', codeId:'sura_18'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_18</div>
-                    <div class="p-avatar"><img src="sura_18.jpg" alt="Sura_18" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Sura_18&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Sura_18</div><div class="p-tag">SURA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Sura_19', realName:'Oyuncu_19', role:'Lonca Üyesi', img:'sura_19.jpg', sinif:'Sura', cinsiyet:'Kadın', beceri:'Büyülü Silah', krallik:'Jinno', discord:'sura19#0000', codeId:'sura_19'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_19</div>
-                    <div class="p-avatar"><img src="sura_19.jpg" alt="Sura_19" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Sura_19&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Sura_19</div><div class="p-tag">SURA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Sura_20', realName:'Oyuncu_20', role:'Lonca Üyesi', img:'sura_20.jpg', sinif:'Sura', cinsiyet:'Erkek', beceri:'Karabüyü', krallik:'Jinno', discord:'sura20#0000', codeId:'sura_20'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_20</div>
-                    <div class="p-avatar"><img src="sura_20.jpg" alt="Sura_20" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Sura_20&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Sura_20</div><div class="p-tag">SURA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Sura_21', realName:'Oyuncu_21', role:'Lonca Üyesi', img:'sura_21.jpg', sinif:'Sura', cinsiyet:'Kadın', beceri:'Büyülü Silah', krallik:'Jinno', discord:'sura21#0000', codeId:'sura_21'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_21</div>
-                    <div class="p-avatar"><img src="sura_21.jpg" alt="Sura_21" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Sura_21&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Sura_21</div><div class="p-tag">SURA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Sura_22', realName:'Oyuncu_22', role:'Lonca Üyesi', img:'sura_22.jpg', sinif:'Sura', cinsiyet:'Erkek', beceri:'Karabüyü', krallik:'Jinno', discord:'sura22#0000', codeId:'sura_22'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_22</div>
-                    <div class="p-avatar"><img src="sura_22.jpg" alt="Sura_22" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Sura_22&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Sura_22</div><div class="p-tag">SURA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Sura_23', realName:'Oyuncu_23', role:'Lonca Üyesi', img:'sura_23.jpg', sinif:'Sura', cinsiyet:'Kadın', beceri:'Büyülü Silah', krallik:'Jinno', discord:'sura23#0000', codeId:'sura_23'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_23</div>
-                    <div class="p-avatar"><img src="sura_23.jpg" alt="Sura_23" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Sura_23&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Sura_23</div><div class="p-tag">SURA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Sura_24', realName:'Oyuncu_24', role:'Lonca Üyesi', img:'sura_24.jpg', sinif:'Sura', cinsiyet:'Erkek', beceri:'Karabüyü', krallik:'Jinno', discord:'sura24#0000', codeId:'sura_24'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_24</div>
-                    <div class="p-avatar"><img src="sura_24.jpg" alt="Sura_24" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Sura_24&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Sura_24</div><div class="p-tag">SURA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Sura_25', realName:'Oyuncu_25', role:'Lonca Üyesi', img:'sura_25.jpg', sinif:'Sura', cinsiyet:'Kadın', beceri:'Büyülü Silah', krallik:'Jinno', discord:'sura25#0000', codeId:'sura_25'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_25</div>
-                    <div class="p-avatar"><img src="sura_25.jpg" alt="Sura_25" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Sura_25&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Sura_25</div><div class="p-tag">SURA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Sura_26', realName:'Oyuncu_26', role:'Lonca Üyesi', img:'sura_26.jpg', sinif:'Sura', cinsiyet:'Erkek', beceri:'Karabüyü', krallik:'Jinno', discord:'sura26#0000', codeId:'sura_26'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_26</div>
-                    <div class="p-avatar"><img src="sura_26.jpg" alt="Sura_26" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Sura_26&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Sura_26</div><div class="p-tag">SURA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Sura_27', realName:'Oyuncu_27', role:'Lonca Üyesi', img:'sura_27.jpg', sinif:'Sura', cinsiyet:'Kadın', beceri:'Büyülü Silah', krallik:'Jinno', discord:'sura27#0000', codeId:'sura_27'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_27</div>
-                    <div class="p-avatar"><img src="sura_27.jpg" alt="Sura_27" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Sura_27&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Sura_27</div><div class="p-tag">SURA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Sura_28', realName:'Oyuncu_28', role:'Lonca Üyesi', img:'sura_28.jpg', sinif:'Sura', cinsiyet:'Erkek', beceri:'Karabüyü', krallik:'Jinno', discord:'sura28#0000', codeId:'sura_28'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_28</div>
-                    <div class="p-avatar"><img src="sura_28.jpg" alt="Sura_28" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Sura_28&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Sura_28</div><div class="p-tag">SURA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Sura_29', realName:'Oyuncu_29', role:'Lonca Üyesi', img:'sura_29.jpg', sinif:'Sura', cinsiyet:'Kadın', beceri:'Büyülü Silah', krallik:'Jinno', discord:'sura29#0000', codeId:'sura_29'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_29</div>
-                    <div class="p-avatar"><img src="sura_29.jpg" alt="Sura_29" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Sura_29&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Sura_29</div><div class="p-tag">SURA</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Sura_30', realName:'Oyuncu_30', role:'Lonca Üyesi', img:'sura_30.jpg', sinif:'Sura', cinsiyet:'Erkek', beceri:'Karabüyü', krallik:'Jinno', discord:'sura30#0000', codeId:'sura_30'})">
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_30</div>
-                    <div class="p-avatar"><img src="sura_30.jpg" alt="Sura_30" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Sura_30&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Sura_30</div><div class="p-tag">SURA</div>
-                </div>
             </div>
         </div>
 
-        <!-- 5. ŞAMAN SEKMESİ (30 OYUNCU) -->
+        <!-- 5. ŞAMAN SEKMESİ (10 OYUNCU) -->
         <div id="samanTab" class="tab-content">
-            <div style="text-align: center;"><h3 class="sub-group-title">Şaman Sınıfı Kadrosu (30 Kişi)</h3></div>
+            <div style="text-align: center;"><h3 class="sub-group-title">Şaman Sınıfı Kadrosu (10 Kişi)</h3></div>
             <div class="player-grid">
 
                 <div class="p-card" onclick="openPlayerModal({name:'Bosver', realName:'Bayram', role:'Lonca Lideri', img:'bayram.jpg', sinif:'Şaman', cinsiyet:'Erkek', beceri:'Ejderha Yardımı', krallik:'Jinno', discord:'b.baran1', codeId:'bayram_config_01'})">
@@ -2024,146 +1286,6 @@
                     <div class="p-avatar"><img src="busra.jpg" alt="Oracle" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Oracle&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
                     <div class="p-name">Oracle</div><div class="p-tag">ŞAMAN</div>
                 </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Saman_11', realName:'Oyuncu_11', role:'Lonca Üyesi', img:'saman_11.jpg', sinif:'Şaman', cinsiyet:'Erkek', beceri:'İyileştirme', krallik:'Jinno', discord:'saman11#0000', codeId:'saman_11'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_11</div>
-                    <div class="p-avatar"><img src="saman_11.jpg" alt="Saman_11" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Saman_11&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Saman_11</div><div class="p-tag">ŞAMAN</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Saman_12', realName:'Oyuncu_12', role:'Lonca Üyesi', img:'saman_12.jpg', sinif:'Şaman', cinsiyet:'Kadın', beceri:'Ejderha Yardımı', krallik:'Jinno', discord:'saman12#0000', codeId:'saman_12'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_12</div>
-                    <div class="p-avatar"><img src="saman_12.jpg" alt="Saman_12" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Saman_12&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Saman_12</div><div class="p-tag">ŞAMAN</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Saman_13', realName:'Oyuncu_13', role:'Lonca Üyesi', img:'saman_13.jpg', sinif:'Şaman', cinsiyet:'Erkek', beceri:'İyileştirme', krallik:'Jinno', discord:'saman13#0000', codeId:'saman_13'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_13</div>
-                    <div class="p-avatar"><img src="saman_13.jpg" alt="Saman_13" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Saman_13&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Saman_13</div><div class="p-tag">ŞAMAN</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Saman_14', realName:'Oyuncu_14', role:'Lonca Üyesi', img:'saman_14.jpg', sinif:'Şaman', cinsiyet:'Kadın', beceri:'Ejderha Yardımı', krallik:'Jinno', discord:'saman14#0000', codeId:'saman_14'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_14</div>
-                    <div class="p-avatar"><img src="saman_14.jpg" alt="Saman_14" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Saman_14&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Saman_14</div><div class="p-tag">ŞAMAN</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Saman_15', realName:'Oyuncu_15', role:'Lonca Üyesi', img:'saman_15.jpg', sinif:'Şaman', cinsiyet:'Erkek', beceri:'İyileştirme', krallik:'Jinno', discord:'saman15#0000', codeId:'saman_15'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_15</div>
-                    <div class="p-avatar"><img src="saman_15.jpg" alt="Saman_15" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Saman_15&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Saman_15</div><div class="p-tag">ŞAMAN</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Saman_16', realName:'Oyuncu_16', role:'Lonca Üyesi', img:'saman_16.jpg', sinif:'Şaman', cinsiyet:'Kadın', beceri:'Ejderha Yardımı', krallik:'Jinno', discord:'saman16#0000', codeId:'saman_16'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_16</div>
-                    <div class="p-avatar"><img src="saman_16.jpg" alt="Saman_16" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Saman_16&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Saman_16</div><div class="p-tag">ŞAMAN</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Saman_17', realName:'Oyuncu_17', role:'Lonca Üyesi', img:'saman_17.jpg', sinif:'Şaman', cinsiyet:'Erkek', beceri:'İyileştirme', krallik:'Jinno', discord:'saman17#0000', codeId:'saman_17'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_17</div>
-                    <div class="p-avatar"><img src="saman_17.jpg" alt="Saman_17" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Saman_17&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Saman_17</div><div class="p-tag">ŞAMAN</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Saman_18', realName:'Oyuncu_18', role:'Lonca Üyesi', img:'saman_18.jpg', sinif:'Şaman', cinsiyet:'Kadın', beceri:'Ejderha Yardımı', krallik:'Jinno', discord:'saman18#0000', codeId:'saman_18'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_18</div>
-                    <div class="p-avatar"><img src="saman_18.jpg" alt="Saman_18" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Saman_18&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Saman_18</div><div class="p-tag">ŞAMAN</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Saman_19', realName:'Oyuncu_19', role:'Lonca Üyesi', img:'saman_19.jpg', sinif:'Şaman', cinsiyet:'Erkek', beceri:'İyileştirme', krallik:'Jinno', discord:'saman19#0000', codeId:'saman_19'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_19</div>
-                    <div class="p-avatar"><img src="saman_19.jpg" alt="Saman_19" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Saman_19&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Saman_19</div><div class="p-tag">ŞAMAN</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Saman_20', realName:'Oyuncu_20', role:'Lonca Üyesi', img:'saman_20.jpg', sinif:'Şaman', cinsiyet:'Kadın', beceri:'Ejderha Yardımı', krallik:'Jinno', discord:'saman20#0000', codeId:'saman_20'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_20</div>
-                    <div class="p-avatar"><img src="saman_20.jpg" alt="Saman_20" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Saman_20&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Saman_20</div><div class="p-tag">ŞAMAN</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Saman_21', realName:'Oyuncu_21', role:'Lonca Üyesi', img:'saman_21.jpg', sinif:'Şaman', cinsiyet:'Erkek', beceri:'İyileştirme', krallik:'Jinno', discord:'saman21#0000', codeId:'saman_21'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_21</div>
-                    <div class="p-avatar"><img src="saman_21.jpg" alt="Saman_21" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Saman_21&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Saman_21</div><div class="p-tag">ŞAMAN</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Saman_22', realName:'Oyuncu_22', role:'Lonca Üyesi', img:'saman_22.jpg', sinif:'Şaman', cinsiyet:'Kadın', beceri:'Ejderha Yardımı', krallik:'Jinno', discord:'saman22#0000', codeId:'saman_22'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_22</div>
-                    <div class="p-avatar"><img src="saman_22.jpg" alt="Saman_22" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Saman_22&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Saman_22</div><div class="p-tag">ŞAMAN</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Saman_23', realName:'Oyuncu_23', role:'Lonca Üyesi', img:'saman_23.jpg', sinif:'Şaman', cinsiyet:'Erkek', beceri:'İyileştirme', krallik:'Jinno', discord:'saman23#0000', codeId:'saman_23'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_23</div>
-                    <div class="p-avatar"><img src="saman_23.jpg" alt="Saman_23" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Saman_23&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Saman_23</div><div class="p-tag">ŞAMAN</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Saman_24', realName:'Oyuncu_24', role:'Lonca Üyesi', img:'saman_24.jpg', sinif:'Şaman', cinsiyet:'Kadın', beceri:'Ejderha Yardımı', krallik:'Jinno', discord:'saman24#0000', codeId:'saman_24'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_24</div>
-                    <div class="p-avatar"><img src="saman_24.jpg" alt="Saman_24" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Saman_24&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Saman_24</div><div class="p-tag">ŞAMAN</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Saman_25', realName:'Oyuncu_25', role:'Lonca Üyesi', img:'saman_25.jpg', sinif:'Şaman', cinsiyet:'Erkek', beceri:'İyileştirme', krallik:'Jinno', discord:'saman25#0000', codeId:'saman_25'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_25</div>
-                    <div class="p-avatar"><img src="saman_25.jpg" alt="Saman_25" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Saman_25&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Saman_25</div><div class="p-tag">ŞAMAN</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Saman_26', realName:'Oyuncu_26', role:'Lonca Üyesi', img:'saman_26.jpg', sinif:'Şaman', cinsiyet:'Kadın', beceri:'Ejderha Yardımı', krallik:'Jinno', discord:'saman26#0000', codeId:'saman_26'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_26</div>
-                    <div class="p-avatar"><img src="saman_26.jpg" alt="Saman_26" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Saman_26&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Saman_26</div><div class="p-tag">ŞAMAN</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Saman_27', realName:'Oyuncu_27', role:'Lonca Üyesi', img:'saman_27.jpg', sinif:'Şaman', cinsiyet:'Erkek', beceri:'İyileştirme', krallik:'Jinno', discord:'saman27#0000', codeId:'saman_27'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_27</div>
-                    <div class="p-avatar"><img src="saman_27.jpg" alt="Saman_27" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Saman_27&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Saman_27</div><div class="p-tag">ŞAMAN</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Saman_28', realName:'Oyuncu_28', role:'Lonca Üyesi', img:'saman_28.jpg', sinif:'Şaman', cinsiyet:'Kadın', beceri:'Ejderha Yardımı', krallik:'Jinno', discord:'saman28#0000', codeId:'saman_28'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_28</div>
-                    <div class="p-avatar"><img src="saman_28.jpg" alt="Saman_28" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Saman_28&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Saman_28</div><div class="p-tag">ŞAMAN</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Saman_29', realName:'Oyuncu_29', role:'Lonca Üyesi', img:'saman_29.jpg', sinif:'Şaman', cinsiyet:'Erkek', beceri:'İyileştirme', krallik:'Jinno', discord:'saman29#0000', codeId:'saman_29'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_29</div>
-                    <div class="p-avatar"><img src="saman_29.jpg" alt="Saman_29" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Saman_29&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Saman_29</div><div class="p-tag">ŞAMAN</div>
-                </div>
-                <div class="p-card" onclick="openPlayerModal({name:'Saman_30', realName:'Oyuncu_30', role:'Lonca Üyesi', img:'saman_30.jpg', sinif:'Şaman', cinsiyet:'Kadın', beceri:'Ejderha Yardımı', krallik:'Jinno', discord:'saman30#0000', codeId:'saman_30'})">
-                    
-                    <div class="role-badge">Lonca Üyesi</div>
-                    <div class="real-name-tag">Oyuncu_30</div>
-                    <div class="p-avatar"><img src="saman_30.jpg" alt="Saman_30" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Saman_30&backgroundColor=f5b016';"><div class="click-indicator"><i class="fa-solid fa-arrow-pointer"></i></div></div>
-                    <div class="p-name">Saman_30</div><div class="p-tag">ŞAMAN</div>
-                </div>
             </div>
         </div>
 
@@ -2202,28 +1324,42 @@
         </div>
     </section>
 
-    <!-- 5. İLETİŞİM -->
+    <!-- 5. İLETİŞİM (Bize Yazın Form - Redemption Style) -->
     <section class="contact-section" id="contact">
         <div class="section-header">
             <h2 class="main-section-title">İletişim</h2>
-            <p class="section-desc">Loncamıza katılmak veya bizimle iletişime geçmek için resmi sosyal medya kanallarımızı kullanabilirsiniz.</p>
+            <p class="section-desc">Loncamıza katılmak veya bizimle iletişime geçmek için formu doldurabilirsiniz.</p>
         </div>
-        <div class="contact-grid">
-            <a href="https://discord.gg/ravix" target="_blank" class="contact-card dc">
-                <i class="fa-brands fa-discord"></i>
-                <h3>Discord Sunucusu</h3>
-                <span>Sesli sohbet ve alımlar için tıkla</span>
-            </a>
-            <a href="https://chat.whatsapp.com/L6gztVWYA5hFtKULUhDl1Z" target="_blank" class="contact-card wa">
-                <i class="fa-brands fa-whatsapp"></i>
-                <h3>WhatsApp Grubu</h3>
-                <span>Anlık duyurular ve sohbet</span>
-            </a>
-            <a href="https://www.instagram.com/ravixailesi/" target="_blank" class="contact-card ig">
-                <i class="fa-brands fa-instagram"></i>
-                <h3>Instagram Sayfası</h3>
-                <span>Güncel paylaşımlar ve videolar</span>
-            </a>
+        <div class="contact-form-wrapper">
+            <div class="contact-form-title">BİZE YAZIN</div>
+            <div class="contact-form-desc">Aşağıdaki formu doldurarak bize doğrudan mesaj gönderebilirsiniz.</div>
+            <form onsubmit="event.preventDefault(); alert('Mesajınız başarıyla gönderildi!');">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label class="form-label">İsim Soyisim</label>
+                        <input type="text" class="form-input" placeholder="Adınız ve Soyadınız" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Discord Kullanıcı Adı</label>
+                        <input type="text" class="form-input" placeholder="Örn: kullanici#1234" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">E-Posta Adresi</label>
+                        <input type="email" class="form-input" placeholder="ornek@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Telefon Numarası</label>
+                        <input type="tel" class="form-input" placeholder="0555 555 55 55">
+                    </div>
+                    <div class="form-group full">
+                        <label class="form-label">Mesajınız</label>
+                        <textarea class="form-textarea" placeholder="Mesajınızı buraya yazın..." required></textarea>
+                    </div>
+                </div>
+                <div class="submit-btn-area">
+                    <button type="submit" class="submit-btn"><i class="fa-solid fa-paper-plane"></i> MESAJI GÖNDER</button>
+                </div>
+            </form>
         </div>
     </section>
 
@@ -2288,9 +1424,40 @@
         </div>
     </div>
 
-    <!-- Footer -->
+    <!-- FOOTER (Matched with Redemption style images) -->
     <footer>
-        <p>&copy; 2024 - 2026 Ravix Ailesi. Tüm hakları saklıdır. | www.ravix.com</p>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>Ravix Ailesi</h3>
+                <p>Bir loncadan daha fazlası...</p>
+                <p><i class="fa-regular fa-calendar-days" style="color: var(--theme-gold); margin-right: 6px;"></i> 01.01.2022'den beri</p>
+            </div>
+            <div class="footer-col">
+                <h3>Hızlı Linkler</h3>
+                <ul class="footer-links">
+                    <li><a href="#home"><i class="fa-solid fa-chevron-right" style="font-size: 10px; color: var(--theme-gold);"></i> Ana Sayfa</a></li>
+                    <li><a href="#players"><i class="fa-solid fa-chevron-right" style="font-size: 10px; color: var(--theme-gold);"></i> Oyuncularımız</a></li>
+                    <li><a href="#gallery"><i class="fa-solid fa-chevron-right" style="font-size: 10px; color: var(--theme-gold);"></i> Galeri</a></li>
+                    <li><a href="#video"><i class="fa-solid fa-chevron-right" style="font-size: 10px; color: var(--theme-gold);"></i> Videolar</a></li>
+                    <li><a href="#about"><i class="fa-solid fa-chevron-right" style="font-size: 10px; color: var(--theme-gold);"></i> Hakkımızda</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Bize Ulaşın</h3>
+                <div class="footer-social-icons">
+                    <a href="https://discord.gg/ravix" target="_blank" class="f-icon-btn dc"><i class="fa-brands fa-discord"></i></a>
+                    <a href="https://chat.whatsapp.com/L6gztVWYA5hFtKULUhDl1Z" target="_blank" class="f-icon-btn wa"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/ravixailesi/" target="_blank" class="f-icon-btn ig"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://tiktok.com" target="_blank" class="f-icon-btn tk"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="https://facebook.com" target="_blank" class="f-icon-btn fb"><i class="fa-brands fa-facebook-f"></i></a>
+                </div>
+                <p>Lonca ailemize katılmak veya iletişime geçmek için sosyal medya hesaplarımızı ziyaret edin.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2022 - 2026 Ravix Ailesi - 2022'den beri. Tüm hakları saklıdır.</span>
+            <span>b2bDesign & Software tarafından geliştirilmiştir.</span>
+        </div>
     </footer>
 
     <!-- JavaScript Fonksiyonları -->
@@ -2303,7 +1470,7 @@
             document.getElementById('navMenu').classList.remove('active');
         }
 
-        function switchTab(tabId) {
+        function switchTab(tabId, event) {
             const contents = document.querySelectorAll('.tab-content');
             contents.forEach(c => c.classList.remove('active'));
 
@@ -2346,3 +1513,4 @@
     </script>
 </body>
 </html>
+```[cite: 19]
